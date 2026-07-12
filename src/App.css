@@ -5275,3 +5275,80 @@ body.menu-open {
     flex-wrap: wrap;
   }
 }
+
+/* Mobile alignment and overflow correction */
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.hero,
+.hero-copy,
+.hero-art {
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    width: calc(100% - 32px);
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+
+  .hero-copy {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .hero h1 {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    font-size: clamp(2.9rem, 12.6vw, 4rem);
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    text-align: center;
+  }
+
+  .hero-description {
+    width: 100%;
+    max-width: 34rem;
+    margin-right: auto;
+    margin-left: auto;
+    padding-inline: 4px;
+  }
+
+  .hero-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-art {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .hero-circle-large {
+    width: min(315px, 82vw);
+    height: min(315px, 82vw);
+    transform: translateX(12px);
+  }
+
+  .hero-mascot {
+    width: min(300px, 78vw);
+  }
+
+  .hero-circle-small {
+    left: 8px;
+  }
+
+  .hero-heart {
+    right: 4px;
+  }
+}
