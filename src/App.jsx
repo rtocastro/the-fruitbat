@@ -1,8 +1,10 @@
-import { Route, Routes } from "react-router";
+import { AnimatePresence } from "framer-motion";
+import { Route, Routes, useLocation } from "react-router";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import PageTransition from "./components/PageTransition";
 
 import Home from "./pages/Home";
 import Mission from "./pages/Mission";
@@ -17,22 +19,97 @@ import NotFound from "./pages/NotFound";
 import "./App.css";
 
 export default function App() {
+  const location = useLocation();
+
   return (
     <div className="app">
       <ScrollToTop />
       <Header />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/mission" element={<Mission />} />
-        <Route path="/start-growing" element={<StartGrowing />} />
-        <Route path="/resources" element={<Resources />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/donate" element={<Donate />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={
+              <PageTransition>
+                <Home />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="/mission"
+            element={
+              <PageTransition>
+                <Mission />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="/start-growing"
+            element={
+              <PageTransition>
+                <StartGrowing />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="/resources"
+            element={
+              <PageTransition>
+                <Resources />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="/projects"
+            element={
+              <PageTransition>
+                <Projects />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="/about"
+            element={
+              <PageTransition>
+                <About />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="/contact"
+            element={
+              <PageTransition>
+                <Contact />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="/donate"
+            element={
+              <PageTransition>
+                <Donate />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="*"
+            element={
+              <PageTransition>
+                <NotFound />
+              </PageTransition>
+            }
+          />
+        </Routes>
+      </AnimatePresence>
 
       <Footer />
     </div>
