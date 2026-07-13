@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import PageTransition from "./components/PageTransition";
+import MetaManager from "./components/MetaManager";
 
 import Home from "./pages/Home";
 import Mission from "./pages/Mission";
@@ -24,6 +25,7 @@ export default function App() {
   return (
     <div className="app">
       <ScrollToTop />
+      <MetaManager />
       <Header />
 
       <AnimatePresence mode="wait">
