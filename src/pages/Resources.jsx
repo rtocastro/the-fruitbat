@@ -1,115 +1,31 @@
 import { Link } from "react-router";
 
-const featuredResources = [
-  {
-    category: "Plant Care",
-    title: "Dragonfruit Care Guides",
-    description:
-      "Simple growing guidance for sunlight, watering, containers, trellising, pruning, pollination, and seasonal care.",
-    type: "Guide Collection",
-    accent: "mint",
-    symbol: "○",
-  },
-  {
-    category: "Printables",
-    title: "Printable Plant Tags",
-    description:
-      "Easy-to-print labels for tracking plant type, planting date, and other useful garden details.",
-    type: "Free Download",
-    accent: "purple",
-    symbol: "♡",
-  },
-  {
-    category: "Community",
-    title: "Neighborhood Plant Registry",
-    description:
-      "A future tool for documenting what neighbors grow, when crops are ready, and what may be available to share.",
-    type: "Coming Soon",
-    accent: "lime",
-    symbol: "●",
-  },
-];
+import {
+  featuredResources,
+  resources,
+  resourceCategories,
+} from "../data/resources";
 
-const resourceCategories = [
-  {
-    title: "Beginner Guides",
-    description:
-      "Clear starting points for people growing food for the first time.",
-    items: [
-      "Choosing your first plant",
-      "Understanding sunlight",
-      "Container basics",
-      "Simple watering habits",
-    ],
-    accent: "mint",
-    symbol: "01",
-  },
-  {
-    title: "Plant Care",
-    description:
-      "Specific care information for plants shared through The Fruitbat.",
-    items: [
-      "Dragonfruit care",
-      "Seasonal growing notes",
-      "Pruning guidance",
-      "Pollination resources",
-    ],
-    accent: "aqua",
-    symbol: "02",
-  },
-  {
-    title: "Printable Tools",
-    description:
-      "Useful pages designed for gardens, classrooms, homes, and events.",
-    items: [
-      "Plant tags",
-      "Growing logs",
-      "Harvest trackers",
-      "Garden planning sheets",
-    ],
-    accent: "purple",
-    symbol: "03",
-  },
-  {
-    title: "Kids & Families",
-    description:
-      "Playful resources that help children participate in growing food.",
-    items: [
-      "Plant observation sheets",
-      "Coloring activities",
-      "Growth journals",
-      "Simple garden challenges",
-    ],
-    accent: "coral",
-    symbol: "04",
-  },
-  {
-    title: "Neighborhood Sharing",
-    description:
-      "Tools for helping people exchange knowledge, plants, and harvests.",
-    items: [
-      "Plant registry forms",
-      "Harvest swap logs",
-      "Community event sheets",
-      "Sharing guidelines",
-    ],
-    accent: "lime",
-    symbol: "05",
-  },
-  {
-    title: "Fruitbat Facts",
-    description:
-      "Short, approachable educational cards made for quick learning and sharing.",
-    items: [
-      "Fruit facts",
-      "Plant facts",
-      "Growing tips",
-      "Community reminders",
-    ],
-    accent: "dark",
-    symbol: "06",
-  },
-];
+function formatStatus(status) {
+  const statuses = {
+    available: "Available",
+    planned: "Planned",
+    "coming-soon": "Coming Soon",
+  };
+
+  return statuses[status] ?? status;
+}
+
+function getResourcesByCategory(category) {
+  if (category === "All") {
+    return resources;
+  }
+
+  return resources.filter(
+    (resource) => resource.category === category
+  );
+}
+
 
 const resourcePrinciples = [
   {
@@ -227,9 +143,18 @@ export default function Resources() {
 
               <p>{resource.description}</p>
 
-              <span className="featured-resource-link">
-                View resource →
-              </span>
+              {resource.path ? (
+                <Link
+                  to={resource.path}
+                  className="featured-resource-link"
+                >
+                  View resource →
+                </Link>
+              ) : (
+                <span className="featured-resource-link">
+                  {formatStatus(resource.status)}
+                </span>
+              )}
             </article>
           ))}
         </div>
@@ -248,36 +173,80 @@ export default function Resources() {
           </p>
         </div>
 
-        <div className="resource-category-grid">
-          {resourceCategories.map((category) => (
-            <article
-              className={`resource-category-card category-accent-${category.accent}`}
-              key={category.title}
-            >
-              <div className="resource-category-top">
-                <span className="resource-category-number">
-                  {category.symbol}
-                </span>
+<div className="resource-category-sections">
+  {resourceCategories
+    .filter((category) => category !== "All")
+    .map((category) => {
+      const categoryResources = getResourcesByCategory(category);
 
-                <span className="resource-category-dot" />
-              </div>
+      return (
+        <section
+          className="resource-data-category"
+          key={category}
+        >
+          <div className="resource-data-category-heading">
+            <h3>{category}</h3>
 
-              <h3>{category.title}</h3>
+            <span>
+              {categoryResources.length}{" "}
+              {categoryResources.length === 1
+                ? "resource"
+                : "resources"}
+            </span>
+          </div>
 
-              <p>{category.description}</p>
+          {categoryResources.length > 0 ? (
+            <div className="resource-data-grid">
+              {categoryResources.map((resource) => (
+                <article
+                  className={`resource-data-card category-accent-${resource.accent}`}
+                  key={resource.id}
+                >
+                  <div className="resource-data-card-top">
+                    <span className="resource-category-dot" />
 
-              <ul>
-                {category.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+                    <span className="resource-data-type">
+                      {resource.type}
+                    </span>
+                  </div>
 
-              <span className="resource-category-status">
-                Library expanding
-              </span>
-            </article>
-          ))}
-        </div>
+                  <h4>{resource.title}</h4>
+                  <p>{resource.description}</p>
+
+                  <div className="resource-data-tags">
+                    {resource.tags.slice(0, 3).map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+
+                  <div className="resource-data-footer">
+                    <span>
+                      {formatStatus(resource.status)}
+                    </span>
+
+                    {resource.path && (
+                      <Link to={resource.path}>
+                        Open →
+                      </Link>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="resource-empty-state">
+              <span>♡</span>
+
+              <p>
+                This section is growing. New resources will be
+                added here.
+              </p>
+            </div>
+          )}
+        </section>
+      );
+    })}
+</div>
       </section>
 
       <section className="resource-qr-section">
