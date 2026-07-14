@@ -147,7 +147,7 @@ export default function About() {
           <p className="about-origin-label">Original idea</p>
 
           <h3>
-            Give people a plant—and give them the confidence to care for
+            Give people a plant and give them the confidence to care for
             it.
           </h3>
         </aside>
