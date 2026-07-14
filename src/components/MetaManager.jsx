@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router";
-import { defaultMeta, siteMeta } from "../data/siteMeta";
 
-function updateMetaTag(selector, attribute, value) {
+import { defaultMeta, siteMeta } from "../data/siteMeta";
+import { getPlantBySlug } from "../data/plants";
+
+function updateMeta(selector, attribute, value) {
   let element = document.head.querySelector(selector);
 
   if (!element) {
@@ -10,46 +12,65 @@ function updateMetaTag(selector, attribute, value) {
     document.head.appendChild(element);
   }
 
+  if (selector.includes("property")) {
+    element.setAttribute("property", selector.match(/"(.*)"/)[1]);
+  } else {
+    element.setAttribute("name", selector.match(/"(.*)"/)[1]);
+  }
+
   element.setAttribute(attribute, value);
 }
 
 export default function MetaManager() {
   const { pathname } = useLocation();
-  const pageMeta = siteMeta[pathname] ?? defaultMeta;
 
   useEffect(() => {
-    document.title = pageMeta.title;
+    let meta = siteMeta[pathname] ?? defaultMeta;
 
-    updateMetaTag(
+    if (pathname.startsWith("/plants/")) {
+      const slug = pathname.split("/")[2];
+      const plant = getPlantBySlug(slug);
+
+      if (plant) {
+        meta = {
+          title: `${plant.commonName} | The Fruitbat`,
+          description: plant.summary,
+        };
+      }
+    }
+
+    document.title = meta.title;
+
+    updateMeta(
       'meta[name="description"]',
       "content",
-      pageMeta.description
+      meta.description
     );
 
-    updateMetaTag(
+    updateMeta(
       'meta[property="og:title"]',
       "content",
-      pageMeta.title
+      meta.title
     );
 
-    updateMetaTag(
+    updateMeta(
       'meta[property="og:description"]',
       "content",
-      pageMeta.description
+      meta.description
     );
 
-    updateMetaTag(
+    updateMeta(
       'meta[name="twitter:title"]',
       "content",
-      pageMeta.title
+      meta.title
     );
 
-    updateMetaTag(
+    updateMeta(
       'meta[name="twitter:description"]',
       "content",
-      pageMeta.description
+      meta.description
     );
-  }, [pageMeta]);
+  }, [pathname]);
 
   return null;
 }

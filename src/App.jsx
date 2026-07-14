@@ -105,22 +105,22 @@ export default function App() {
           />
 
           <Route
-  path="/plants"
-  element={
-    <PageTransition>
-      <Plants />
-    </PageTransition>
-  }
-/>
+            path="/plants"
+            element={
+              <PageTransition>
+                <Plants />
+              </PageTransition>
+            }
+          />
 
-<Route
-  path="/plants/:slug"
-  element={
-    <PageTransition>
-      <PlantProfile />
-    </PageTransition>
-  }
-/>
+          <Route
+            path="/plants/:slug"
+            element={
+              <PageTransition>
+                <PlantProfile />
+              </PageTransition>
+            }
+          />
 
           <Route
             path="*"

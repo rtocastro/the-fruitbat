@@ -164,11 +164,11 @@ export default function Plants() {
             improving.
           </h2>
 
-          <p>
-            Each plant profile receives a permanent web address. The page
-            can be updated later without replacing every QR sticker already
-            attached to a plant.
-          </p>
+<p>
+Every QR code attached to a plant points to a permanent web page.
+As guides improve over time, every existing QR code automatically
+shows the newest information without needing to replace stickers.
+</p>
         </div>
 
         <div className="plant-url-example">
