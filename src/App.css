@@ -5393,6 +5393,1029 @@ body.menu-open {
   line-height: 1.7;
 }
 
+/* Plant Library */
+
+.plants-hero {
+  width: min(1180px, calc(100% - 40px));
+  min-height: 700px;
+  margin: 0 auto;
+  padding: 90px 0;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: 80px;
+}
+
+.plants-hero-copy h1 {
+  margin-bottom: 28px;
+  font-size: clamp(3.5rem, 6.5vw, 7rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+}
+
+.plants-hero-copy h1 span {
+  color: var(--lime);
+}
+
+.plants-hero-description {
+  max-width: 650px;
+  margin-bottom: 34px;
+  color: rgba(23, 52, 52, 0.72);
+  font-size: 1.12rem;
+  line-height: 1.8;
+}
+
+.plants-hero-art {
+  position: relative;
+  min-height: 520px;
+  display: grid;
+  place-items: center;
+}
+
+.plant-library-pot {
+  position: relative;
+  width: 300px;
+  height: 210px;
+  margin-top: 190px;
+  border: 10px solid var(--dark);
+  border-radius: 26px 26px 120px 120px;
+  background: var(--purple);
+  box-shadow: var(--shadow);
+}
+
+.plant-library-pot::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -28px;
+  width: 336px;
+  height: 48px;
+  border: 10px solid var(--dark);
+  border-radius: 999px;
+  background: var(--coral);
+}
+
+.plant-library-stem {
+  position: absolute;
+  bottom: 175px;
+  left: 50%;
+  z-index: -1;
+  width: 11px;
+  border-radius: 999px;
+  background: var(--dark);
+  transform-origin: bottom;
+}
+
+.stem-left {
+  height: 250px;
+  transform: translateX(-50%) rotate(-30deg);
+}
+
+.stem-center {
+  height: 310px;
+  transform: translateX(-50%) rotate(0deg);
+}
+
+.stem-right {
+  height: 245px;
+  transform: translateX(-50%) rotate(31deg);
+}
+
+.plant-library-leaf {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  width: 112px;
+  height: 112px;
+  place-items: center;
+  border: 9px solid var(--dark);
+  border-radius: 50%;
+  color: var(--dark);
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.plant-leaf-one {
+  top: -265px;
+  left: -10px;
+  background: var(--mint);
+}
+
+.plant-leaf-two {
+  top: -345px;
+  left: 88px;
+  background: var(--lime);
+}
+
+.plant-leaf-three {
+  top: -250px;
+  right: -15px;
+  color: var(--white);
+  background: var(--aqua);
+}
+
+.plant-library-dot {
+  position: absolute;
+  font-size: 2.7rem;
+}
+
+.plant-dot-one {
+  top: 38px;
+  right: 20px;
+  color: var(--coral);
+}
+
+.plant-dot-two {
+  bottom: 35px;
+  left: 30px;
+  color: var(--lime);
+}
+
+.plants-intro {
+  padding: 120px max(24px, calc((100vw - 950px) / 2));
+  color: var(--white);
+  text-align: center;
+  background: var(--dark);
+}
+
+.plants-intro .section-kicker {
+  color: var(--mint);
+}
+
+.plants-intro h2 {
+  margin-bottom: 28px;
+  font-size: clamp(2.8rem, 5vw, 5.3rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.plants-intro > p:last-child {
+  max-width: 760px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.1rem;
+  line-height: 1.85;
+}
+
+.plant-library-section {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 120px 0;
+  scroll-margin-top: 110px;
+}
+
+.plant-library-heading {
+  max-width: 780px;
+  margin-bottom: 52px;
+}
+
+.plant-library-heading h2 {
+  margin-bottom: 22px;
+  font-size: clamp(2.8rem, 4.6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.plant-library-heading > p:last-child {
+  color: rgba(23, 52, 52, 0.68);
+  line-height: 1.8;
+}
+
+.plant-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.plant-profile-card {
+  --plant-accent: var(--mint);
+
+  min-height: 470px;
+  padding: 38px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 38px;
+  background: var(--white);
+  box-shadow: 0 18px 50px rgba(16, 40, 40, 0.06);
+}
+
+.plant-accent-mint {
+  --plant-accent: var(--mint);
+}
+
+.plant-accent-lime {
+  --plant-accent: var(--lime);
+}
+
+.plant-accent-purple {
+  --plant-accent: var(--purple);
+}
+
+.plant-accent-aqua {
+  --plant-accent: var(--aqua);
+}
+
+.plant-accent-coral {
+  --plant-accent: var(--coral);
+}
+
+.plant-profile-card-top {
+  margin-bottom: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.plant-profile-symbol {
+  display: grid;
+  width: 70px;
+  height: 70px;
+  place-items: center;
+  border: 8px solid var(--dark);
+  border-radius: 50%;
+  background: var(--plant-accent);
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.plant-profile-category {
+  color: rgba(23, 52, 52, 0.56);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.plant-profile-scientific {
+  margin-bottom: 9px;
+  color: var(--purple);
+  font-size: 0.77rem;
+  font-style: italic;
+}
+
+.plant-profile-card h3 {
+  margin-bottom: 16px;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.05;
+}
+
+.plant-profile-card-content > p:last-child {
+  color: rgba(23, 52, 52, 0.7);
+  line-height: 1.8;
+}
+
+.plant-profile-card-meta {
+  margin: 28px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.plant-profile-card-meta span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--cream);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.plant-profile-link {
+  margin-top: auto;
+  align-self: flex-start;
+  border-bottom: 2px solid var(--dark);
+  font-weight: 800;
+}
+
+.plant-category-section {
+  padding: 120px max(24px, calc((100vw - 1180px) / 2));
+  background: var(--white);
+}
+
+.plant-category-heading {
+  max-width: 780px;
+  margin-bottom: 50px;
+}
+
+.plant-category-heading h2 {
+  font-size: clamp(2.8rem, 4.6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.plant-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.plant-category-card {
+  min-height: 300px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background: var(--cream);
+}
+
+.plant-category-number {
+  margin-bottom: 54px;
+  color: var(--purple);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.plant-category-card h3 {
+  margin-bottom: 13px;
+  font-size: 1.9rem;
+}
+
+.plant-category-card > p {
+  color: rgba(23, 52, 52, 0.68);
+  line-height: 1.75;
+}
+
+.plant-category-status {
+  margin-top: auto;
+  padding-top: 22px;
+  color: var(--purple);
+  font-size: 0.71rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.plant-qr-explanation {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 130px 0;
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  align-items: center;
+  gap: 90px;
+}
+
+.plant-qr-explanation-copy h2 {
+  margin-bottom: 25px;
+  font-size: clamp(2.8rem, 4.6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.plant-qr-explanation-copy p:not(.eyebrow) {
+  color: rgba(23, 52, 52, 0.7);
+  font-size: 1.04rem;
+  line-height: 1.85;
+}
+
+.plant-url-example {
+  padding: 44px;
+  border-radius: 40px;
+  color: var(--white);
+  background: var(--purple);
+  box-shadow: var(--shadow);
+}
+
+.plant-url-heart {
+  display: block;
+  margin-bottom: 35px;
+  color: var(--mint);
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.plant-url-label {
+  margin-bottom: 12px;
+  color: var(--mint);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.plant-url-example code {
+  display: block;
+  margin-bottom: 24px;
+  overflow-wrap: anywhere;
+  font-size: 1.05rem;
+}
+
+.plant-url-example > p:last-child {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.8;
+}
+
+.plants-contribution-section {
+  padding: 110px max(24px, calc((100vw - 1180px) / 2));
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 70px;
+  background: var(--mint);
+}
+
+.plants-contribution-section > div {
+  max-width: 790px;
+}
+
+.plants-contribution-section h2 {
+  margin-bottom: 24px;
+  font-size: clamp(2.8rem, 4.6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.plants-contribution-section p:not(.eyebrow) {
+  margin-bottom: 0;
+  color: rgba(23, 52, 52, 0.7);
+  line-height: 1.85;
+}
+
+.plants-cta {
+  padding: 120px max(24px, calc((100vw - 980px) / 2));
+  color: var(--white);
+  text-align: center;
+  background: var(--lime);
+}
+
+.plants-cta .eyebrow {
+  color: var(--dark);
+}
+
+.plants-cta h2 {
+  margin-bottom: 38px;
+  color: var(--dark);
+  font-size: clamp(2.9rem, 5vw, 5.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.plants-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.plants-cta-link {
+  border-bottom: 2px solid var(--dark);
+  color: var(--dark);
+  font-weight: 800;
+}
+
+/* Dynamic Plant Profile */
+
+.profile-hero {
+  width: min(1180px, calc(100% - 40px));
+  min-height: 730px;
+  margin: 0 auto;
+  padding: 80px 0 95px;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: 80px;
+}
+
+.profile-breadcrumbs {
+  margin-bottom: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: rgba(23, 52, 52, 0.58);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.profile-breadcrumbs a {
+  border-bottom: 1px solid var(--dark);
+}
+
+.profile-hero-copy h1 {
+  margin-bottom: 13px;
+  font-size: clamp(3.5rem, 6.5vw, 7rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+}
+
+.profile-scientific-name {
+  margin-bottom: 28px;
+  color: var(--purple);
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+.profile-hero-description {
+  max-width: 650px;
+  margin-bottom: 34px;
+  color: rgba(23, 52, 52, 0.72);
+  font-size: 1.1rem;
+  line-height: 1.85;
+}
+
+.profile-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+}
+
+.profile-guide-status,
+.profile-download-status {
+  color: rgba(23, 52, 52, 0.62);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.profile-hero-art {
+  position: relative;
+  min-height: 520px;
+  display: grid;
+  place-items: center;
+}
+
+.profile-plant-circle {
+  position: relative;
+  z-index: 2;
+  width: min(430px, 88%);
+  aspect-ratio: 1;
+  padding: 45px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  border: 10px solid var(--dark);
+  border-radius: 50%;
+  background: var(--plant-accent);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.profile-plant-symbol {
+  margin-bottom: 20px;
+  font-size: 7rem;
+  line-height: 1;
+}
+
+.profile-plant-name {
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.profile-floating-heart {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.profile-heart-one {
+  top: 25px;
+  right: 5px;
+  width: 110px;
+  height: 110px;
+  color: var(--white);
+  background: var(--purple);
+  font-size: 4.5rem;
+}
+
+.profile-heart-two {
+  bottom: 20px;
+  left: 15px;
+  width: 85px;
+  height: 85px;
+  background: var(--coral);
+  font-size: 2.8rem;
+}
+
+.profile-summary {
+  padding: 120px max(24px, calc((100vw - 960px) / 2));
+  color: var(--white);
+  text-align: center;
+  background: var(--dark);
+}
+
+.profile-summary .section-kicker {
+  color: var(--mint);
+}
+
+.profile-summary h2 {
+  margin-bottom: 0;
+  font-size: clamp(2.8rem, 5vw, 5.3rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.quick-care-section {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 120px 0;
+  scroll-margin-top: 110px;
+}
+
+.quick-care-heading {
+  max-width: 780px;
+  margin-bottom: 50px;
+}
+
+.quick-care-heading h2 {
+  margin-bottom: 22px;
+  font-size: clamp(2.8rem, 4.6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.quick-care-heading > p:last-child {
+  color: rgba(23, 52, 52, 0.68);
+  line-height: 1.8;
+}
+
+.quick-care-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.quick-care-card {
+  min-height: 210px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: var(--white);
+}
+
+.quick-care-label {
+  color: var(--purple);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.quick-care-card p {
+  margin: 30px 0 0;
+  font-family: "Fraunces", serif;
+  font-size: 1.45rem;
+  line-height: 1.25;
+}
+
+.profile-care-section {
+  padding: 120px max(24px, calc((100vw - 1180px) / 2));
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 90px;
+  background: var(--white);
+}
+
+.profile-care-intro {
+  position: sticky;
+  top: 140px;
+  align-self: start;
+}
+
+.profile-care-intro h2 {
+  margin-bottom: 24px;
+  font-size: clamp(2.8rem, 4.5vw, 4.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.profile-care-intro > p:last-child {
+  color: rgba(23, 52, 52, 0.68);
+  line-height: 1.8;
+}
+
+.profile-care-list {
+  display: grid;
+  gap: 18px;
+}
+
+.profile-care-item {
+  padding: 34px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background: var(--cream);
+}
+
+.profile-care-item-top {
+  margin-bottom: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-care-number {
+  color: var(--purple);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.profile-care-symbol {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--mint);
+  font-size: 1.7rem;
+}
+
+.profile-care-item h3 {
+  margin-bottom: 13px;
+  font-size: 2rem;
+}
+
+.profile-care-item > p {
+  margin-bottom: 0;
+  color: rgba(23, 52, 52, 0.7);
+  line-height: 1.85;
+}
+
+.profile-beginner-section {
+  padding: 120px max(24px, calc((100vw - 1180px) / 2));
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 90px;
+  color: var(--white);
+  background: var(--purple);
+}
+
+.profile-beginner-copy .eyebrow {
+  color: var(--mint);
+}
+
+.profile-beginner-copy h2 {
+  font-size: clamp(2.8rem, 4.5vw, 4.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.profile-beginner-list {
+  display: grid;
+}
+
+.profile-beginner-list article {
+  padding: 27px 0;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-beginner-list article:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-beginner-list span {
+  color: var(--mint);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.profile-beginner-list p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.profile-download-section {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 120px 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 70px;
+}
+
+.profile-download-section > div {
+  max-width: 790px;
+}
+
+.profile-download-section h2 {
+  margin-bottom: 24px;
+  font-size: clamp(2.8rem, 4.6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.profile-download-section p:not(.eyebrow) {
+  margin-bottom: 0;
+  color: rgba(23, 52, 52, 0.7);
+  line-height: 1.85;
+}
+
+.profile-tags-section {
+  padding: 90px max(24px, calc((100vw - 1180px) / 2));
+  background: var(--mint);
+}
+
+.profile-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.profile-tags-list span {
+  padding: 14px 20px;
+  border-radius: 999px;
+  background: var(--white);
+  font-weight: 700;
+}
+
+.profile-cta {
+  padding: 120px max(24px, calc((100vw - 980px) / 2));
+  color: var(--white);
+  text-align: center;
+  background: var(--coral);
+}
+
+.profile-cta .eyebrow {
+  color: var(--dark);
+}
+
+.profile-cta h2 {
+  margin-bottom: 38px;
+  font-size: clamp(2.9rem, 5vw, 5.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.profile-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.profile-cta-link {
+  border-bottom: 2px solid var(--white);
+  font-weight: 800;
+}
+
+.plant-profile-not-found {
+  min-height: 70vh;
+  padding: 100px 20px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.plant-profile-not-found section {
+  max-width: 780px;
+}
+
+.plant-profile-not-found h1 {
+  margin-bottom: 25px;
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 1;
+}
+
+.plant-profile-not-found p:not(.eyebrow) {
+  margin-bottom: 32px;
+  color: rgba(23, 52, 52, 0.7);
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+/* Plant responsive */
+
+@media (max-width: 980px) {
+  .plants-hero,
+  .plant-qr-explanation,
+  .profile-hero,
+  .profile-care-section,
+  .profile-beginner-section {
+    grid-template-columns: 1fr;
+  }
+
+  .plants-hero-copy,
+  .profile-hero-copy {
+    text-align: center;
+  }
+
+  .plants-hero-description,
+  .profile-hero-description {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .profile-breadcrumbs,
+  .profile-hero-actions {
+    justify-content: center;
+  }
+
+  .plant-category-grid,
+  .quick-care-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-care-intro {
+    position: static;
+  }
+
+  .plants-contribution-section,
+  .profile-download-section {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .plants-hero,
+  .profile-hero {
+    width: min(100% - 28px, 1180px);
+    min-height: auto;
+    padding: 64px 0 80px;
+    gap: 35px;
+  }
+
+  .plants-hero-copy h1,
+  .profile-hero-copy h1 {
+    font-size: clamp(3.1rem, 15vw, 4.7rem);
+  }
+
+  .plants-hero-art {
+    min-height: 410px;
+    transform: scale(0.8);
+  }
+
+  .profile-hero-art {
+    min-height: 390px;
+  }
+
+  .profile-plant-circle {
+    width: 310px;
+    max-width: 82vw;
+    padding: 30px;
+  }
+
+  .plants-intro,
+  .plant-category-section,
+  .profile-summary,
+  .profile-care-section,
+  .profile-beginner-section,
+  .profile-tags-section,
+  .plants-contribution-section,
+  .plants-cta,
+  .profile-cta {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .plant-library-section,
+  .plant-qr-explanation,
+  .profile-download-section,
+  .quick-care-section {
+    width: min(100% - 28px, 1180px);
+    padding: 85px 0;
+  }
+
+  .plant-profile-grid,
+  .plant-category-grid,
+  .quick-care-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plant-profile-card,
+  .plant-category-card,
+  .quick-care-card {
+    min-height: auto;
+  }
+
+  .profile-care-section,
+  .profile-beginner-section {
+    gap: 45px;
+  }
+
+  .profile-care-item {
+    padding: 28px 24px;
+  }
+
+  .profile-beginner-list article {
+    grid-template-columns: 1fr;
+  }
+
+  .plant-url-example {
+    padding: 34px 27px;
+    border-radius: 32px;
+  }
+}
+
 @media (max-width: 760px) {
   .resource-data-grid {
     grid-template-columns: 1fr;

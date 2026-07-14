@@ -15,6 +15,8 @@ import Projects from "./pages/Projects";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Donate from "./pages/Donate";
+import Plants from "./pages/Plants";
+import PlantProfile from "./pages/PlantProfile";
 import NotFound from "./pages/NotFound";
 
 import "./App.css";
@@ -101,6 +103,24 @@ export default function App() {
               </PageTransition>
             }
           />
+
+          <Route
+  path="/plants"
+  element={
+    <PageTransition>
+      <Plants />
+    </PageTransition>
+  }
+/>
+
+<Route
+  path="/plants/:slug"
+  element={
+    <PageTransition>
+      <PlantProfile />
+    </PageTransition>
+  }
+/>
 
           <Route
             path="*"

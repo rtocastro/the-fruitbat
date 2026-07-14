@@ -5,9 +5,11 @@ import fruitbatMascot from "../assets/images/fruitbat-mascot.jpg";
 const navigationItems = [
   { label: "Mission", path: "/mission" },
   { label: "Start Growing", path: "/start-growing" },
+  { label: "Plants", path: "/plants" },
   { label: "Resources", path: "/resources" },
   { label: "Projects", path: "/projects" },
   { label: "About", path: "/about" },
+  
 ];
 
 export default function Header() {
