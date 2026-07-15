@@ -180,34 +180,50 @@ export default function PlantProfile() {
         </div>
       </section>
 
-      <section className="profile-download-section">
-        <div>
-          <p className="eyebrow">Printable guide</p>
+<section className="profile-download-section">
+  <div className="profile-download-copy">
+    <p className="eyebrow">Printable guide</p>
 
-          <h2>The original care guide will return in an updated form.</h2>
+    <h2>Take the complete care guide with you.</h2>
 
-          <p>
-            We will preserve the personality and useful information from
-            the original Ecuador Palora PDF while improving readability,
-            mobile access, and long-term maintainability.
-          </p>
-        </div>
+    <p>
+      The original Ecuador Palora guide includes information about
+      sunlight acclimation, watering, containers, nutrients,
+      trellising, pruning, pollination, and additional growing
+      resources.
+    </p>
 
-        {plant.pdfPath ? (
-          <a
-            href={plant.pdfPath}
-            target="_blank"
-            rel="noreferrer"
-            className="button button-secondary"
-          >
-            Download PDF
-          </a>
-        ) : (
-          <span className="profile-download-status">
-            Updated PDF coming soon
-          </span>
-        )}
-      </section>
+    <p>
+      This original edition will remain available while a refreshed,
+      more accessible Fruitbat edition is developed.
+    </p>
+  </div>
+
+  {plant.pdfPath ? (
+    <div className="profile-download-actions">
+      <a
+        href={plant.pdfPath}
+        target="_blank"
+        rel="noreferrer"
+        className="button button-secondary"
+      >
+        Open Printable Guide
+      </a>
+
+      <a
+        href={plant.pdfPath}
+        download
+        className="profile-download-direct"
+      >
+        Download PDF →
+      </a>
+    </div>
+  ) : (
+    <span className="profile-download-status">
+      Printable guide in development
+    </span>
+  )}
+</section>
 
       <section className="profile-tags-section">
         <p className="eyebrow">Related topics</p>

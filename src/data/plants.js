@@ -93,8 +93,8 @@ export const plants = [
       "fruiting cactus",
     ],
 
-    guidePath: null,
-    pdfPath: null,
+guidePath: "/plants/ecuador-palora",
+pdfPath: "/guides/ecuador-palora-care-guide.pdf",
     image: null,
   },
 ];

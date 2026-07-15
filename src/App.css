@@ -6594,6 +6594,34 @@ body.menu-open {
   }
 }
 
+.profile-download-copy {
+  max-width: 790px;
+}
+
+.profile-download-copy p:not(.eyebrow) {
+  color: rgba(23, 52, 52, 0.7);
+  line-height: 1.85;
+}
+
+.profile-download-actions {
+  flex: 0 0 auto;
+  display: grid;
+  justify-items: start;
+  gap: 18px;
+}
+
+.profile-download-direct {
+  display: inline-block;
+  border-bottom: 2px solid var(--dark);
+  font-weight: 800;
+}
+
+@media (max-width: 980px) {
+  .profile-download-actions {
+    width: 100%;
+  }
+}
+
 @media (max-width: 760px) {
   .resource-data-grid {
     grid-template-columns: 1fr;

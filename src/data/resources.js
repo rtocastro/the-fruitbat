@@ -12,7 +12,7 @@ export const resources = [
     status: "available",
     featured: true,
     tags: ["dragonfruit", "plant care", "growing guide"],
-    path: "/plants",
+    path: "/plants/ecuador-palora",
   },
 
   {
