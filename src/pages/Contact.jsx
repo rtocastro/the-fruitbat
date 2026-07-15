@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router";
+import { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router";
 
 const contactReasons = [
   {
@@ -40,12 +40,21 @@ const contactPrinciples = [
 ];
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    reason: "",
-    message: "",
-  });
+
+  const [searchParams] = useSearchParams();
+
+const requestedReason = searchParams.get("reason") ?? "";
+const requestedPlant = searchParams.get("plant") ?? "";
+
+
+const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  reason: requestedReason,
+  message: requestedPlant
+    ? `I have a question about ${requestedPlant}.\n\n`
+    : "",
+});
 
   const [status, setStatus] = useState("");
 
@@ -57,6 +66,17 @@ export default function Contact() {
       [name]: value,
     }));
   }
+
+  useEffect(() => {
+  setFormData((current) => ({
+    ...current,
+    reason: requestedReason || current.reason,
+    message:
+      requestedPlant && !current.message
+        ? `I have a question about ${requestedPlant}.\n\n`
+        : current.message,
+  }));
+}, [requestedReason, requestedPlant]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -310,3 +330,5 @@ export default function Contact() {
     </main>
   );
 }
+
+

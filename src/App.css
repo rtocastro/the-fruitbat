@@ -5590,14 +5590,192 @@ body.menu-open {
 .plant-profile-card {
   --plant-accent: var(--mint);
 
-  min-height: 470px;
+  position: relative;
+  min-height: 540px;
   padding: 38px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   border: 1px solid var(--border);
-  border-radius: 38px;
-  background: var(--white);
+  border-radius: 34px;
+  background:
+    linear-gradient(
+      rgba(23, 52, 52, 0.035) 1px,
+      transparent 1px
+    ),
+    var(--white);
+  background-size: 100% 34px;
   box-shadow: 0 18px 50px rgba(16, 40, 40, 0.06);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.plant-profile-card::after {
+  content: "";
+  position: absolute;
+  right: -55px;
+  bottom: -55px;
+  width: 190px;
+  height: 190px;
+  border: 26px solid var(--plant-accent);
+  border-radius: 50%;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.plant-profile-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(16, 40, 40, 0.11);
+}
+
+.plant-accent-mint {
+  --plant-accent: var(--mint);
+}
+
+.plant-accent-lime {
+  --plant-accent: var(--lime);
+}
+
+.plant-accent-purple {
+  --plant-accent: var(--purple);
+}
+
+.plant-accent-aqua {
+  --plant-accent: var(--aqua);
+}
+
+.plant-accent-coral {
+  --plant-accent: var(--coral);
+}
+
+.plant-profile-card-top {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 58px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.plant-profile-identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.plant-profile-symbol {
+  flex: 0 0 auto;
+  display: grid;
+  width: 66px;
+  height: 66px;
+  place-items: center;
+  border: 7px solid var(--dark);
+  border-radius: 50%;
+  background: var(--plant-accent);
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.plant-profile-category {
+  margin-bottom: 5px;
+  color: var(--purple);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.plant-profile-scientific {
+  margin: 0;
+  color: rgba(23, 52, 52, 0.55);
+  font-size: 0.76rem;
+  font-style: italic;
+}
+
+.plant-profile-journal-number {
+  flex: 0 0 auto;
+  color: rgba(23, 52, 52, 0.42);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.plant-profile-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.plant-profile-card h3 {
+  max-width: 480px;
+  margin-bottom: 18px;
+  font-size: clamp(2.25rem, 3vw, 3.2rem);
+  line-height: 1.02;
+}
+
+.plant-profile-card-content > p {
+  max-width: 540px;
+  color: rgba(23, 52, 52, 0.7);
+  line-height: 1.82;
+}
+
+.plant-profile-notes {
+  position: relative;
+  z-index: 2;
+  margin: 34px 0 28px;
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.plant-profile-notes span {
+  display: block;
+  margin-bottom: 6px;
+  color: rgba(23, 52, 52, 0.48);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.plant-profile-notes p {
+  margin: 0;
+  color: var(--dark);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.plant-profile-tags-preview {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.plant-profile-tags-preview span {
+  padding: 7px 10px;
+  border-radius: 999px;
+  color: rgba(23, 52, 52, 0.7);
+  background: var(--cream);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.plant-profile-link {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  padding-top: 32px;
+  align-self: flex-start;
+  border-bottom: 2px solid var(--dark);
+  font-weight: 800;
 }
 
 .plant-accent-mint {
@@ -6723,5 +6901,25 @@ body,
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .plant-profile-card {
+    min-height: auto;
+    padding: 30px 24px;
+  }
+
+  .plant-profile-card-top {
+    margin-bottom: 44px;
+  }
+
+  .plant-profile-journal-number {
+    display: none;
+  }
+
+  .plant-profile-notes {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 }

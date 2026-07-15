@@ -82,45 +82,72 @@ export default function Plants() {
           </p>
         </div>
 
-        <div className="plant-profile-grid">
-          {plants.map((plant) => (
-            <article
-              className={`plant-profile-card plant-accent-${plant.accent}`}
-              key={plant.id}
-            >
-              <div className="plant-profile-card-top">
-                <span className="plant-profile-symbol">
-                  {plant.symbol}
-                </span>
+<div className="plant-profile-grid">
+  {plants.map((plant) => (
+    <article
+      className={`plant-profile-card plant-accent-${plant.accent}`}
+      key={plant.id}
+    >
+      <div className="plant-profile-card-top">
+        <div className="plant-profile-identity">
+          <span className="plant-profile-symbol">
+            {plant.symbol}
+          </span>
 
-                <span className="plant-profile-category">
-                  {plant.category}
-                </span>
-              </div>
+          <div>
+            <p className="plant-profile-category">
+              {plant.category}
+            </p>
 
-              <div className="plant-profile-card-content">
-                <p className="plant-profile-scientific">
-                  {plant.scientificName}
-                </p>
-
-                <h3>{plant.commonName}</h3>
-                <p>{plant.summary}</p>
-              </div>
-
-              <div className="plant-profile-card-meta">
-                <span>{plant.difficulty}</span>
-                <span>{plant.status}</span>
-              </div>
-
-              <Link
-                to={`/plants/${plant.slug}`}
-                className="plant-profile-link"
-              >
-                Open plant profile →
-              </Link>
-            </article>
-          ))}
+            <p className="plant-profile-scientific">
+              {plant.scientificName}
+            </p>
+          </div>
         </div>
+
+        <span className="plant-profile-journal-number">
+          No. {String(plants.indexOf(plant) + 1).padStart(2, "0")}
+        </span>
+      </div>
+
+      <div className="plant-profile-card-content">
+        <h3>{plant.commonName}</h3>
+
+        <p>{plant.summary}</p>
+      </div>
+
+      <div className="plant-profile-notes">
+        <div>
+          <span>Difficulty</span>
+          <p>{plant.difficulty}</p>
+        </div>
+
+        <div>
+          <span>Category</span>
+          <p>{plant.category}</p>
+        </div>
+
+        <div>
+          <span>Status</span>
+          <p>{plant.status}</p>
+        </div>
+      </div>
+
+      <div className="plant-profile-tags-preview">
+        {plant.tags.slice(0, 3).map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
+      </div>
+
+      <Link
+        to={`/plants/${plant.slug}`}
+        className="plant-profile-link"
+      >
+        Open field guide →
+      </Link>
+    </article>
+  ))}
+</div>
       </section>
 
       <section className="plant-category-section">

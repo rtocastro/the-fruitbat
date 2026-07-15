@@ -229,9 +229,14 @@ export default function PlantProfile() {
             Browse Plant Library
           </Link>
 
-          <Link to="/contact" className="profile-cta-link">
-            Ask a growing question →
-          </Link>
+<Link
+  to={`/contact?reason=Growing%20question&plant=${encodeURIComponent(
+    plant.commonName
+  )}`}
+  className="profile-cta-link"
+>
+  Ask a growing question →
+</Link>
         </div>
       </section>
     </main>
