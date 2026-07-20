@@ -1,5 +1,6 @@
+import { useMemo, useState } from "react";
 import { Link } from "react-router";
-import { plantCategories, plants } from "../data/plants";
+import { plants } from "../data/plants";
 
 const categoryDescriptions = {
     Dragonfruit:
@@ -17,6 +18,78 @@ const categoryDescriptions = {
 };
 
 export default function Plants() {
+
+    const [searchTerm, setSearchTerm] = useState("");
+const [selectedCategory, setSelectedCategory] = useState("All");
+const [sortOption, setSortOption] = useState("alphabetical");
+
+const availableCategories = useMemo(() => {
+  const categories = [...new Set(plants.map((plant) => plant.category))];
+
+  return ["All", ...categories.sort((a, b) => a.localeCompare(b))];
+}, []);
+
+const visiblePlants = useMemo(() => {
+  const normalizedSearch = searchTerm.trim().toLowerCase();
+
+  const filteredPlants = plants.filter((plant) => {
+    const matchesCategory =
+      selectedCategory === "All" ||
+      plant.category === selectedCategory;
+
+    const searchableContent = [
+      plant.commonName,
+      plant.shortName,
+      plant.scientificName,
+      plant.category,
+      plant.summary,
+      ...(plant.tags ?? []),
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+
+    const matchesSearch =
+      !normalizedSearch ||
+      searchableContent.includes(normalizedSearch);
+
+    return matchesCategory && matchesSearch;
+  });
+
+  return [...filteredPlants].sort((plantA, plantB) => {
+    if (sortOption === "recent") {
+      return plants.indexOf(plantB) - plants.indexOf(plantA);
+    }
+
+    if (sortOption === "beginner") {
+      const difficultyOrder = {
+        Beginner: 1,
+        "Beginner friendly": 1,
+        Easy: 1,
+        Moderate: 2,
+        Intermediate: 2,
+        Advanced: 3,
+      };
+
+      const difficultyDifference =
+        (difficultyOrder[plantA.difficulty] ?? 99) -
+        (difficultyOrder[plantB.difficulty] ?? 99);
+
+      if (difficultyDifference !== 0) {
+        return difficultyDifference;
+      }
+    }
+
+    return plantA.commonName.localeCompare(plantB.commonName);
+  });
+}, [searchTerm, selectedCategory, sortOption]);
+
+const clearPlantFilters = () => {
+  setSearchTerm("");
+  setSelectedCategory("All");
+  setSortOption("alphabetical");
+};
+
     return (
         <main>
             <section className="plants-hero">
@@ -72,6 +145,72 @@ export default function Plants() {
 
             <section className="plant-library-section" id="plant-library">
                 <div className="plant-library-heading">
+                    <div className="plant-profile-grid"></div>
+                    <div className="plant-library-controls">
+  <div className="plant-search-field">
+    <label htmlFor="plant-search">Search the library</label>
+
+    <div className="plant-search-input-wrap">
+      <span aria-hidden="true">⌕</span>
+
+      <input
+        id="plant-search"
+        type="search"
+        placeholder="Search tomatoes, peppers, dragonfruit..."
+        value={searchTerm}
+        onChange={(event) => setSearchTerm(event.target.value)}
+      />
+    </div>
+  </div>
+
+  <div className="plant-sort-field">
+    <label htmlFor="plant-sort">Sort profiles</label>
+
+    <select
+      id="plant-sort"
+      value={sortOption}
+      onChange={(event) => setSortOption(event.target.value)}
+    >
+      <option value="alphabetical">Alphabetical A–Z</option>
+      <option value="recent">Recently added</option>
+      <option value="beginner">Beginner friendly</option>
+    </select>
+  </div>
+</div>
+
+<div
+  className="plant-category-filters"
+  aria-label="Filter plants by category"
+>
+  {availableCategories.map((category) => (
+    <button
+      type="button"
+      className={`plant-category-filter ${
+        selectedCategory === category ? "is-active" : ""
+      }`}
+      key={category}
+      onClick={() => setSelectedCategory(category)}
+      aria-pressed={selectedCategory === category}
+    >
+      {category}
+    </button>
+  ))}
+</div>
+
+<div className="plant-results-summary" aria-live="polite">
+  <p>
+    Showing <strong>{visiblePlants.length}</strong>{" "}
+    {visiblePlants.length === 1 ? "plant profile" : "plant profiles"}
+  </p>
+
+  {(searchTerm ||
+    selectedCategory !== "All" ||
+    sortOption !== "alphabetical") && (
+    <button type="button" onClick={clearPlantFilters}>
+      Clear filters
+    </button>
+  )}
+</div>
                     <p className="eyebrow">Available profiles</p>
 
                     <h2>Start with what is growing now.</h2>
@@ -82,8 +221,8 @@ export default function Plants() {
                     </p>
                 </div>
 
-                <div className="plant-profile-grid">
-                    {plants.map((plant) => (
+<div className="plant-profile-grid">
+  {visiblePlants.map((plant) => (
                         <article
                             className={`plant-profile-card plant-accent-${plant.accent}`}
                             key={plant.id}
@@ -106,7 +245,7 @@ export default function Plants() {
                                 </div>
 
                                 <span className="plant-profile-journal-number">
-                                    No. {String(plants.indexOf(plant) + 1).padStart(2, "0")}
+                                   No. {String(visiblePlants.indexOf(plant) + 1).padStart(2, "0")}
                                 </span>
                             </div>
 
@@ -147,6 +286,26 @@ export default function Plants() {
                             </Link>
                         </article>
                     ))}
+
+                    {visiblePlants.length === 0 && (
+  <div className="plant-empty-results">
+    <span aria-hidden="true">○</span>
+
+    <h3>No plant profiles found.</h3>
+
+    <p>
+      Try a different plant name, category, or growing keyword.
+    </p>
+
+    <button
+      type="button"
+      className="button button-secondary"
+      onClick={clearPlantFilters}
+    >
+      Clear Search and Filters
+    </button>
+  </div>
+)}
                 </div>
             </section>
 
@@ -157,9 +316,7 @@ export default function Plants() {
                 </div>
 
                 <div className="plant-category-grid">
-                    {plantCategories
-                        .filter((category) => category !== "All")
-                        .map((category, index) => (
+                   {Object.keys(categoryDescriptions).map((category, index) => (
                             <article className="plant-category-card" key={category}>
                                 <span className="plant-category-number">
                                     {String(index + 1).padStart(2, "0")}
