@@ -49,7 +49,7 @@ export default function Footer() {
                         <a
                             href="https://www.instagram.com/thefruitbatla/"
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer"
                         >
                             Instagram
                         </a>

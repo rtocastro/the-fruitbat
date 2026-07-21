@@ -9,7 +9,6 @@ const navigationItems = [
   { label: "Resources", path: "/resources" },
   { label: "Projects", path: "/projects" },
   { label: "About", path: "/about" },
-  
 ];
 
 export default function Header() {
@@ -58,6 +57,7 @@ export default function Header() {
 
           <div className="brand-copy">
             <span className="brand-name">The Fruitbat</span>
+
             <span className="brand-tagline">
               Growing communities naturally.
             </span>
@@ -81,7 +81,12 @@ export default function Header() {
           ))}
         </nav>
 
-        <NavLink to="/donate" className="header-cta">
+        <NavLink
+          to="/donate"
+          className={({ isActive }) =>
+            isActive ? "header-cta active" : "header-cta"
+          }
+        >
           Get Involved
         </NavLink>
 
@@ -90,10 +95,16 @@ export default function Header() {
           className={`mobile-menu-button ${
             menuOpen ? "mobile-menu-button-open" : ""
           }`}
-          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={
+            menuOpen
+              ? "Close navigation menu"
+              : "Open navigation menu"
+          }
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
-          onClick={() => setMenuOpen((current) => !current)}
+          onClick={() =>
+            setMenuOpen((currentMenuState) => !currentMenuState)
+          }
         >
           <span />
           <span />
@@ -115,10 +126,10 @@ export default function Header() {
           menuOpen ? "mobile-navigation-open" : ""
         }`}
         aria-label="Mobile navigation"
+        aria-hidden={!menuOpen}
       >
         <div className="mobile-navigation-top">
           <p>Explore The Fruitbat</p>
-
           <span aria-hidden="true">♡</span>
         </div>
 
@@ -146,7 +157,10 @@ export default function Header() {
               }
             >
               <span>{item.label}</span>
-              <span>{String(index + 2).padStart(2, "0")}</span>
+
+              <span>
+                {String(index + 2).padStart(2, "0")}
+              </span>
             </NavLink>
           ))}
 
@@ -159,13 +173,23 @@ export default function Header() {
             }
           >
             <span>Contact</span>
-            <span>07</span>
+
+            <span>
+              {String(navigationItems.length + 2).padStart(2, "0")}
+            </span>
           </NavLink>
         </div>
 
-        <NavLink to="/donate" className="mobile-navigation-cta">
+        <NavLink
+          to="/donate"
+          className={({ isActive }) =>
+            isActive
+              ? "mobile-navigation-cta active"
+              : "mobile-navigation-cta"
+          }
+        >
           Get Involved
-          <span>♡</span>
+          <span aria-hidden="true">♡</span>
         </NavLink>
       </nav>
     </header>

@@ -7243,6 +7243,25 @@ body.menu-open {
   font-weight: 800;
 }
 
+.mobile-navigation:not(.mobile-navigation-open) {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.mobile-navigation.mobile-navigation-open {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.header-cta.active {
+  box-shadow: 0 0 0 4px rgba(111, 78, 170, 0.16);
+}
+
+.mobile-navigation-cta.active {
+  outline: 3px solid var(--mint);
+  outline-offset: 4px;
+}
+
 /* Refined homepage responsive */
 
 @media (max-width: 980px) {
