@@ -50,8 +50,9 @@ const supportingProjects = [
   {
     title: "Captain Crop",
     description:
-      "A digital community map concept for finding available produce, garden resources, and neighborhood growing activity.",
+      "A working community garden exchange prototype for discovering produce, plants, garden resources, and neighborhood growing activity through a privacy-conscious map.",
     category: "Civic Technology",
+    status: "Working prototype",
     accent: "aqua",
   },
   {
@@ -59,6 +60,7 @@ const supportingProjects = [
     description:
       "Mobile-friendly plant pages connected to physical labels, providing current care information and downloadable guides.",
     category: "Education",
+    status: "Available now",
     accent: "coral",
   },
   {
@@ -66,6 +68,7 @@ const supportingProjects = [
     description:
       "Small neighborhood events centered around planting, sharing, learning, harvesting, and meeting nearby growers.",
     category: "Community",
+    status: "Planning",
     accent: "mint",
   },
   {
@@ -73,13 +76,15 @@ const supportingProjects = [
     description:
       "Games, observation sheets, growing challenges, and playful resources that make gardening approachable for children.",
     category: "Families",
+    status: "Expanding",
     accent: "purple",
   },
   {
     title: "Feed Me Fruit",
     description:
-      "A simple Fruitbat game where players catch falling fruit, feed the bat, and try to beat their high score.",
+      "A playable Fruitbat game where players catch falling fruit, feed the bat, and try to beat their high score.",
     category: "Play",
+    status: "Playable now",
     accent: "lime",
   },
   {
@@ -87,6 +92,7 @@ const supportingProjects = [
     description:
       "Plant tags, harvest logs, neighborhood registries, garden worksheets, and other downloadable tools.",
     category: "Resources",
+    status: "Available and expanding",
     accent: "dark",
   },
 ];
@@ -262,25 +268,51 @@ export default function Projects() {
               <p>{project.description}</p>
 
               <span className="supporting-project-status">
-                In development
+                {project.status}
               </span>
             </article>
           ))}
         </div>
       </section>
 
+      <section className="feed-me-fruit-project">
+        <div className="feed-me-fruit-project-copy">
+          <p className="eyebrow">Playable project</p>
+
+          <h2>Feed Me Fruit</h2>
+
+          <p>
+            Catch falling fruit, keep the Fruitbat fed, and try to beat
+            your high score in this small game created to make gardening
+            education feel playful and approachable.
+          </p>
+
+          <p className="feed-me-fruit-status">
+            Available to play now through Scratch.
+          </p>
+        </div>
+
+        <FeedMeFruitEmbed />
+      </section>
+
       <section className="project-map-section">
         <div className="project-map-copy">
-          <p className="eyebrow">Future community map</p>
+          <p className="eyebrow">Community mapping</p>
 
           <h2>
             See what is growing, happening, and available nearby.
           </h2>
 
           <p>
-            A future map could help people find community gardens,
-            edible plants, harvest swaps, events, available resources,
-            and local growing activity.
+            Captain Crop is an early working prototype exploring how
+            community members can discover produce, plants, garden
+            resources, and neighborhood growing activity.
+          </p>
+
+          <p>
+            Future versions may expand to include community gardens,
+            harvest swaps, events, volunteer opportunities, and additional
+            local resources.
           </p>
 
           <p>
@@ -352,11 +384,10 @@ export default function Projects() {
           <h2>
             The best project ideas may come from the people using them.
           </h2>
-
           <p>
-            The Fruitbat will eventually invite neighbors, gardeners,
-            teachers, families, and community organizations to suggest
-            needs, test early tools, and help guide future projects.
+            The Fruitbat invites neighbors, gardeners, teachers, families,
+            and community organizations to suggest needs, test early tools,
+            share growing experience, and help guide future projects.
           </p>
         </div>
 
