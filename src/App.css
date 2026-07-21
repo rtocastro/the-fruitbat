@@ -6470,6 +6470,28 @@ body.menu-open {
   line-height: 1.8;
 }
 
+/* Plant Library hero illustration fixes */
+
+.plants-hero-art {
+  isolation: isolate;
+}
+
+.plant-library-pot {
+  z-index: 1;
+}
+
+.plant-library-stem {
+  z-index: 0;
+}
+
+.plant-library-pot::before {
+  z-index: 3;
+}
+
+.plant-library-leaf {
+  z-index: 2;
+}
+
 /* Plant responsive */
 
 @media (max-width: 980px) {
@@ -6614,6 +6636,19 @@ body.menu-open {
   display: inline-block;
   border-bottom: 2px solid var(--dark);
   font-weight: 800;
+}
+
+@media (max-width: 640px) {
+  .plants-hero-art {
+    min-height: 500px;
+    margin-top: 80px;
+    transform: scale(0.78);
+    transform-origin: top center;
+  }
+
+  .plant-library-pot {
+    margin-top: 135px;
+  }
 }
 
 /* Refined Fruitbat homepage */
