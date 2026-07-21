@@ -4,21 +4,52 @@ import { useLocation } from "react-router";
 import { defaultMeta, siteMeta } from "../data/siteMeta";
 import { getPlantBySlug } from "../data/plants";
 
-function updateMeta(selector, attribute, value) {
+const SITE_URL = "https://thefruitbat.org";
+const DEFAULT_SOCIAL_IMAGE =
+  `${SITE_URL}/fruitbat-social-preview.jpg`;
+
+function updateMeta(selector, attributeName, value) {
   let element = document.head.querySelector(selector);
 
   if (!element) {
     element = document.createElement("meta");
+
+    if (selector.includes("property")) {
+      const propertyMatch = selector.match(
+        /property=["']([^"']+)["']/
+      );
+
+      if (propertyMatch) {
+        element.setAttribute("property", propertyMatch[1]);
+      }
+    } else {
+      const nameMatch = selector.match(
+        /name=["']([^"']+)["']/
+      );
+
+      if (nameMatch) {
+        element.setAttribute("name", nameMatch[1]);
+      }
+    }
+
     document.head.appendChild(element);
   }
 
-  if (selector.includes("property")) {
-    element.setAttribute("property", selector.match(/"(.*)"/)[1]);
-  } else {
-    element.setAttribute("name", selector.match(/"(.*)"/)[1]);
+  element.setAttribute(attributeName, value);
+}
+
+function updateCanonical(url) {
+  let canonical = document.head.querySelector(
+    'link[rel="canonical"]'
+  );
+
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.setAttribute("rel", "canonical");
+    document.head.appendChild(canonical);
   }
 
-  element.setAttribute(attribute, value);
+  canonical.setAttribute("href", url);
 }
 
 export default function MetaManager() {
@@ -33,11 +64,20 @@ export default function MetaManager() {
 
       if (plant) {
         meta = {
+          ...defaultMeta,
           title: `${plant.commonName} | The Fruitbat`,
           description: plant.summary,
         };
       }
     }
+
+    const canonicalUrl =
+      pathname === "/"
+        ? SITE_URL
+        : `${SITE_URL}${pathname.replace(/\/+$/, "")}`;
+
+    const socialImage =
+      meta.image ?? DEFAULT_SOCIAL_IMAGE;
 
     document.title = meta.title;
 
@@ -45,6 +85,18 @@ export default function MetaManager() {
       'meta[name="description"]',
       "content",
       meta.description
+    );
+
+    updateMeta(
+      'meta[property="og:type"]',
+      "content",
+      "website"
+    );
+
+    updateMeta(
+      'meta[property="og:site_name"]',
+      "content",
+      "The Fruitbat"
     );
 
     updateMeta(
@@ -60,6 +112,24 @@ export default function MetaManager() {
     );
 
     updateMeta(
+      'meta[property="og:url"]',
+      "content",
+      canonicalUrl
+    );
+
+    updateMeta(
+      'meta[property="og:image"]',
+      "content",
+      socialImage
+    );
+
+    updateMeta(
+      'meta[name="twitter:card"]',
+      "content",
+      "summary_large_image"
+    );
+
+    updateMeta(
       'meta[name="twitter:title"]',
       "content",
       meta.title
@@ -70,6 +140,14 @@ export default function MetaManager() {
       "content",
       meta.description
     );
+
+    updateMeta(
+      'meta[name="twitter:image"]',
+      "content",
+      socialImage
+    );
+
+    updateCanonical(canonicalUrl);
   }, [pathname]);
 
   return null;

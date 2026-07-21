@@ -26,7 +26,7 @@ export const siteMeta = {
     "/projects": {
         title: "Community Projects | The Fruitbat",
         description:
-            "Explore The Fruitbat’s neighborhood plant registry, harvest-sharing ideas, community map concepts, and educational projects.",
+            "Explore The Fruitbat's community-growing projects, including Captain Crop, plant-care QR guides, free printables, and the playable Feed Me Fruit game.",
     },
 
     "/about": {
@@ -49,7 +49,7 @@ export const siteMeta = {
     "/plants": {
         title: "Plant Library | The Fruitbat",
         description:
-            "Explore approachable plant profiles with quick-care information, growing guidance, printable resources, and QR-friendly pages.",
+            "Browse practical plant profiles, growing instructions, downloadable seed guides, dragonfruit care resources, and QR-ready plant pages.",
     },
 };
 
