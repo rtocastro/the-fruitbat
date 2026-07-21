@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 import fruitbatMascot from "../assets/images/fruitbat-mascot.jpg";
 import { featuredPlants } from "../data/plants";
+import FeedMeFruitEmbed from "../components/FeedMeFruitEmbed";
 
 const communityActions = [
   {
@@ -395,14 +396,11 @@ export default function Home() {
           >
             Play Feed Me Fruit
           </a>
+          
         </div>
 
-        <div className="home-play-art" aria-hidden="true">
-          <span className="home-play-fruit fruit-a">●</span>
-          <span className="home-play-fruit fruit-b">●</span>
-          <span className="home-play-fruit fruit-c">●</span>
-
-          <img src={fruitbatMascot} alt="" />
+        <div>
+          <FeedMeFruitEmbed />
         </div>
       </section>
 
