@@ -1,3 +1,5 @@
+import { seedPlants } from "./plants/seeds";
+
 const dragonfruitQuickCare = {
   sunlight: "Bright light to full sun after gradual acclimation",
   watering:
@@ -61,7 +63,7 @@ const dragonfruitBeginnerTips = [
   "Keep notes about flowering, pollination, fruiting, and seasonal growth.",
 ];
 
-export const plants = [
+const dragonfruitPlants = [
   {
     id: "ecuador-palora",
     slug: "ecuador-palora",
@@ -301,6 +303,11 @@ export const plants = [
     pdfPath: "/guides/sugar-dragon-care-guide.pdf",
     image: null,
   },
+];
+
+export const plants = [
+  ...dragonfruitPlants,
+  ...seedPlants,
 ];
 
 export const featuredPlants = plants.filter((plant) => plant.featured);
