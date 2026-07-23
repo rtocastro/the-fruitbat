@@ -1241,6 +1241,8 @@
 
 /* Start Growing page */
 
+
+
 .growing-hero {
   width: min(1180px, calc(100% - 40px));
   min-height: 700px;
@@ -1275,6 +1277,7 @@
 
 .growing-hero-art {
   position: relative;
+  isolation: isolate;
   min-height: 520px;
   display: grid;
   place-items: center;
@@ -1282,6 +1285,7 @@
 
 .growing-pot {
   position: relative;
+  z-index: 2;
   width: 290px;
   height: 210px;
   margin-top: 180px;
@@ -1296,6 +1300,7 @@
   position: absolute;
   top: -30px;
   left: -28px;
+  z-index: 3;
   width: 326px;
   height: 48px;
   border: 10px solid var(--dark);
@@ -1307,7 +1312,7 @@
   position: absolute;
   bottom: 180px;
   left: 50%;
-  z-index: -1;
+  z-index: 1;
   width: 12px;
   border-radius: 999px;
   background: var(--dark);
@@ -1571,6 +1576,7 @@
   border-bottom: 2px solid var(--dark);
   font-weight: 800;
 }
+
 
 /* First steps */
 
@@ -1858,13 +1864,25 @@
     gap: 35px;
   }
 
+  .growing-hero-copy {
+    position: relative;
+    z-index: 5;
+  }
+
   .growing-hero-copy h1 {
     font-size: clamp(3.2rem, 16vw, 4.8rem);
   }
 
+  .growing-hero-copy .button {
+    position: relative;
+    z-index: 6;
+  }
+
   .growing-hero-art {
-    min-height: 410px;
+    min-height: 460px;
+    margin-top: 48px;
     transform: scale(0.8);
+    transform-origin: top center;
   }
 
   .growing-reassurance,
