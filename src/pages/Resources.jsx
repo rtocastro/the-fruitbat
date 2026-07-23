@@ -16,6 +16,54 @@ function formatStatus(status) {
   return statuses[status] ?? status;
 }
 
+const freePrintables = [
+  {
+    title: "Plant Type & Date Sticker",
+    description:
+      "A printable 1 × 1 plant label with space to record the planting date and plant type.",
+    image: "/printables/plant-type-date-sticker.jpg",
+    download: "/printables/plant-type-date-sticker.jpg",
+    format: "JPG",
+    category: "Plant Label",
+  },
+  {
+    title: "Green Plant Zone Bookmark",
+    description:
+      "A colorful retro game-inspired bookmark featuring The Fruitbat and a tropical growing landscape.",
+    image: "/printables/green-plant-zone-bookmark.jpg",
+    download: "/printables/green-plant-zone-bookmark.jpg",
+    format: "JPG",
+    category: "Bookmark",
+  },
+  {
+    title: "Original Fruitbat Bookmark",
+    description:
+      "The original Fruitbat bookmark featuring falling fruit and the San Fernando Valley seed-shop artwork.",
+    image: "/printables/original-fruitbat-bookmark.jpg",
+    download: "/printables/original-fruitbat-bookmark.jpg",
+    format: "JPG",
+    category: "Bookmark",
+  },
+  {
+    title: "Streets of Fruit Bookmark",
+    description:
+      "An arcade-inspired city bookmark starring The Fruitbat and an assortment of pixel-art characters.",
+    image: "/printables/streets-of-fruit-bookmark.jpg",
+    download: "/printables/streets-of-fruit-bookmark.jpg",
+    format: "JPG",
+    category: "Bookmark",
+  },
+  {
+    title: "Super Brick Fruit Bookmark",
+    description:
+      "A block-game-inspired Fruitbat bookmark with falling fruit and colorful retro artwork.",
+    image: "/printables/super-brick-fruit-bookmark.jpg",
+    download: "/printables/super-brick-fruit-bookmark.jpg",
+    format: "JPG",
+    category: "Bookmark",
+  },
+];
+
 function getResourcesByCategory(category) {
   if (category === "All") {
     return resources;
@@ -167,86 +215,156 @@ export default function Resources() {
           <h2>Explore by category.</h2>
 
           <p>
-            The first version establishes the structure. We will add the
-            real downloads, plant pages, videos, and interactive tools
-            afterward.
+            Browse growing guides, plant pages, free downloads, printable
+            tools, and interactive resources. New additions will continue
+            to appear as the library grows.
           </p>
         </div>
 
-<div className="resource-category-sections">
-  {resourceCategories
-    .filter((category) => category !== "All")
-    .map((category) => {
-      const categoryResources = getResourcesByCategory(category);
+        <div className="resource-category-sections">
+          {resourceCategories
+            .filter((category) => category !== "All")
+            .map((category) => {
+              const categoryResources = getResourcesByCategory(category);
 
-      return (
-        <section
-          className="resource-data-category"
-          key={category}
-        >
-          <div className="resource-data-category-heading">
-            <h3>{category}</h3>
-
-            <span>
-              {categoryResources.length}{" "}
-              {categoryResources.length === 1
-                ? "resource"
-                : "resources"}
-            </span>
-          </div>
-
-          {categoryResources.length > 0 ? (
-            <div className="resource-data-grid">
-              {categoryResources.map((resource) => (
-                <article
-                  className={`resource-data-card category-accent-${resource.accent}`}
-                  key={resource.id}
+              return (
+                <section
+                  className="resource-data-category"
+                  key={category}
                 >
-                  <div className="resource-data-card-top">
-                    <span className="resource-category-dot" />
+                  <div className="resource-data-category-heading">
+                    <h3>{category}</h3>
 
-                    <span className="resource-data-type">
-                      {resource.type}
-                    </span>
-                  </div>
-
-                  <h4>{resource.title}</h4>
-                  <p>{resource.description}</p>
-
-                  <div className="resource-data-tags">
-                    {resource.tags.slice(0, 3).map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
-
-                  <div className="resource-data-footer">
                     <span>
-                      {formatStatus(resource.status)}
+                      {categoryResources.length}{" "}
+                      {categoryResources.length === 1
+                        ? "resource"
+                        : "resources"}
                     </span>
-
-                    {resource.path && (
-                      <Link to={resource.path}>
-                        Open →
-                      </Link>
-                    )}
                   </div>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <div className="resource-empty-state">
-              <span>♡</span>
 
-              <p>
-                This section is growing. New resources will be
-                added here.
-              </p>
-            </div>
-          )}
-        </section>
-      );
-    })}
-</div>
+                  {categoryResources.length > 0 ? (
+                    <div className="resource-data-grid">
+                      {categoryResources.map((resource) => (
+                        <article
+                          className={`resource-data-card category-accent-${resource.accent}`}
+                          key={resource.id}
+                        >
+                          <div className="resource-data-card-top">
+                            <span className="resource-category-dot" />
+
+                            <span className="resource-data-type">
+                              {resource.type}
+                            </span>
+                          </div>
+
+                          <h4>{resource.title}</h4>
+                          <p>{resource.description}</p>
+
+                          <div className="resource-data-tags">
+                            {resource.tags.slice(0, 3).map((tag) => (
+                              <span key={tag}>{tag}</span>
+                            ))}
+                          </div>
+
+                          <div className="resource-data-footer">
+                            <span>
+                              {formatStatus(resource.status)}
+                            </span>
+
+                            {resource.path && (
+                              <Link to={resource.path}>
+                                Open →
+                              </Link>
+                            )}
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="resource-empty-state">
+                      <span>♡</span>
+
+                      <p>
+                        This section is growing. New resources will be
+                        added here.
+                      </p>
+                    </div>
+                  )}
+                </section>
+              );
+            })}
+        </div>
+      </section>
+
+      <section
+        className="printables-library-section"
+        id="free-printables"
+      >
+        <div className="printables-library-heading">
+          <p className="eyebrow">Free community printables</p>
+
+          <h2>Download, print, and put them to use.</h2>
+
+          <p>
+            These free Fruitbat resources include plant labels and
+            playful bookmarks inspired by fruit, gardening, and
+            classic video games.
+          </p>
+        </div>
+
+        <div className="printables-library-grid">
+          {freePrintables.map((printable) => (
+            <article
+              className="printable-card"
+              key={printable.title}
+            >
+              <a
+                href={printable.image}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="printable-preview"
+                aria-label={`Preview ${printable.title}`}
+              >
+                <img
+                  src={printable.image}
+                  alt={`Preview of ${printable.title}`}
+                  loading="lazy"
+                />
+              </a>
+
+              <div className="printable-card-content">
+                <div className="printable-card-meta">
+                  <span>{printable.category}</span>
+                  <span>{printable.format}</span>
+                </div>
+
+                <h3>{printable.title}</h3>
+
+                <p>{printable.description}</p>
+
+                <div className="printable-card-actions">
+                  <a
+                    href={printable.download}
+                    download
+                    className="button button-primary"
+                  >
+                    Download {printable.format}
+                  </a>
+
+                  <a
+                    href={printable.image}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-link"
+                  >
+                    Open preview →
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="resource-qr-section">

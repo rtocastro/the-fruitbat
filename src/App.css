@@ -574,6 +574,143 @@
   font-size: 0.78rem;
 }
 
+/* Free printables library */
+
+.printables-library-section {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 120px 0;
+}
+
+.printables-library-heading {
+  max-width: 760px;
+  margin-bottom: 54px;
+}
+
+.printables-library-heading h2 {
+  margin-bottom: 22px;
+  font-size: clamp(2.7rem, 4.6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.printables-library-heading > p:last-child {
+  color: rgba(23, 52, 52, 0.7);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.printables-library-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.printable-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 34px;
+  background: var(--white);
+  box-shadow: 0 18px 50px rgba(16, 40, 40, 0.06);
+}
+
+.printable-preview {
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  overflow: hidden;
+  background: var(--mint);
+}
+
+.printable-preview img {
+  display: block;
+  width: 100%;
+  height: 360px;
+  object-fit: contain;
+  transition: transform 220ms ease;
+}
+
+.printable-preview:hover img {
+  transform: scale(1.025);
+}
+
+.printable-card-content {
+  padding: 30px;
+}
+
+.printable-card-meta {
+  margin-bottom: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--purple);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.printable-card h3 {
+  margin-bottom: 13px;
+  font-size: 2rem;
+  line-height: 1.08;
+}
+
+.printable-card-content > p {
+  color: rgba(23, 52, 52, 0.7);
+  line-height: 1.75;
+}
+
+.printable-card-actions {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+}
+
+.printable-card-actions .text-link {
+  margin-top: 0;
+}
+
+@media (max-width: 800px) {
+  .printables-library-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .printables-library-section {
+    width: min(100% - 28px, 1180px);
+    padding: 85px 0;
+  }
+
+  .printable-preview {
+    min-height: 300px;
+    padding: 18px;
+  }
+
+  .printable-preview img {
+    height: 300px;
+  }
+
+  .printable-card-content {
+    padding: 25px;
+  }
+
+  .printable-card-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .printable-card-actions .button {
+    width: 100%;
+  }
+}
+
 /* Responsive */
 
 @media (max-width: 980px) {
