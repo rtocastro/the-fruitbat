@@ -51,6 +51,12 @@ export const siteMeta = {
         description:
             "Browse practical plant profiles, growing instructions, downloadable seed guides, dragonfruit care resources, and QR-ready plant pages.",
     },
+
+    "/events": {
+        title: "Events | The Fruitbat",
+        description:
+            "Explore upcoming Fruitbat workshops, community growing events, and opportunities to learn, grow, and connect.",
+    },
 };
 
 export const defaultMeta = {

@@ -3,6 +3,7 @@ import { useLocation } from "react-router";
 
 import { defaultMeta, siteMeta } from "../data/siteMeta";
 import { getPlantBySlug } from "../data/plants";
+import { getEventBySlug } from "../data/events";
 
 const SITE_URL = "https://thefruitbat.org";
 const DEFAULT_SOCIAL_IMAGE =
@@ -67,6 +68,20 @@ export default function MetaManager() {
           ...defaultMeta,
           title: `${plant.commonName} | The Fruitbat`,
           description: plant.summary,
+        };
+      }
+
+    }
+
+    if (pathname.startsWith("/events/")) {
+      const slug = pathname.split("/")[2];
+      const event = getEventBySlug(slug);
+
+      if (event) {
+        meta = {
+          ...defaultMeta,
+          title: `${event.title} | The Fruitbat`,
+          description: `${event.summary} ${event.date} at ${event.location}.`,
         };
       }
     }
