@@ -17,6 +17,8 @@ import Contact from "./pages/Contact";
 import Donate from "./pages/Donate";
 import Plants from "./pages/Plants";
 import PlantProfile from "./pages/PlantProfile";
+import Events from "./pages/Events";
+import EventDetail from "./pages/EventDetail";
 import NotFound from "./pages/NotFound";
 
 import "./App.css";
@@ -118,6 +120,24 @@ export default function App() {
             element={
               <PageTransition>
                 <PlantProfile />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="/events"
+            element={
+              <PageTransition>
+                <Events />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="/events/:slug"
+            element={
+              <PageTransition>
+                <EventDetail />
               </PageTransition>
             }
           />
