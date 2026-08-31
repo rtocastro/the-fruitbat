@@ -26,6 +26,8 @@ const growingPaths = [
       "Begin with plants you already eat",
     ],
     accent: "purple",
+    href: "#small-spaces",
+    linkLabel: "Explore small-space growing →",
   },
   {
     icon: "●",
@@ -226,11 +228,104 @@ export default function StartGrowing() {
                 ))}
               </ul>
 
-              <Link to="/resources" className="growing-card-link">
-                Explore beginner resources →
-              </Link>
+              {path.href ? (
+                <a
+                  href={path.href}
+                  className="growing-card-link"
+                >
+                  {path.linkLabel}
+                </a>
+              ) : (
+                <Link
+                  to="/resources"
+                  className="growing-card-link"
+                >
+                  Explore beginner resources →
+                </Link>
+              )}
             </article>
           ))}
+        </div>
+      </section>
+
+      <section
+        className="small-space-growing-section"
+        id="small-spaces"
+      >
+        <div className="small-space-growing-intro">
+          <p className="eyebrow">Small-space growing</p>
+
+          <h2>
+            A balcony, patio, windowsill, or small corner is enough.
+          </h2>
+
+          <p>
+            Small-space gardening is mostly about making good use of
+            sunlight, containers, drainage, and the room you already have.
+            You do not need a yard to grow something useful.
+          </p>
+
+          <div className="small-space-growing-actions">
+            <Link
+              to="/events/small-space-gardening-101"
+              className="button button-primary"
+            >
+              Small Space Gardening 101
+            </Link>
+
+            <Link
+              to="/plants"
+              className="text-link"
+            >
+              Browse plant guides →
+            </Link>
+          </div>
+        </div>
+
+        <div className="small-space-growing-grid">
+          <article className="small-space-growing-card">
+            <span>01</span>
+
+            <h3>Watch the sunlight</h3>
+
+            <p>
+              Before choosing plants, notice where direct sunlight reaches
+              your space and roughly how long it stays there.
+            </p>
+          </article>
+
+          <article className="small-space-growing-card">
+            <span>02</span>
+
+            <h3>Choose containers that drain</h3>
+
+            <p>
+              Containers need working drainage holes and enough room for
+              the plant's roots as it matures.
+            </p>
+          </article>
+
+          <article className="small-space-growing-card">
+            <span>03</span>
+
+            <h3>Start with useful plants</h3>
+
+            <p>
+              Herbs, leafy greens, peppers, compact tomatoes, strawberries,
+              and similar crops can work well in limited spaces.
+            </p>
+          </article>
+
+          <article className="small-space-growing-card">
+            <span>04</span>
+
+            <h3>Keep the first setup small</h3>
+
+            <p>
+              A few healthy containers are easier to learn from than a
+              balcony full of plants that all need attention at once.
+            </p>
+          </article>
         </div>
       </section>
 

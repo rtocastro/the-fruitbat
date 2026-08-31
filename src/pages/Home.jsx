@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 import fruitbatMascot from "../assets/images/fruitbat-mascot.jpg";
 import { featuredPlants } from "../data/plants";
+import { featuredEvents } from "../data/events"
 import FeedMeFruitEmbed from "../components/FeedMeFruitEmbed";
 
 const communityActions = [
@@ -60,6 +61,7 @@ const firstSteps = [
 export default function Home() {
   const reducedMotion = useReducedMotion();
   const featuredPlant = featuredPlants[0];
+  const featuredEvent = featuredEvents[0];
 
   return (
     <main>
@@ -142,8 +144,8 @@ export default function Home() {
               reducedMotion
                 ? {}
                 : {
-                    rotate: [0, 2, 0, -2, 0],
-                  }
+                  rotate: [0, 2, 0, -2, 0],
+                }
             }
             transition={{
               duration: 8,
@@ -161,8 +163,8 @@ export default function Home() {
                 reducedMotion
                   ? {}
                   : {
-                      y: [0, -10, 0],
-                    }
+                    y: [0, -10, 0],
+                  }
               }
               transition={{
                 duration: 4,
@@ -177,9 +179,9 @@ export default function Home() {
                 reducedMotion
                   ? {}
                   : {
-                      y: [0, -8, 0],
-                      rotate: [0, 8, 0],
-                    }
+                    y: [0, -8, 0],
+                    rotate: [0, 8, 0],
+                  }
               }
               transition={{
                 duration: 4.5,
@@ -196,9 +198,9 @@ export default function Home() {
                 reducedMotion
                   ? {}
                   : {
-                      x: [0, 8, 0],
-                      y: [0, 5, 0],
-                    }
+                    x: [0, 8, 0],
+                    y: [0, 5, 0],
+                  }
               }
               transition={{
                 duration: 5,
@@ -215,8 +217,8 @@ export default function Home() {
                 reducedMotion
                   ? {}
                   : {
-                      scale: [1, 1.12, 1],
-                    }
+                    scale: [1, 1.12, 1],
+                  }
               }
               transition={{
                 duration: 3.8,
@@ -229,6 +231,47 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+{featuredEvent && (
+  <section className="home-events-section">
+    <div className="home-events-copy">
+      <p className="eyebrow">Upcoming event</p>
+
+      <h2>{featuredEvent.title}</h2>
+
+      <p>{featuredEvent.summary}</p>
+
+      <div className="home-events-details">
+        <span>{featuredEvent.date}</span>
+        <span>•</span>
+        <span>{featuredEvent.location}</span>
+      </div>
+
+      <div className="home-events-actions">
+        <Link
+          to={`/events/${featuredEvent.slug}`}
+          className="button button-primary"
+        >
+          View Event
+        </Link>
+
+        <Link to="/events" className="text-link">
+          Browse all events →
+        </Link>
+      </div>
+    </div>
+
+    <div className="home-events-art" aria-hidden="true">
+      <span className="home-events-heart">♡</span>
+
+      <div className="home-events-date-card">
+        <span>SEP</span>
+        <strong>19</strong>
+        <small>2026</small>
+      </div>
+    </div>
+  </section>
+)}
 
       <section className="home-soft-intro">
         <p className="section-kicker">A soft place to begin</p>
@@ -396,7 +439,7 @@ export default function Home() {
           >
             Play Feed Me Fruit
           </a>
-          
+
         </div>
 
         <div>

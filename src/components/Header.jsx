@@ -9,6 +9,7 @@ const navigationItems = [
   { label: "Resources", path: "/resources" },
   { label: "Projects", path: "/projects" },
   { label: "About", path: "/about" },
+  { label: "Events", path: "/events" },
 ];
 
 export default function Header() {

@@ -7,6 +7,7 @@ const exploreLinks = [
     { label: "Plant Library", path: "/plants"},
     { label: "Resources", path: "/resources" },
     { label: "Community Projects", path: "/projects" },
+    { label: "Events", path: "/events" },
 ];
 
 const organizationLinks = [
