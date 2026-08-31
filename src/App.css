@@ -9442,3 +9442,189 @@ body,
     padding: 80px 20px;
   }
 }
+
+/* =========================================================
+   FRUITBAT PHONE CONTACT
+   ========================================================= */
+
+.contact-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.contact-phone-section {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 110px 0;
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  align-items: center;
+  gap: 90px;
+}
+
+.contact-phone-intro h2 {
+  margin: 12px 0 24px;
+  font-size: clamp(2.9rem, 4.8vw, 5.2rem);
+  line-height: 1.03;
+  letter-spacing: -0.05em;
+}
+
+.contact-phone-intro > p:not(.eyebrow) {
+  max-width: 670px;
+  color: rgba(23, 52, 52, 0.7);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.contact-phone-card {
+  padding: 40px;
+  border: 7px solid var(--dark);
+  border-radius: 36px;
+  background: var(--mint);
+  box-shadow: var(--shadow);
+}
+
+.contact-phone-heart {
+  display: block;
+  margin-bottom: 24px;
+  color: var(--purple);
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.contact-phone-label {
+  margin-bottom: 8px;
+  color: rgba(23, 52, 52, 0.62);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-phone-number {
+  display: inline-block;
+  margin-bottom: 30px;
+  font-family: "Fraunces", serif;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.contact-phone-hours {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.contact-phone-hours > div {
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--white);
+}
+
+.contact-phone-hours span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--purple);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.contact-phone-hours strong {
+  font-size: 1rem;
+}
+
+.contact-phone-actions {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-phone-actions .text-link {
+  margin-top: 0;
+}
+
+.contact-form-alternative {
+  margin-top: 28px;
+  padding: 20px 22px;
+  border-radius: 18px;
+  background: var(--mint);
+}
+
+.contact-form-alternative span {
+  display: block;
+  margin-bottom: 5px;
+  color: rgba(23, 52, 52, 0.65);
+  font-size: 0.78rem;
+}
+
+.contact-form-alternative a {
+  font-weight: 850;
+}
+
+/* Footer phone */
+
+.footer-phone {
+  margin-top: 24px;
+  display: grid;
+  gap: 5px;
+}
+
+.footer-phone a {
+  color: var(--white);
+  font-family: "Fraunces", serif;
+  font-size: 1.2rem;
+  font-weight: 750;
+}
+
+.footer-phone span {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.76rem;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .contact-phone-section {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .contact-hero-actions .button {
+    width: 100%;
+  }
+
+  .contact-phone-section {
+    width: min(100% - 28px, 1180px);
+    padding: 85px 0;
+  }
+
+  .contact-phone-card {
+    padding: 30px 24px;
+  }
+
+  .contact-phone-hours {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-phone-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .contact-phone-actions .button {
+    width: 100%;
+  }
+}

@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router";
 
+const FRUITBAT_PHONE_DISPLAY = "(818) 921-6617";
+const FRUITBAT_PHONE_LINK = "+18189216617";
+
 const contactReasons = [
   {
     title: "Suggest a resource",
@@ -40,21 +43,19 @@ const contactPrinciples = [
 ];
 
 export default function Contact() {
-
   const [searchParams] = useSearchParams();
 
-const requestedReason = searchParams.get("reason") ?? "";
-const requestedPlant = searchParams.get("plant") ?? "";
+  const requestedReason = searchParams.get("reason") ?? "";
+  const requestedPlant = searchParams.get("plant") ?? "";
 
-
-const [formData, setFormData] = useState({
-  name: "",
-  email: "",
-  reason: requestedReason,
-  message: requestedPlant
-    ? `I have a question about ${requestedPlant}.\n\n`
-    : "",
-});
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    reason: requestedReason,
+    message: requestedPlant
+      ? `I have a question about ${requestedPlant}.\n\n`
+      : "",
+  });
 
   const [status, setStatus] = useState("");
 
@@ -68,15 +69,15 @@ const [formData, setFormData] = useState({
   }
 
   useEffect(() => {
-  setFormData((current) => ({
-    ...current,
-    reason: requestedReason || current.reason,
-    message:
-      requestedPlant && !current.message
-        ? `I have a question about ${requestedPlant}.\n\n`
-        : current.message,
-  }));
-}, [requestedReason, requestedPlant]);
+    setFormData((current) => ({
+      ...current,
+      reason: requestedReason || current.reason,
+      message:
+        requestedPlant && !current.message
+          ? `I have a question about ${requestedPlant}.\n\n`
+          : current.message,
+    }));
+  }, [requestedReason, requestedPlant]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -88,12 +89,16 @@ const [formData, setFormData] = useState({
     );
 
     const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nReason: ${
-        formData.reason || "Not selected"
-      }\n\nMessage:\n${formData.message}`
+      `Name: ${formData.name}
+Email: ${formData.email}
+Reason: ${formData.reason || "Not selected"}
+
+Message:
+${formData.message}`
     );
 
-    window.location.href = `mailto:thefruitbatla@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href =
+      `mailto:thefruitbatla@gmail.com?subject=${subject}&body=${body}`;
 
     setStatus(
       "Your email application should open with the message prepared."
@@ -112,14 +117,26 @@ const [formData, setFormData] = useState({
           </h1>
 
           <p className="contact-hero-description">
-            Reach out with a growing question, resource suggestion,
-            collaboration idea, neighborhood project, or something you
-            believe could help the community.
+            Have a growing question, event idea, collaboration,
+            neighborhood project, or something useful to share?
+            Text anytime or call during phone hours.
           </p>
 
-          <a href="#contact-form" className="button button-primary">
-            Send a Message
-          </a>
+          <div className="contact-hero-actions">
+            <a
+              href={`sms:${FRUITBAT_PHONE_LINK}`}
+              className="button button-primary"
+            >
+              Text The Fruitbat
+            </a>
+
+            <a
+              href={`tel:${FRUITBAT_PHONE_LINK}`}
+              className="button button-secondary"
+            >
+              Call The Fruitbat
+            </a>
+          </div>
         </div>
 
         <div className="contact-hero-art" aria-hidden="true">
@@ -139,15 +156,76 @@ const [formData, setFormData] = useState({
         </div>
       </section>
 
-      <section className="contact-intro">
-        <p className="section-kicker">A welcoming place to begin</p>
+      <section className="contact-phone-section">
+        <div className="contact-phone-intro">
+          <p className="eyebrow">Direct contact</p>
 
-        <h2>You do not need a formal proposal to share a useful idea.</h2>
+          <h2>Sometimes a quick text is all you need.</h2>
+
+          <p>
+            Reach The Fruitbat directly with growing questions,
+            workshop questions, project ideas, or community
+            collaboration opportunities.
+          </p>
+        </div>
+
+        <div className="contact-phone-card">
+          <span className="contact-phone-heart">♡</span>
+
+          <p className="contact-phone-label">
+            The Fruitbat community line
+          </p>
+
+          <a
+            href={`tel:${FRUITBAT_PHONE_LINK}`}
+            className="contact-phone-number"
+          >
+            {FRUITBAT_PHONE_DISPLAY}
+          </a>
+
+          <div className="contact-phone-hours">
+            <div>
+              <span>Text</span>
+              <strong>Anytime</strong>
+            </div>
+
+            <div>
+              <span>Calls</span>
+              <strong>12 PM–5 PM PT</strong>
+            </div>
+          </div>
+
+          <div className="contact-phone-actions">
+            <a
+              href={`sms:${FRUITBAT_PHONE_LINK}`}
+              className="button button-primary"
+            >
+              Send a Text
+            </a>
+
+            <a
+              href={`tel:${FRUITBAT_PHONE_LINK}`}
+              className="text-link"
+            >
+              Call now →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="contact-intro">
+        <p className="section-kicker">
+          A welcoming place to begin
+        </p>
+
+        <h2>
+          You do not need a formal proposal to share a useful idea.
+        </h2>
 
         <p>
-          A short message is enough. Tell us what you noticed, what you
-          are trying to grow, what your neighborhood may need, or how you
-          would like to participate.
+          A short message is enough. Tell us what you noticed,
+          what you are trying to grow, what your neighborhood may
+          need, or how you would like to participate.
         </p>
       </section>
 
@@ -176,21 +254,21 @@ const [formData, setFormData] = useState({
 
       <section className="contact-form-section" id="contact-form">
         <div className="contact-form-copy">
-          <p className="eyebrow">Send a message</p>
+          <p className="eyebrow">Longer message</p>
 
-          <h2>Tell us what is growing.</h2>
+          <h2>Need a little more room?</h2>
 
           <p>
-            The first version uses your device’s email application. We
-            can connect the form to a hosted form service or backend
-            after the main website is complete.
+            For detailed questions, collaborations, or project ideas,
+            you can still use the message form. It prepares an email
+            using your device's email application.
           </p>
 
-          <div className="contact-direct-card">
-            <p className="contact-direct-label">Direct email</p>
+          <div className="contact-form-alternative">
+            <span>Prefer something quicker?</span>
 
-            <a href="mailto:thefruitbatla@gmail.com">
-              thefruitbatla@gmail.com
+            <a href={`sms:${FRUITBAT_PHONE_LINK}`}>
+              Text {FRUITBAT_PHONE_DISPLAY} →
             </a>
           </div>
         </div>
@@ -233,16 +311,27 @@ const [formData, setFormData] = useState({
               onChange={handleChange}
             >
               <option value="">Choose a reason</option>
-              <option value="Growing question">Growing question</option>
+              <option value="Growing question">
+                Growing question
+              </option>
               <option value="Resource suggestion">
                 Resource suggestion
               </option>
               <option value="Community project">
                 Community project
               </option>
-              <option value="Collaboration">Collaboration</option>
-              <option value="Website feedback">Website feedback</option>
-              <option value="Something else">Something else</option>
+              <option value="Collaboration">
+                Collaboration
+              </option>
+              <option value="Event question">
+                Event question
+              </option>
+              <option value="Website feedback">
+                Website feedback
+              </option>
+              <option value="Something else">
+                Something else
+              </option>
             </select>
           </label>
 
@@ -258,12 +347,18 @@ const [formData, setFormData] = useState({
             />
           </label>
 
-          <button type="submit" className="button button-primary">
+          <button
+            type="submit"
+            className="button button-primary"
+          >
             Prepare Email
           </button>
 
           {status && (
-            <p className="contact-form-status" role="status">
+            <p
+              className="contact-form-status"
+              role="status"
+            >
               {status}
             </p>
           )}
@@ -272,20 +367,26 @@ const [formData, setFormData] = useState({
 
       <section className="contact-expectations-section">
         <div className="contact-expectations-copy">
-          <p className="eyebrow">A small community standard</p>
+          <p className="eyebrow">
+            A small community standard
+          </p>
 
-          <h2>Thoughtful conversations help good projects grow.</h2>
+          <h2>
+            Thoughtful conversations help good projects grow.
+          </h2>
 
           <p>
-            The Fruitbat is designed to be welcoming, practical, and
-            respectful. Messages that follow the same spirit are always
-            appreciated.
+            The Fruitbat is designed to be welcoming, practical,
+            and respectful. Messages that follow the same spirit
+            are always appreciated.
           </p>
         </div>
 
         <div className="contact-principles-list">
           {contactPrinciples.map((principle) => (
-            <span key={principle}>{principle}</span>
+            <span key={principle}>
+              {principle}
+            </span>
           ))}
         </div>
       </section>
@@ -294,18 +395,21 @@ const [formData, setFormData] = useState({
         <div>
           <p className="eyebrow">Follow along</p>
 
-          <h2>See what The Fruitbat is growing and building.</h2>
+          <h2>
+            See what The Fruitbat is growing and building.
+          </h2>
 
           <p>
-            Plant updates, educational posts, project progress, and
-            community ideas can also be shared through social media.
+            Plant updates, educational posts, project progress,
+            events, and community ideas are also shared through
+            social media.
           </p>
         </div>
 
         <a
           href="https://www.instagram.com/thefruitbatla/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="button button-secondary"
         >
           Visit Instagram
@@ -313,22 +417,28 @@ const [formData, setFormData] = useState({
       </section>
 
       <section className="contact-cta">
-        <p className="eyebrow">Not ready to write?</p>
+        <p className="eyebrow">Not ready to reach out?</p>
 
-        <h2>Start by exploring one useful part of the project.</h2>
+        <h2>
+          Start by exploring one useful part of the project.
+        </h2>
 
         <div className="contact-cta-actions">
-          <Link to="/resources" className="button button-light">
+          <Link
+            to="/resources"
+            className="button button-light"
+          >
             Browse Resources
           </Link>
 
-          <Link to="/projects" className="contact-cta-link">
-            Explore projects →
+          <Link
+            to="/events"
+            className="contact-cta-link"
+          >
+            Explore upcoming events →
           </Link>
         </div>
       </section>
     </main>
   );
 }
-
-
