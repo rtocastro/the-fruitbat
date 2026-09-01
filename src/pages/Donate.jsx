@@ -16,8 +16,8 @@ const involvementOptions = [
     title: "Share the project",
     description:
       "Send The Fruitbat to a neighbor, teacher, gardener, family member, or community group who may find it useful.",
-    action: "Explore resources",
-    path: "/resources",
+    action: "Explore The Fruitbat",
+    path: "/",
     accent: "purple",
     symbol: "○",
   },
@@ -25,9 +25,9 @@ const involvementOptions = [
     number: "03",
     title: "Participate locally",
     description:
-      "Help with a future planting event, harvest swap, neighborhood registry, or community growing initiative.",
-    action: "View projects",
-    path: "/projects",
+      "Join a workshop, explore Captain Crop, help test community tools, or take part in future neighborhood growing projects.",
+    action: "Explore events",
+    path: "/events",
     accent: "lime",
     symbol: "●",
   },
@@ -57,7 +57,7 @@ const supportUses = [
   {
     title: "Website infrastructure",
     description:
-      "Domain, hosting, accessibility improvements, storage, forms, maps, and future community tools.",
+      "Domain, hosting, accessibility improvements, storage, forms, maps, QR-linked guides, and community tools.",
   },
   {
     title: "Local projects",
@@ -272,8 +272,8 @@ export default function Donate() {
             Get in Touch
           </Link>
 
-          <Link to="/projects" className="involved-cta-link">
-            See what we are building →
+          <Link to="/events" className="involved-cta-link">
+            See upcoming events →
           </Link>
         </div>
       </section>
