@@ -7,10 +7,10 @@ const FRUITBAT_PHONE_LINK = "+18189216617";
 const exploreLinks = [
   { label: "Our Mission", path: "/mission" },
   { label: "Start Growing", path: "/start-growing" },
+  { label: "Events", path: "/events" },
   { label: "Plant Library", path: "/plants" },
   { label: "Resources", path: "/resources" },
   { label: "Community Projects", path: "/projects" },
-  { label: "Events", path: "/events" },
 ];
 
 const organizationLinks = [
@@ -118,6 +118,10 @@ export default function Footer() {
 
           <Link to="/start-growing">
             Find your starting point →
+          </Link>
+
+          <Link to="/events">
+            See upcoming events →
           </Link>
         </aside>
       </div>
