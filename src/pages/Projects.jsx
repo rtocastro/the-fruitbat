@@ -8,28 +8,28 @@ const featuredProjects = [
     number: "01",
     title: "Neighborhood Plant Registry",
     description:
-      "A simple way for neighbors to document what they are growing, when it may be ready, and whether they are interested in sharing.",
-    stage: "Planning",
+      "A future community discovery project for documenting edible plants growing around the neighborhood and learning what thrives locally.",
+    stage: "Future Project",
     accent: "mint",
     symbol: "○",
     outcomes: [
-      "Discover what is growing nearby",
-      "Reduce duplicate planting",
-      "Make sharing easier",
+      "Discover what grows successfully nearby",
+      "Build a picture of local edible biodiversity",
+      "Explore playful plant discovery and collection",
     ],
   },
   {
     number: "02",
-    title: "Harvest Swap",
+    title: "Harvest Sharing",
     description:
-      "A community system for exchanging extra fruit, vegetables, herbs, seedlings, seeds, and growing materials.",
-    stage: "Early Concept",
+      "A community idea for helping extra fruit, vegetables, herbs, seedlings, seeds, and growing materials find useful homes instead of going to waste.",
+    stage: "Captain Crop Direction",
     accent: "purple",
     symbol: "♡",
     outcomes: [
       "Prevent edible food from going to waste",
-      "Help neighbors meet naturally",
-      "Make local harvests more useful",
+      "Make neighborhood sharing easier",
+      "Help useful growing resources find nearby people",
     ],
   },
   {
@@ -70,10 +70,12 @@ const supportingProjects = [
   {
     title: "Community Growing Events",
     description:
-      "Small neighborhood events centered around planting, sharing, learning, harvesting, and meeting nearby growers.",
+      "Workshops and community growing experiences centered around planting, learning, sharing, and meeting nearby growers.",
     category: "Community",
-    status: "Planning",
+    status: "Events now active",
     accent: "mint",
+    path: "/events",
+    actionLabel: "Explore events →",
   },
   {
     title: "Kids Growing Activities",
@@ -90,14 +92,18 @@ const supportingProjects = [
     category: "Play",
     status: "Playable now",
     accent: "lime",
+    path: "#feed-me-fruit",
+    actionLabel: "Play the game →",
   },
   {
     title: "Free Community Printables",
     description:
-      "Plant tags, harvest logs, neighborhood registries, garden worksheets, and other downloadable tools.",
+      "Plant tags, bookmarks, garden worksheets, and other downloadable tools designed to be useful and easy to share.",
     category: "Resources",
     status: "Available and expanding",
     accent: "dark",
+    path: "/resources#free-printables",
+    actionLabel: "Browse printables →",
   },
 ];
 
@@ -129,7 +135,7 @@ const projectProcess = [
 ];
 
 const futureIdeas = [
-  "Public community garden map",
+  "Expanded community garden mapping",
   "Local harvest notifications",
   "Neighborhood growing profiles",
   "Seasonal planting reminders",
@@ -276,7 +282,7 @@ export default function Projects() {
                   {project.status}
                 </span>
 
-                {project.externalUrl && (
+                {project.externalUrl ? (
                   <a
                     href={project.externalUrl}
                     target="_blank"
@@ -285,14 +291,33 @@ export default function Projects() {
                   >
                     {project.actionLabel ?? "Explore →"}
                   </a>
-                )}
+                ) : project.path ? (
+                  project.path.startsWith("#") ? (
+                    <a
+                      href={project.path}
+                      className="supporting-project-link"
+                    >
+                      {project.actionLabel ?? "Explore →"}
+                    </a>
+                  ) : (
+                    <Link
+                      to={project.path}
+                      className="supporting-project-link"
+                    >
+                      {project.actionLabel ?? "Explore →"}
+                    </Link>
+                  )
+                ) : null}
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="feed-me-fruit-project">
+      <section
+        className="feed-me-fruit-project"
+        id="feed-me-fruit"
+      >
         <div className="feed-me-fruit-project-copy">
           <p className="eyebrow">Playable project</p>
 
