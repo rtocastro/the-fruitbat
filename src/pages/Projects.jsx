@@ -56,6 +56,8 @@ const supportingProjects = [
     category: "Civic Technology",
     status: "Working prototype",
     accent: "aqua",
+    externalUrl: CAPTAIN_CROP_URL,
+    actionLabel: "Explore project →",
   },
   {
     title: "Plant Care QR Guides",
@@ -269,9 +271,22 @@ export default function Projects() {
               <h3>{project.title}</h3>
               <p>{project.description}</p>
 
-              <span className="supporting-project-status">
-                {project.status}
-              </span>
+              <div className="supporting-project-footer">
+                <span className="supporting-project-status">
+                  {project.status}
+                </span>
+
+                {project.externalUrl && (
+                  <a
+                    href={project.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="supporting-project-link"
+                  >
+                    {project.actionLabel ?? "Explore →"}
+                  </a>
+                )}
+              </div>
             </article>
           ))}
         </div>
@@ -297,87 +312,87 @@ export default function Projects() {
         <FeedMeFruitEmbed />
       </section>
 
-<section className="project-map-section">
-  <div className="project-map-copy">
-    <div className="captain-crop-heading-row">
-      <p className="eyebrow">Community tool</p>
+      <section className="project-map-section">
+        <div className="project-map-copy">
+          <div className="captain-crop-heading-row">
+            <p className="eyebrow">Community tool</p>
 
-      <span className="captain-crop-status">
-        Working prototype
-      </span>
-    </div>
+            <span className="captain-crop-status">
+              Working prototype
+            </span>
+          </div>
 
-    <h2>
-      See what is growing, happening, and available nearby.
-    </h2>
+          <h2>
+            See what is growing, happening, and available nearby.
+          </h2>
 
-    <p>
-      Captain Crop is a community garden exchange prototype
-      designed to help people discover produce, plants, garden
-      resources, and neighborhood growing activity through a
-      privacy-conscious map.
-    </p>
+          <p>
+            Captain Crop is a community garden exchange prototype
+            designed to help people discover produce, plants, garden
+            resources, and neighborhood growing activity through a
+            privacy-conscious map.
+          </p>
 
-    <p>
-      The project is still evolving, but the working prototype
-      already explores how local growers and neighbors could
-      connect around useful resources without exposing precise
-      private locations unnecessarily.
-    </p>
+          <p>
+            The project is still evolving, but the working prototype
+            already explores how local growers and neighbors could
+            connect around useful resources without exposing precise
+            private locations unnecessarily.
+          </p>
 
-    <div className="captain-crop-actions">
-      <a
-        href={CAPTAIN_CROP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="button button-primary"
-      >
-        Explore Captain Crop
-      </a>
+          <div className="captain-crop-actions">
+            <a
+              href={CAPTAIN_CROP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button button-primary"
+            >
+              Explore Captain Crop
+            </a>
 
-      <Link
-        to="/contact?reason=Community%20project"
-        className="text-link"
-      >
-        Share feedback →
-      </Link>
-    </div>
-  </div>
+            <Link
+              to="/contact?reason=Community%20project"
+              className="text-link"
+            >
+              Share feedback →
+            </Link>
+          </div>
+        </div>
 
-  <a
-    href={CAPTAIN_CROP_URL}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="captain-crop-preview"
-    aria-label="Open Captain Crop"
-  >
-    <div className="project-map-visual">
-      <div className="map-road road-horizontal" />
-      <div className="map-road road-vertical" />
+        <a
+          href={CAPTAIN_CROP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="captain-crop-preview"
+          aria-label="Open Captain Crop"
+        >
+          <div className="project-map-visual">
+            <div className="map-road road-horizontal" />
+            <div className="map-road road-vertical" />
 
-      <span className="map-block block-one" />
-      <span className="map-block block-two" />
-      <span className="map-block block-three" />
-      <span className="map-block block-four" />
+            <span className="map-block block-one" />
+            <span className="map-block block-two" />
+            <span className="map-block block-three" />
+            <span className="map-block block-four" />
 
-      <span className="map-pin pin-one">♡</span>
-      <span className="map-pin pin-two">●</span>
-      <span className="map-pin pin-three">○</span>
+            <span className="map-pin pin-one">♡</span>
+            <span className="map-pin pin-two">●</span>
+            <span className="map-pin pin-three">○</span>
 
-      <div className="captain-crop-preview-card">
-        <span>Captain Crop</span>
+            <div className="captain-crop-preview-card">
+              <span>Captain Crop</span>
 
-        <strong>
-          Explore the community map
-        </strong>
+              <strong>
+                Explore the community map
+              </strong>
 
-        <small>
-          Open prototype →
-        </small>
-      </div>
-    </div>
-  </a>
-</section>
+              <small>
+                Open prototype →
+              </small>
+            </div>
+          </div>
+        </a>
+      </section>
 
       <section className="project-process-section">
         <div className="project-process-intro">

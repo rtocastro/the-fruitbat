@@ -13,6 +13,8 @@ const growingPaths = [
       "Consider a long-term fruit tree",
     ],
     accent: "mint",
+    href: "#yard-growing",
+    linkLabel: "Explore backyard growing →",
   },
   {
     icon: "♡",
@@ -41,6 +43,8 @@ const growingPaths = [
       "Rotate plants for even light",
     ],
     accent: "lime",
+    href: "#indoor-growing",
+    linkLabel: "Explore indoor growing →",
   },
   {
     icon: "♡",
@@ -54,6 +58,8 @@ const growingPaths = [
       "Celebrate every small change",
     ],
     accent: "coral",
+    href: "#growing-with-kids",
+    linkLabel: "Explore growing with kids →",
   },
   {
     icon: "○",
@@ -67,6 +73,8 @@ const growingPaths = [
       "Start with one useful project",
     ],
     accent: "aqua",
+    href: "#community-growing",
+    linkLabel: "Explore community growing →",
   },
   {
     icon: "?",
@@ -80,6 +88,8 @@ const growingPaths = [
       "Focus on learning, not perfection",
     ],
     accent: "dark",
+    href: "#beginner-start",
+    linkLabel: "Show me where to begin →",
   },
 ];
 
@@ -236,12 +246,12 @@ export default function StartGrowing() {
                   {path.linkLabel}
                 </a>
               ) : (
-                <Link
-                  to="/resources"
+                <a
+                  href={path.href}
                   className="growing-card-link"
                 >
-                  Explore beginner resources →
-                </Link>
+                  {path.linkLabel}
+                </a>
               )}
             </article>
           ))}
@@ -329,7 +339,196 @@ export default function StartGrowing() {
         </div>
       </section>
 
-      <section className="first-steps-section">
+      <section className="growing-guide-section" id="yard-growing">
+        <div className="growing-guide-copy">
+          <p className="eyebrow">Backyard growing</p>
+          <h2>You do not need to redesign the whole yard.</h2>
+          <p>
+            Pick one sunny area and build from there. A few containers,
+            a small raised bed, or a fruit tree can become a productive
+            starting point without taking over the entire space.
+          </p>
+
+          <div className="growing-guide-actions">
+            <Link to="/plants" className="button button-primary">
+              Browse Plant Guides
+            </Link>
+          </div>
+        </div>
+
+        <div className="growing-guide-tips">
+          <article>
+            <span>01</span>
+            <h3>Find the sunniest useful corner</h3>
+            <p>Observe where direct sunlight lasts longest before planting.</p>
+          </article>
+
+          <article>
+            <span>02</span>
+            <h3>Start with one growing zone</h3>
+            <p>A small successful area is easier to learn from and expand later.</p>
+          </article>
+
+          <article>
+            <span>03</span>
+            <h3>Think long-term too</h3>
+            <p>A fruit tree can become years of food while annual plants fill the gaps.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="growing-guide-section" id="indoor-growing">
+        <div className="growing-guide-copy">
+          <p className="eyebrow">Indoor growing</p>
+          <h2>A sunny window can still grow something useful.</h2>
+          <p>
+            Indoor growing works best when you keep expectations realistic.
+            Herbs, green onions, microgreens, seedlings, and compact plants
+            can all provide useful experience.
+          </p>
+        </div>
+
+        <div className="growing-guide-tips">
+          <article>
+            <span>01</span>
+            <h3>Use your brightest window</h3>
+            <p>Light is usually the biggest limiting factor indoors.</p>
+          </article>
+
+          <article>
+            <span>02</span>
+            <h3>Keep containers manageable</h3>
+            <p>Small containers are easier to move, rotate, and monitor.</p>
+          </article>
+
+          <article>
+            <span>03</span>
+            <h3>Start with herbs or greens</h3>
+            <p>They can provide quick feedback without requiring a large setup.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="growing-guide-section" id="growing-with-kids">
+        <div className="growing-guide-copy">
+          <p className="eyebrow">Growing with kids</p>
+          <h2>Make the changes easy to see.</h2>
+          <p>
+            Fast-growing plants, simple labels, and small responsibilities
+            help turn gardening into something kids can observe and own.
+          </p>
+
+          <div className="growing-guide-actions">
+            <Link to="/resources#free-printables" className="button button-primary">
+              Find Free Printables
+            </Link>
+          </div>
+        </div>
+
+        <div className="growing-guide-tips">
+          <article>
+            <span>01</span>
+            <h3>Choose visible progress</h3>
+            <p>Radishes, beans, and quick seedlings make changes easier to notice.</p>
+          </article>
+
+          <article>
+            <span>02</span>
+            <h3>Give them ownership</h3>
+            <p>Let children name, label, water, or track one plant themselves.</p>
+          </article>
+
+          <article>
+            <span>03</span>
+            <h3>Celebrate observation</h3>
+            <p>A new leaf, root, flower, or sprout is already a successful lesson.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="growing-guide-section" id="community-growing">
+        <div className="growing-guide-copy">
+          <p className="eyebrow">Community growing</p>
+          <h2>You can contribute even without your own garden.</h2>
+          <p>
+            Sharing knowledge, extra produce, containers, seeds, time, or
+            local information can be just as useful as growing everything yourself.
+          </p>
+
+          <div className="growing-guide-actions">
+            <Link to="/projects" className="button button-primary">
+              Explore Community Projects
+            </Link>
+
+            <Link to="/events" className="text-link">
+              See upcoming events →
+            </Link>
+          </div>
+        </div>
+
+        <div className="growing-guide-tips">
+          <article>
+            <span>01</span>
+            <h3>Find out what already exists</h3>
+            <p>Ask neighbors what they grow, need, or already have to share.</p>
+          </article>
+
+          <article>
+            <span>02</span>
+            <h3>Share one useful thing</h3>
+            <p>Seeds, produce, knowledge, containers, or an hour of help all count.</p>
+          </article>
+
+          <article>
+            <span>03</span>
+            <h3>Connect people</h3>
+            <p>Community becomes stronger when useful resources find the people who need them.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="growing-guide-section" id="beginner-start">
+        <div className="growing-guide-copy">
+          <p className="eyebrow">Absolute beginner</p>
+          <h2>You only need one realistic first step.</h2>
+          <p>
+            Forget the perfect garden. Find one place with light, choose one
+            forgiving plant, and learn what happens next.
+          </p>
+
+          <div className="growing-guide-actions">
+            <a href="#first-steps" className="button button-primary">
+              Show Me the First Steps
+            </a>
+
+            <Link to="/plants" className="text-link">
+              Browse beginner plant ideas →
+            </Link>
+          </div>
+        </div>
+
+        <div className="growing-guide-tips">
+          <article>
+            <span>01</span>
+            <h3>Pick one location</h3>
+            <p>Do not plan the whole garden yet. Start with one usable spot.</p>
+          </article>
+
+          <article>
+            <span>02</span>
+            <h3>Pick one plant</h3>
+            <p>Choose something forgiving that you actually enjoy.</p>
+          </article>
+
+          <article>
+            <span>03</span>
+            <h3>Expect to learn</h3>
+            <p>Your first plant is an experiment, not a final exam.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="first-steps-section" id="first-steps">
         <div className="first-steps-intro">
           <p className="eyebrow">Your first four steps</p>
 
