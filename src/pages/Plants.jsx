@@ -20,75 +20,75 @@ const categoryDescriptions = {
 export default function Plants() {
 
     const [searchTerm, setSearchTerm] = useState("");
-const [selectedCategory, setSelectedCategory] = useState("All");
-const [sortOption, setSortOption] = useState("alphabetical");
+    const [selectedCategory, setSelectedCategory] = useState("All");
+    const [sortOption, setSortOption] = useState("alphabetical");
 
-const availableCategories = useMemo(() => {
-  const categories = [...new Set(plants.map((plant) => plant.category))];
+    const availableCategories = useMemo(() => {
+        const categories = [...new Set(plants.map((plant) => plant.category))];
 
-  return ["All", ...categories.sort((a, b) => a.localeCompare(b))];
-}, []);
+        return ["All", ...categories.sort((a, b) => a.localeCompare(b))];
+    }, []);
 
-const visiblePlants = useMemo(() => {
-  const normalizedSearch = searchTerm.trim().toLowerCase();
+    const visiblePlants = useMemo(() => {
+        const normalizedSearch = searchTerm.trim().toLowerCase();
 
-  const filteredPlants = plants.filter((plant) => {
-    const matchesCategory =
-      selectedCategory === "All" ||
-      plant.category === selectedCategory;
+        const filteredPlants = plants.filter((plant) => {
+            const matchesCategory =
+                selectedCategory === "All" ||
+                plant.category === selectedCategory;
 
-    const searchableContent = [
-      plant.commonName,
-      plant.shortName,
-      plant.scientificName,
-      plant.category,
-      plant.summary,
-      ...(plant.tags ?? []),
-    ]
-      .filter(Boolean)
-      .join(" ")
-      .toLowerCase();
+            const searchableContent = [
+                plant.commonName,
+                plant.shortName,
+                plant.scientificName,
+                plant.category,
+                plant.summary,
+                ...(plant.tags ?? []),
+            ]
+                .filter(Boolean)
+                .join(" ")
+                .toLowerCase();
 
-    const matchesSearch =
-      !normalizedSearch ||
-      searchableContent.includes(normalizedSearch);
+            const matchesSearch =
+                !normalizedSearch ||
+                searchableContent.includes(normalizedSearch);
 
-    return matchesCategory && matchesSearch;
-  });
+            return matchesCategory && matchesSearch;
+        });
 
-  return [...filteredPlants].sort((plantA, plantB) => {
-    if (sortOption === "recent") {
-      return plants.indexOf(plantB) - plants.indexOf(plantA);
-    }
+        return [...filteredPlants].sort((plantA, plantB) => {
+            if (sortOption === "recent") {
+                return plants.indexOf(plantB) - plants.indexOf(plantA);
+            }
 
-    if (sortOption === "beginner") {
-      const difficultyOrder = {
-        Beginner: 1,
-        "Beginner friendly": 1,
-        Easy: 1,
-        Moderate: 2,
-        Intermediate: 2,
-        Advanced: 3,
-      };
+            if (sortOption === "beginner") {
+                const difficultyOrder = {
+                    Beginner: 1,
+                    "Beginner friendly": 1,
+                    Easy: 1,
+                    Moderate: 2,
+                    Intermediate: 2,
+                    Advanced: 3,
+                };
 
-      const difficultyDifference =
-        (difficultyOrder[plantA.difficulty] ?? 99) -
-        (difficultyOrder[plantB.difficulty] ?? 99);
+                const difficultyDifference =
+                    (difficultyOrder[plantA.difficulty] ?? 99) -
+                    (difficultyOrder[plantB.difficulty] ?? 99);
 
-      if (difficultyDifference !== 0) {
-        return difficultyDifference;
-      }
-    }
+                if (difficultyDifference !== 0) {
+                    return difficultyDifference;
+                }
+            }
 
-    return plantA.commonName.localeCompare(plantB.commonName);
-  });
-}, [searchTerm, selectedCategory, sortOption]);
+            return plantA.commonName.localeCompare(plantB.commonName);
+        });
+    }, [searchTerm, selectedCategory, sortOption]);
 
-const clearPlantFilters = () => {
-  setSearchTerm("");
-  setSelectedCategory("All");
-  setSortOption("alphabetical");
-};
+    const clearPlantFilters = () => {
+        setSearchTerm("");
+        setSelectedCategory("All");
+        setSortOption("alphabetical");
+    };
 
     return (
         <main>
@@ -147,82 +147,82 @@ const clearPlantFilters = () => {
                 <div className="plant-library-heading">
                     <div className="plant-profile-grid"></div>
                     <div className="plant-library-controls">
-  <div className="plant-search-field">
-    <label htmlFor="plant-search">Search the library</label>
+                        <div className="plant-search-field">
+                            <label htmlFor="plant-search">Search the library</label>
 
-    <div className="plant-search-input-wrap">
-      <span aria-hidden="true">⌕</span>
+                            <div className="plant-search-input-wrap">
+                                <span aria-hidden="true">⌕</span>
 
-      <input
-        id="plant-search"
-        type="search"
-        placeholder="Search tomatoes, peppers, dragonfruit..."
-        value={searchTerm}
-        onChange={(event) => setSearchTerm(event.target.value)}
-      />
-    </div>
-  </div>
+                                <input
+                                    id="plant-search"
+                                    type="search"
+                                    placeholder="Search tomatoes, peppers, dragonfruit..."
+                                    value={searchTerm}
+                                    onChange={(event) => setSearchTerm(event.target.value)}
+                                />
+                            </div>
+                        </div>
 
-  <div className="plant-sort-field">
-    <label htmlFor="plant-sort">Sort profiles</label>
+                        <div className="plant-sort-field">
+                            <label htmlFor="plant-sort">Sort profiles</label>
 
-    <select
-      id="plant-sort"
-      value={sortOption}
-      onChange={(event) => setSortOption(event.target.value)}
-    >
-      <option value="alphabetical">Alphabetical A–Z</option>
-      <option value="recent">Recently added</option>
-      <option value="beginner">Beginner friendly</option>
-    </select>
-  </div>
-</div>
+                            <select
+                                id="plant-sort"
+                                value={sortOption}
+                                onChange={(event) => setSortOption(event.target.value)}
+                            >
+                                <option value="alphabetical">Alphabetical A–Z</option>
+                                <option value="recent">Recently added</option>
+                                <option value="beginner">Beginner friendly</option>
+                            </select>
+                        </div>
+                    </div>
 
-<div
-  className="plant-category-filters"
-  aria-label="Filter plants by category"
->
-  {availableCategories.map((category) => (
-    <button
-      type="button"
-      className={`plant-category-filter ${
-        selectedCategory === category ? "is-active" : ""
-      }`}
-      key={category}
-      onClick={() => setSelectedCategory(category)}
-      aria-pressed={selectedCategory === category}
-    >
-      {category}
-    </button>
-  ))}
-</div>
+                    <div
+                        className="plant-category-filters"
+                        aria-label="Filter plants by category"
+                    >
+                        {availableCategories.map((category) => (
+                            <button
+                                type="button"
+                                className={`plant-category-filter ${selectedCategory === category ? "is-active" : ""
+                                    }`}
+                                key={category}
+                                onClick={() => setSelectedCategory(category)}
+                                aria-pressed={selectedCategory === category}
+                            >
+                                {category}
+                            </button>
+                        ))}
+                    </div>
 
-<div className="plant-results-summary" aria-live="polite">
-  <p>
-    Showing <strong>{visiblePlants.length}</strong>{" "}
-    {visiblePlants.length === 1 ? "plant profile" : "plant profiles"}
-  </p>
+                    <div className="plant-results-summary" aria-live="polite">
+                        <p>
+                            Showing <strong>{visiblePlants.length}</strong>{" "}
+                            {visiblePlants.length === 1 ? "plant profile" : "plant profiles"}
+                        </p>
 
-  {(searchTerm ||
-    selectedCategory !== "All" ||
-    sortOption !== "alphabetical") && (
-    <button type="button" onClick={clearPlantFilters}>
-      Clear filters
-    </button>
-  )}
-</div>
+                        {(searchTerm ||
+                            selectedCategory !== "All" ||
+                            sortOption !== "alphabetical") && (
+                                <button type="button" onClick={clearPlantFilters}>
+                                    Clear filters
+                                </button>
+                            )}
+                    </div>
                     <p className="eyebrow">Available profiles</p>
 
                     <h2>Start with what is growing now.</h2>
 
                     <p>
-                        The current library is small by design. New profiles can be
-                        added without rebuilding the page.
+                        Browse the plants currently growing in The Fruitbat library.
+                        Search by name, category, or growing keyword, and check back as
+                        new profiles and guides are added.
                     </p>
                 </div>
 
-<div className="plant-profile-grid">
-  {visiblePlants.map((plant) => (
+                <div className="plant-profile-grid">
+                    {visiblePlants.map((plant) => (
                         <article
                             className={`plant-profile-card plant-accent-${plant.accent}`}
                             key={plant.id}
@@ -245,7 +245,7 @@ const clearPlantFilters = () => {
                                 </div>
 
                                 <span className="plant-profile-journal-number">
-                                   No. {String(visiblePlants.indexOf(plant) + 1).padStart(2, "0")}
+                                    No. {String(visiblePlants.indexOf(plant) + 1).padStart(2, "0")}
                                 </span>
                             </div>
 
@@ -288,36 +288,61 @@ const clearPlantFilters = () => {
                     ))}
 
                     {visiblePlants.length === 0 && (
-  <div className="plant-empty-results">
-    <span aria-hidden="true">○</span>
+                        <div className="plant-empty-results">
+                            <span aria-hidden="true">○</span>
 
-    <h3>No plant profiles found.</h3>
+                            <h3>No plant profiles found.</h3>
 
-    <p>
-      Try a different plant name, category, or growing keyword.
-    </p>
+                            <p>
+                                Try a different plant name, category, or growing keyword.
+                            </p>
 
-    <button
-      type="button"
-      className="button button-secondary"
-      onClick={clearPlantFilters}
-    >
-      Clear Search and Filters
-    </button>
-  </div>
-)}
+                            <button
+                                type="button"
+                                className="button button-secondary"
+                                onClick={clearPlantFilters}
+                            >
+                                Clear Search and Filters
+                            </button>
+                        </div>
+                    )}
                 </div>
             </section>
 
             <section className="plant-category-section">
                 <div className="plant-category-heading">
-                    <p className="eyebrow">The future library</p>
-                    <h2>More categories can grow from the same system.</h2>
+                    <p className="eyebrow">Explore by plant type</p>
+                    <h2>The library can keep growing without changing how you use it.</h2>
                 </div>
 
                 <div className="plant-category-grid">
-                   {Object.keys(categoryDescriptions).map((category, index) => (
-                            <article className="plant-category-card" key={category}>
+                    {Object.keys(categoryDescriptions).map((category, index) => {
+                        const hasProfiles = plants.some(
+                            (plant) => plant.category === category
+                        );
+
+                        return (
+                            <button
+                                type="button"
+                                className={`plant-category-card ${hasProfiles ? "is-clickable" : "is-disabled"
+                                    }`}
+                                key={category}
+                                disabled={!hasProfiles}
+                                onClick={() => {
+                                    if (!hasProfiles) return;
+
+                                    setSelectedCategory(category);
+
+                                    window.setTimeout(() => {
+                                        document
+                                            .getElementById("plant-library")
+                                            ?.scrollIntoView({
+                                                behavior: "smooth",
+                                                block: "start",
+                                            });
+                                    }, 0);
+                                }}
+                            >
                                 <span className="plant-category-number">
                                     {String(index + 1).padStart(2, "0")}
                                 </span>
@@ -330,12 +355,13 @@ const clearPlantFilters = () => {
                                 </p>
 
                                 <span className="plant-category-status">
-                                    {plants.some((plant) => plant.category === category)
-                                        ? "Profiles available"
+                                    {hasProfiles
+                                        ? "Explore profiles →"
                                         : "Library growing"}
                                 </span>
-                            </article>
-                        ))}
+                            </button>
+                        );
+                    })}
                 </div>
             </section>
 
@@ -360,11 +386,11 @@ const clearPlantFilters = () => {
 
                     <p className="plant-url-label">Permanent plant address</p>
 
-                    <code>thefruitbat.org/plants/ecuador-palora</code>
+                    <code>thefruitbat.org/plants/your-plant-name</code>
 
                     <p>
-                        Quick care, complete guidance, videos, downloads, and future
-                        community tips can all live behind one link.
+                        Each plant gets its own permanent address for quick care,
+                        complete guidance, downloads, future updates, and QR labels.
                     </p>
                 </div>
             </section>

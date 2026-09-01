@@ -9886,3 +9886,38 @@ body,
 #event-details {
   scroll-margin-top: 120px;
 }
+
+.plant-category-card {
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  appearance: none;
+  cursor: default;
+}
+
+.plant-category-card.is-clickable {
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.plant-category-card.is-clickable:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 46px rgba(16, 40, 40, 0.08);
+}
+
+.plant-category-card.is-clickable:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 4px;
+}
+
+.plant-category-card.is-disabled {
+  opacity: 0.72;
+}
+
+.plant-category-card:disabled {
+  cursor: default;
+}
