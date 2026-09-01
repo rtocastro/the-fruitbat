@@ -22,7 +22,7 @@ const communityActions = [
     symbol: "♡",
     title: "Learn",
     description:
-      "Explore plant profiles, printable guides, growing tools, and approachable resources.",
+      "Explore free printables, growing guides, community resources, and useful tools.",
     path: "/resources",
     linkLabel: "Explore free resources",
     accent: "purple",
@@ -42,19 +42,19 @@ const communityActions = [
 const firstSteps = [
   {
     label: "I am completely new",
-    path: "/start-growing",
+    path: "/start-growing#beginner-start",
   },
   {
     label: "I want plant-care information",
-    path: "/plants",
+    path: "/plants#plant-library",
   },
   {
     label: "I want free printables",
-    path: "/resources",
+    path: "/resources#free-printables",
   },
   {
-    label: "I want to help my neighborhood",
-    path: "/projects",
+    label: "I want to help my neighborhood/share harvest",
+    path: "/projects#captain-crop",
   },
 ];
 
@@ -232,46 +232,46 @@ export default function Home() {
         </div>
       </section>
 
-{featuredEvent && (
-  <section className="home-events-section">
-    <div className="home-events-copy">
-      <p className="eyebrow">Upcoming event</p>
+      {featuredEvent && (
+        <section className="home-events-section">
+          <div className="home-events-copy">
+            <p className="eyebrow">Upcoming event</p>
 
-      <h2>{featuredEvent.title}</h2>
+            <h2>{featuredEvent.title}</h2>
 
-      <p>{featuredEvent.summary}</p>
+            <p>{featuredEvent.summary}</p>
 
-      <div className="home-events-details">
-        <span>{featuredEvent.date}</span>
-        <span>•</span>
-        <span>{featuredEvent.location}</span>
-      </div>
+            <div className="home-events-details">
+              <span>{featuredEvent.date}</span>
+              <span>•</span>
+              <span>{featuredEvent.location}</span>
+            </div>
 
-      <div className="home-events-actions">
-        <Link
-          to={`/events/${featuredEvent.slug}`}
-          className="button button-primary"
-        >
-          View Event
-        </Link>
+            <div className="home-events-actions">
+              <Link
+                to={`/events/${featuredEvent.slug}`}
+                className="button button-primary"
+              >
+                View Event
+              </Link>
 
-        <Link to="/events" className="text-link">
-          Browse all events →
-        </Link>
-      </div>
-    </div>
+              <Link to="/events" className="text-link">
+                Browse all events →
+              </Link>
+            </div>
+          </div>
 
-    <div className="home-events-art" aria-hidden="true">
-      <span className="home-events-heart">♡</span>
+          <div className="home-events-art" aria-hidden="true">
+            <span className="home-events-heart">♡</span>
 
-      <div className="home-events-date-card">
-        <span>SEP</span>
-        <strong>19</strong>
-        <small>2026</small>
-      </div>
-    </div>
-  </section>
-)}
+            <div className="home-events-date-card">
+              <span>SEP</span>
+              <strong>19</strong>
+              <small>2026</small>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="home-soft-intro">
         <p className="section-kicker">A soft place to begin</p>
@@ -399,13 +399,13 @@ export default function Home() {
           </h2>
 
           <p>
-            The Fruitbat is exploring plant registries, harvest-sharing
-            tools, community maps, educational games, and local growing
-            projects designed to help useful resources connect.
+            The Fruitbat is building community tools around plant discovery,
+            harvest sharing, local growing activity, educational games, and
+            neighborhood projects—including the working Captain Crop prototype.
           </p>
 
-          <Link to="/projects" className="text-link">
-            Explore community projects →
+          <Link to="/projects#captain-crop" className="text-link">
+            Explore Captain Crop and community projects →
           </Link>
         </div>
 
