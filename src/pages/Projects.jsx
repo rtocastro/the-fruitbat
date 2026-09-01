@@ -1,5 +1,7 @@
 import { Link } from "react-router";
 import FeedMeFruitEmbed from "../components/FeedMeFruitEmbed";
+const CAPTAIN_CROP_URL =
+  "https://captaincrop.onrender.com/";
 
 const featuredProjects = [
   {
@@ -295,47 +297,87 @@ export default function Projects() {
         <FeedMeFruitEmbed />
       </section>
 
-      <section className="project-map-section">
-        <div className="project-map-copy">
-          <p className="eyebrow">Community mapping</p>
+<section className="project-map-section">
+  <div className="project-map-copy">
+    <div className="captain-crop-heading-row">
+      <p className="eyebrow">Community tool</p>
 
-          <h2>
-            See what is growing, happening, and available nearby.
-          </h2>
+      <span className="captain-crop-status">
+        Working prototype
+      </span>
+    </div>
 
-          <p>
-            Captain Crop is an early working prototype exploring how
-            community members can discover produce, plants, garden
-            resources, and neighborhood growing activity.
-          </p>
+    <h2>
+      See what is growing, happening, and available nearby.
+    </h2>
 
-          <p>
-            Future versions may expand to include community gardens,
-            harvest swaps, events, volunteer opportunities, and additional
-            local resources.
-          </p>
+    <p>
+      Captain Crop is a community garden exchange prototype
+      designed to help people discover produce, plants, garden
+      resources, and neighborhood growing activity through a
+      privacy-conscious map.
+    </p>
 
-          <p>
-            Privacy and safety will remain central. Public information
-            should help people connect without exposing precise private
-            locations unnecessarily.
-          </p>
-        </div>
+    <p>
+      The project is still evolving, but the working prototype
+      already explores how local growers and neighbors could
+      connect around useful resources without exposing precise
+      private locations unnecessarily.
+    </p>
 
-        <div className="project-map-visual" aria-hidden="true">
-          <div className="map-road road-horizontal" />
-          <div className="map-road road-vertical" />
+    <div className="captain-crop-actions">
+      <a
+        href={CAPTAIN_CROP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="button button-primary"
+      >
+        Explore Captain Crop
+      </a>
 
-          <span className="map-block block-one" />
-          <span className="map-block block-two" />
-          <span className="map-block block-three" />
-          <span className="map-block block-four" />
+      <Link
+        to="/contact?reason=Community%20project"
+        className="text-link"
+      >
+        Share feedback →
+      </Link>
+    </div>
+  </div>
 
-          <span className="map-pin pin-one">♡</span>
-          <span className="map-pin pin-two">●</span>
-          <span className="map-pin pin-three">○</span>
-        </div>
-      </section>
+  <a
+    href={CAPTAIN_CROP_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="captain-crop-preview"
+    aria-label="Open Captain Crop"
+  >
+    <div className="project-map-visual">
+      <div className="map-road road-horizontal" />
+      <div className="map-road road-vertical" />
+
+      <span className="map-block block-one" />
+      <span className="map-block block-two" />
+      <span className="map-block block-three" />
+      <span className="map-block block-four" />
+
+      <span className="map-pin pin-one">♡</span>
+      <span className="map-pin pin-two">●</span>
+      <span className="map-pin pin-three">○</span>
+
+      <div className="captain-crop-preview-card">
+        <span>Captain Crop</span>
+
+        <strong>
+          Explore the community map
+        </strong>
+
+        <small>
+          Open prototype →
+        </small>
+      </div>
+    </div>
+  </a>
+</section>
 
       <section className="project-process-section">
         <div className="project-process-intro">
