@@ -260,8 +260,8 @@ ${formData.message}`
 
           <p>
             For detailed questions, collaborations, or project ideas,
-            you can still use the message form. It prepares an email
-            using your device's email application.
+            use the message form below. It prepares an email in your
+            device's email application so you have more room to explain.
           </p>
 
           <div className="contact-form-alternative">
@@ -400,9 +400,9 @@ ${formData.message}`
           </h2>
 
           <p>
-            Plant updates, educational posts, project progress,
-            events, and community ideas are also shared through
-            social media.
+            Plant updates, Fruitbat Facts, project progress,
+            upcoming events, and community ideas are also shared
+            on Instagram.
           </p>
         </div>
 
