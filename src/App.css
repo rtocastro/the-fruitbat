@@ -9873,3 +9873,16 @@ body,
     width: 100%;
   }
 }
+
+#free-printables,
+#small-spaces,
+#yard-growing,
+#indoor-growing,
+#growing-with-kids,
+#community-growing,
+#beginner-start,
+#first-steps,
+#upcoming-events,
+#event-details {
+  scroll-margin-top: 120px;
+}

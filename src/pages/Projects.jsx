@@ -312,7 +312,10 @@ export default function Projects() {
         <FeedMeFruitEmbed />
       </section>
 
-      <section className="project-map-section">
+      <section
+        className="project-map-section"
+        id="captain-crop"
+      >
         <div className="project-map-copy">
           <div className="captain-crop-heading-row">
             <p className="eyebrow">Community tool</p>

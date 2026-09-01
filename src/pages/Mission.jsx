@@ -94,7 +94,7 @@ export default function Mission() {
           <p className="eyebrow">Why this matters</p>
 
           <h2>
-            Many people want to grow food—but do not know where to begin.
+            Many people want to grow food, but do not know where to begin.
           </h2>
         </div>
 

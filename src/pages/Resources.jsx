@@ -11,6 +11,8 @@ function formatStatus(status) {
     available: "Available",
     planned: "Planned",
     "coming-soon": "Coming Soon",
+    "future-project": "Future Project",
+    prototype: "Working Prototype",
   };
 
   return statuses[status] ?? status;
@@ -196,8 +198,17 @@ export default function Resources() {
                   to={resource.path}
                   className="featured-resource-link"
                 >
-                  View resource →
+                  {resource.actionLabel ?? "View resource →"}
                 </Link>
+              ) : resource.externalUrl ? (
+                <a
+                  href={resource.externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="featured-resource-link"
+                >
+                  {resource.actionLabel ?? "Visit resource ↗"}
+                </a>
               ) : (
                 <span className="featured-resource-link">
                   {formatStatus(resource.status)}
@@ -272,11 +283,19 @@ export default function Resources() {
                               {formatStatus(resource.status)}
                             </span>
 
-                            {resource.path && (
+                            {resource.path ? (
                               <Link to={resource.path}>
-                                Open →
+                                {resource.actionLabel ?? "Open →"}
                               </Link>
-                            )}
+                            ) : resource.externalUrl ? (
+                              <a
+                                href={resource.externalUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {resource.actionLabel ?? "Open ↗"}
+                              </a>
+                            ) : null}
                           </div>
                         </article>
                       ))}
