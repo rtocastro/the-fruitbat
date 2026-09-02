@@ -9921,3 +9921,275 @@ body,
 .plant-category-card:disabled {
   cursor: default;
 }
+
+/* =========================================================
+   EVENT RSVP / PLANNING
+   ========================================================= */
+
+.event-planning-section {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 110px 0;
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  align-items: center;
+  gap: 80px;
+  scroll-margin-top: 120px;
+}
+
+.event-planning-copy h2 {
+  margin: 12px 0 22px;
+  font-size: clamp(3rem, 5vw, 5.2rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.event-planning-copy > p:not(.eyebrow) {
+  max-width: 680px;
+  color: rgba(23, 52, 52, 0.72);
+  line-height: 1.8;
+}
+
+.event-planning-note {
+  margin-top: 28px;
+  padding: 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  border-radius: 20px;
+  background: var(--mint);
+}
+
+.event-planning-note span {
+  flex: 0 0 auto;
+  color: var(--purple);
+  font-size: 2rem;
+}
+
+.event-planning-note p {
+  margin: 0;
+  line-height: 1.65;
+}
+
+.event-planning-card {
+  padding: 36px;
+  border: 7px solid var(--dark);
+  border-radius: 34px;
+  background: var(--lime);
+  box-shadow: var(--shadow);
+}
+
+.event-planning-card-label {
+  margin-bottom: 10px;
+  color: var(--purple);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.event-planning-card h3 {
+  margin-bottom: 28px;
+  font-size: 2.2rem;
+  line-height: 1.05;
+}
+
+.event-planning-checklist {
+  display: grid;
+  gap: 12px;
+}
+
+.event-planning-checklist > div {
+  padding: 15px 17px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  border-radius: 15px;
+  background: var(--white);
+}
+
+.event-planning-checklist span {
+  color: var(--purple);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.event-planning-checklist p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.event-planning-actions {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+}
+
+.event-calendar-status {
+  color: rgba(23, 52, 52, 0.62);
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+
+/* =========================================================
+   EVENT MATERIALS
+   ========================================================= */
+
+.event-materials-section {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 110px 0;
+}
+
+.event-materials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.event-material-card {
+  min-height: 190px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: var(--white);
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.event-material-card > span {
+  color: var(--coral);
+  font-size: 3rem;
+}
+
+.event-material-card p {
+  margin-bottom: 10px;
+  font-size: 1.35rem;
+  font-weight: 850;
+}
+
+.event-material-card strong {
+  color: var(--purple);
+  font-size: 0.8rem;
+}
+
+.event-materials-locked {
+  padding: 60px 30px;
+  border: 3px dashed var(--border);
+  border-radius: 32px;
+  text-align: center;
+  background: var(--mint);
+}
+
+.event-materials-lock {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--purple);
+  font-size: 4.5rem;
+}
+
+.event-materials-lock-label {
+  color: var(--purple);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.event-materials-locked h3 {
+  margin: 12px auto;
+  max-width: 650px;
+  font-size: 2rem;
+}
+
+.event-materials-locked > p:last-child {
+  max-width: 650px;
+  margin: 0 auto;
+  color: rgba(23, 52, 52, 0.7);
+  line-height: 1.75;
+}
+
+/* =========================================================
+   EVENT QUESTIONS
+   ========================================================= */
+
+.event-question-section {
+  padding: 90px max(20px, calc((100% - 1180px) / 2));
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 60px;
+  background: var(--mint);
+}
+
+.event-question-section h2 {
+  margin: 12px 0 16px;
+  font-size: clamp(2.7rem, 4vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.event-question-section p:not(.eyebrow) {
+  line-height: 1.7;
+}
+
+.event-question-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.event-question-actions .text-link {
+  margin-top: 0;
+}
+
+@media (max-width: 900px) {
+  .event-planning-section,
+  .event-question-section {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+}
+
+@media (max-width: 640px) {
+  .event-planning-section,
+  .event-materials-section {
+    width: min(100% - 28px, 1180px);
+    padding: 85px 0;
+  }
+
+  .event-planning-card {
+    padding: 26px 22px;
+  }
+
+  .event-planning-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .event-planning-actions .button {
+    width: 100%;
+  }
+
+  .event-materials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-question-section {
+    padding: 80px 20px;
+  }
+
+  .event-question-actions {
+    align-items: stretch;
+  }
+
+  .event-question-actions .button {
+    width: 100%;
+  }
+}

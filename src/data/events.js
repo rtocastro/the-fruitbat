@@ -85,8 +85,44 @@ export const events = [
 
         registrationUrl: null,
         image: null,
+
+        rsvp: {
+            enabled: true,
+            title: "Planning to join us?",
+            description:
+                "Let us know you are coming, add the workshop to your calendar, and keep this page bookmarked for materials and follow-up resources.",
+        },
+
+        calendar: {
+            enabled: false,
+            path: null,
+        },
+
+        materials: {
+            enabled: true,
+            unlocked: false,
+
+            title: "Workshop materials",
+
+            lockedMessage:
+                "Workshop handouts will unlock here during the event and remain available afterward.",
+
+            files: [
+                {
+                    label: "Small Space Gardening 101 Workshop Guide",
+                    path: "/guides/small-space-gardening-101-workshop-guide.pdf",
+                },
+                {
+                    label: "Small Space Gardening 101 Take-Home Guide",
+                    path: "/guides/small-space-gardening-101-take-home-guide.pdf",
+                },
+            ],
+        },
     },
+
 ];
+
+
 
 export const featuredEvents = events.filter(
     (event) => event.featured
@@ -105,3 +141,4 @@ export function getUpcomingEvents() {
         return eventDate >= today;
     });
 }
+
