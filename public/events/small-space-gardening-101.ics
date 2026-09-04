@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//The Fruitbat//Small Space Gardening 101//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:small-space-gardening-101-20260919@thefruitbat.org
+DTSTAMP:20260904T155600Z
+DTSTART;TZID=America/Los_Angeles:20260919T100000
+DTEND;TZID=America/Los_Angeles:20260919T123000
+SUMMARY:Small Space Gardening 101
+LOCATION:Sunbrewed Homestead
+DESCRIPTION:Join The Fruitbat for Small Space Gardening 101 during the Sunbrewed Homestead event. The Fruitbat presentation is approximately 30 minutes within the 10:00 AM–12:30 PM event window. Come ready to learn practical small-space gardening basics and leave with a small plant to continue growing at home.\n\nAfter the event, return to the workshop page for handouts, growing resources, troubleshooting tips, and follow-up updates:\nhttps://thefruitbat.org/events/small-space-gardening-101
+URL:https://thefruitbat.org/events/small-space-gardening-101
+BEGIN:VALARM
+TRIGGER:-PT1H
+ACTION:DISPLAY
+DESCRIPTION:Small Space Gardening 101 starts in 1 hour. Bring your questions and be ready to leave with a small plant.
+END:VALARM
+END:VEVENT
+END:VCALENDAR

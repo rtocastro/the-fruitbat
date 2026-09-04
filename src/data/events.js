@@ -9,7 +9,7 @@ export const events = [
         date: "September 19, 2026",
         dateISO: "2026-09-19",
 
-        time: null,
+        time: "10:00 AM–12:30 PM",
 
         location: "Sunbrewed Homestead",
         locationDetails: null,
@@ -94,27 +94,27 @@ export const events = [
         },
 
         calendar: {
-            enabled: false,
-            path: null,
+            enabled: true,
+            path: "/events/small-space-gardening-101.ics",
         },
 
-materials: {
-  enabled: true,
-  unlocked: false,
+        materials: {
+            enabled: true,
+            unlocked: false,
 
-  title: "Workshop materials",
+            title: "Workshop materials",
 
-  lockedMessage:
-    "Workshop handouts will unlock here during the event and remain available afterward.",
+            lockedMessage:
+                "Workshop handouts will unlock here during the event and remain available afterward.",
 
-  files: [
-    {
-      label: "Small Space Gardening 101 Take-Home Guide",
-      path: "/guides/small-space-gardening-101-take-home-guide.pdf",
-      type: "PDF",
-    },
-  ],
-},
+            files: [
+                {
+                    label: "Small Space Gardening 101 Take-Home Guide",
+                    path: "/guides/small-space-gardening-101-take-home-guide.pdf",
+                    type: "PDF",
+                },
+            ],
+        },
     },
 
 ];
