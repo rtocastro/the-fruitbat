@@ -63,6 +63,15 @@ const dragonfruitBeginnerTips = [
   "Keep notes about flowering, pollination, fruiting, and seasonal growth.",
 ];
 
+const dragonfruitSeasonalGrowing = {
+  "10a": {
+    months: [3, 4, 5, 6, 7, 8, 9, 10],
+    status: "good",
+    note:
+      "Dragonfruit is actively growing during the warmer part of the year in Zone 10a. Growth slows as temperatures cool.",
+  },
+};
+
 const dragonfruitPlants = [
   {
     id: "ecuador-palora",
@@ -90,6 +99,7 @@ const dragonfruitPlants = [
     quickCare: dragonfruitQuickCare,
     careSections: dragonfruitCareSections,
     beginnerTips: dragonfruitBeginnerTips,
+    seasonalGrowing: dragonfruitSeasonalGrowing,
 
     tags: [
       "dragonfruit",
@@ -130,6 +140,7 @@ const dragonfruitPlants = [
     quickCare: dragonfruitQuickCare,
     careSections: dragonfruitCareSections,
     beginnerTips: dragonfruitBeginnerTips,
+    seasonalGrowing: dragonfruitSeasonalGrowing,
 
     tags: [
       "dragonfruit",
@@ -170,6 +181,7 @@ const dragonfruitPlants = [
     quickCare: dragonfruitQuickCare,
     careSections: dragonfruitCareSections,
     beginnerTips: dragonfruitBeginnerTips,
+    seasonalGrowing: dragonfruitSeasonalGrowing,
 
     tags: [
       "dragonfruit",
@@ -210,6 +222,7 @@ const dragonfruitPlants = [
     quickCare: dragonfruitQuickCare,
     careSections: dragonfruitCareSections,
     beginnerTips: dragonfruitBeginnerTips,
+    seasonalGrowing: dragonfruitSeasonalGrowing,
 
     tags: [
       "dragonfruit",
@@ -250,6 +263,7 @@ const dragonfruitPlants = [
     quickCare: dragonfruitQuickCare,
     careSections: dragonfruitCareSections,
     beginnerTips: dragonfruitBeginnerTips,
+    seasonalGrowing: dragonfruitSeasonalGrowing,
 
     tags: [
       "dragonfruit",
@@ -290,6 +304,7 @@ const dragonfruitPlants = [
     quickCare: dragonfruitQuickCare,
     careSections: dragonfruitCareSections,
     beginnerTips: dragonfruitBeginnerTips,
+    seasonalGrowing: dragonfruitSeasonalGrowing,
 
     tags: [
       "dragonfruit",
@@ -310,7 +325,9 @@ export const plants = [
   ...seedPlants,
 ];
 
-export const featuredPlants = plants.filter((plant) => plant.featured);
+export const featuredPlants = plants.filter(
+  (plant) => plant.featured
+);
 
 export const plantCategories = [
   "All",
