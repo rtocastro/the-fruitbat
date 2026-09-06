@@ -22,6 +22,10 @@ export default function Plants() {
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("All");
     const [sortOption, setSortOption] = useState("alphabetical");
+    const [selectedZone, setSelectedZone] = useState("10a");
+    const [whenFilter, setWhenFilter] = useState("all");
+
+    const currentMonth = new Date().getMonth() + 1;
 
     const availableCategories = useMemo(() => {
         const categories = [...new Set(plants.map((plant) => plant.category))];
@@ -36,6 +40,12 @@ export default function Plants() {
             const matchesCategory =
                 selectedCategory === "All" ||
                 plant.category === selectedCategory;
+
+            const zoneData = plant.seasonalGrowing?.[selectedZone];
+
+            const matchesGrowNow =
+                whenFilter !== "now" ||
+                zoneData?.months?.includes(currentMonth);
 
             const searchableContent = [
                 plant.commonName,
@@ -53,7 +63,7 @@ export default function Plants() {
                 !normalizedSearch ||
                 searchableContent.includes(normalizedSearch);
 
-            return matchesCategory && matchesSearch;
+            return matchesCategory && matchesSearch && matchesGrowNow;
         });
 
         return [...filteredPlants].sort((plantA, plantB) => {
@@ -82,11 +92,20 @@ export default function Plants() {
 
             return plantA.commonName.localeCompare(plantB.commonName);
         });
-    }, [searchTerm, selectedCategory, sortOption]);
+    }, [
+        searchTerm,
+        selectedCategory,
+        sortOption,
+        selectedZone,
+        whenFilter,
+        currentMonth,
+    ]);
 
     const clearPlantFilters = () => {
         setSearchTerm("");
         setSelectedCategory("All");
+        setSelectedZone("10a");
+        setWhenFilter("all");
         setSortOption("alphabetical");
     };
 
@@ -145,7 +164,6 @@ export default function Plants() {
 
             <section className="plant-library-section" id="plant-library">
                 <div className="plant-library-heading">
-                    <div className="plant-profile-grid"></div>
                     <div className="plant-library-controls">
                         <div className="plant-search-field">
                             <label htmlFor="plant-search">Search the library</label>
@@ -161,6 +179,46 @@ export default function Plants() {
                                     onChange={(event) => setSearchTerm(event.target.value)}
                                 />
                             </div>
+                        </div>
+
+                        <div className="plant-zone-field">
+                            <label htmlFor="plant-zone">
+                                Growing zone
+                            </label>
+
+                            <select
+                                id="plant-zone"
+                                value={selectedZone}
+                                onChange={(event) =>
+                                    setSelectedZone(event.target.value)
+                                }
+                            >
+                                <option value="10a">
+                                    Zone 10a
+                                </option>
+                            </select>
+                        </div>
+
+                        <div className="plant-when-field">
+                            <label htmlFor="plant-when">
+                                When
+                            </label>
+
+                            <select
+                                id="plant-when"
+                                value={whenFilter}
+                                onChange={(event) =>
+                                    setWhenFilter(event.target.value)
+                                }
+                            >
+                                <option value="all">
+                                    Any time
+                                </option>
+
+                                <option value="now">
+                                    Grow now
+                                </option>
+                            </select>
                         </div>
 
                         <div className="plant-sort-field">
@@ -197,19 +255,38 @@ export default function Plants() {
                     </div>
 
                     <div className="plant-results-summary" aria-live="polite">
-                        <p>
-                            Showing <strong>{visiblePlants.length}</strong>{" "}
-                            {visiblePlants.length === 1 ? "plant profile" : "plant profiles"}
-                        </p>
+                        <div>
+                            {whenFilter === "now" && (
+                                <p className="plant-season-summary">
+                                    Growing now in Zone {selectedZone} ·{" "}
+                                    {new Date().toLocaleString("en-US", {
+                                        month: "long",
+                                    })}
+                                </p>
+                            )}
+
+                            <p>
+                                Showing <strong>{visiblePlants.length}</strong>{" "}
+                                {visiblePlants.length === 1
+                                    ? "plant profile"
+                                    : "plant profiles"}
+                            </p>
+                        </div>
 
                         {(searchTerm ||
                             selectedCategory !== "All" ||
+                            selectedZone !== "10a" ||
+                            whenFilter !== "all" ||
                             sortOption !== "alphabetical") && (
-                                <button type="button" onClick={clearPlantFilters}>
+                                <button
+                                    type="button"
+                                    onClick={clearPlantFilters}
+                                >
                                     Clear filters
                                 </button>
                             )}
                     </div>
+
                     <p className="eyebrow">Available profiles</p>
 
                     <h2>Start with what is growing now.</h2>
@@ -237,6 +314,15 @@ export default function Plants() {
                                         <p className="plant-profile-category">
                                             {plant.category}
                                         </p>
+
+                                        {whenFilter === "now" &&
+                                            plant.seasonalGrowing?.[selectedZone]?.months?.includes(
+                                                currentMonth
+                                            ) && (
+                                                <span className="plant-grow-now-badge">
+                                                    Grow now · Zone {selectedZone}
+                                                </span>
+                                            )}
 
                                         <p className="plant-profile-scientific">
                                             {plant.scientificName}

@@ -30,6 +30,118 @@ const seedCategoryAccents = {
     Vegetables: "aqua",
 };
 
+/*
+ * General Zone 10a seasonal starting points.
+ *
+ * These are intentionally broad category-level defaults.
+ * Individual plants can override them later through
+ * seedPlantEnrichment or seedPlantOverrides.
+ *
+ * Month numbers:
+ * 1 = January
+ * 12 = December
+ */
+const seedSeasonalGrowingByCategory = {
+    Beans: {
+        "10a": {
+            months: [3, 4, 5, 6, 7, 8, 9, 10],
+            status: "good",
+            note:
+                "Beans generally perform best through the warmer part of the year in Zone 10a.",
+        },
+    },
+
+    Corn: {
+        "10a": {
+            months: [3, 4, 5, 6, 7, 8],
+            status: "good",
+            note:
+                "Corn is a warm-season crop and is generally best started during the warmer months in Zone 10a.",
+        },
+    },
+
+    Cucumbers: {
+        "10a": {
+            months: [3, 4, 5, 6, 7, 8, 9],
+            status: "good",
+            note:
+                "Cucumbers prefer warm growing conditions and are generally suited to spring through early fall in Zone 10a.",
+        },
+    },
+
+    Herbs: {
+        "10a": {
+            months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            status: "varies",
+            note:
+                "Herb growing seasons vary considerably by species. Many herbs can be grown during part or all of the year in Zone 10a.",
+        },
+    },
+
+    "Leafy Greens": {
+        "10a": {
+            months: [1, 2, 3, 4, 9, 10, 11, 12],
+            status: "good",
+            note:
+                "Many leafy greens prefer the cooler part of the year in Zone 10a.",
+        },
+    },
+
+    Melons: {
+        "10a": {
+            months: [3, 4, 5, 6, 7, 8],
+            status: "good",
+            note:
+                "Melons prefer warm soil and warm weather and are generally grown through the warmer months in Zone 10a.",
+        },
+    },
+
+    Peas: {
+        "10a": {
+            months: [1, 2, 3, 10, 11, 12],
+            status: "good",
+            note:
+                "Peas prefer cooler weather and are generally better suited to fall, winter, and early spring in Zone 10a.",
+        },
+    },
+
+    Peppers: {
+        "10a": {
+            months: [3, 4, 5, 6, 7, 8, 9, 10],
+            status: "good",
+            note:
+                "Peppers prefer warm conditions and can have a long growing season in Zone 10a.",
+        },
+    },
+
+    "Root Vegetables": {
+        "10a": {
+            months: [1, 2, 3, 4, 9, 10, 11, 12],
+            status: "good",
+            note:
+                "Many common root vegetables perform well during the cooler growing season in Zone 10a.",
+        },
+    },
+
+    Tomatoes: {
+        "10a": {
+            months: [3, 4, 5, 6, 7, 8, 9, 10],
+            status: "good",
+            note:
+                "Tomatoes prefer warm growing conditions and can have a long productive season in Zone 10a.",
+        },
+    },
+
+    Vegetables: {
+        "10a": {
+            months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            status: "varies",
+            note:
+                "This category includes crops with different seasonal needs. Check the individual plant guide for more specific timing.",
+        },
+    },
+};
+
 const seedQuickCare = {
     sunlight:
         "Follow the variety guide for full-sun or partial-sun requirements",
@@ -106,6 +218,22 @@ function buildSeedPlant(guide) {
         enrichment.category ??
         guide.category;
 
+    /*
+     * Priority:
+     *
+     * 1. seedPlantOverrides
+     * 2. seedPlantEnrichment
+     * 3. category-level Zone 10a default
+     *
+     * This means we can make individual plants more accurate
+     * later without changing the filtering system.
+     */
+    const seasonalGrowing =
+        override.seasonalGrowing ??
+        enrichment.seasonalGrowing ??
+        seedSeasonalGrowingByCategory[category] ??
+        null;
+
     return {
         id: guide.id,
         slug: guide.slug,
@@ -145,6 +273,12 @@ function buildSeedPlant(guide) {
         ...enrichment,
         ...override,
 
+        /*
+         * Keep this after the spreads so our priority logic above
+         * determines the final seasonal data.
+         */
+        seasonalGrowing,
+
         quickCare: {
             ...seedQuickCare,
             ...(enrichment.quickCare ?? {}),
@@ -159,7 +293,10 @@ function buildSeedPlant(guide) {
             "printable guide",
             ...(enrichment.tags ?? []),
             ...(override.tags ?? []),
-        ].filter((tag, index, tags) => tags.indexOf(tag) === index),
+        ].filter(
+            (tag, index, tags) =>
+                tags.indexOf(tag) === index
+        ),
     };
 }
 
