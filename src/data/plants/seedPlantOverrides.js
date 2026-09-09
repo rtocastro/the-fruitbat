@@ -1,14 +1,21 @@
 export const seedPlantOverrides = {
   /*
-   * Add corrections and custom information here.
+   * Corrections that should survive regeneration of
+   * generatedSeedGuideIndex.js.
    *
-   * Example:
-   *
-   * "sun-gold-tomato": {
-   *   commonName: "Sun Gold Tomato",
-   *   scientificName: "Solanum lycopersicum",
-   *   difficulty: "Beginner friendly",
-   *   featured: true,
-   * },
+   * Keep slugs unchanged so existing plant URLs,
+   * PDFs, and QR destinations stay stable.
    */
+
+  "lavendar": {
+    commonName: "Lavender",
+    shortName: "Lavender",
+    category: "Herbs",
+  },
+
+  "peppermint": {
+    commonName: "Peppermint",
+    shortName: "Peppermint",
+    category: "Herbs",
+  },
 };
