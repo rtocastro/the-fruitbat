@@ -72,6 +72,14 @@ const dragonfruitSeasonalGrowing = {
   },
 };
 
+const dragonfruitHardiness = {
+  minZone: "9b",
+  maxZone: "11b",
+  note:
+    "Dragonfruit prefers warm climates. Plants outside this range may need container growing, frost protection, or overwintering indoors.",
+};
+
+
 const dragonfruitPlants = [
   {
     id: "ecuador-palora",
@@ -100,6 +108,7 @@ const dragonfruitPlants = [
     careSections: dragonfruitCareSections,
     beginnerTips: dragonfruitBeginnerTips,
     seasonalGrowing: dragonfruitSeasonalGrowing,
+    hardiness: dragonfruitHardiness,
 
     tags: [
       "dragonfruit",
@@ -141,6 +150,7 @@ const dragonfruitPlants = [
     careSections: dragonfruitCareSections,
     beginnerTips: dragonfruitBeginnerTips,
     seasonalGrowing: dragonfruitSeasonalGrowing,
+    hardiness: dragonfruitHardiness,
 
     tags: [
       "dragonfruit",
@@ -182,6 +192,7 @@ const dragonfruitPlants = [
     careSections: dragonfruitCareSections,
     beginnerTips: dragonfruitBeginnerTips,
     seasonalGrowing: dragonfruitSeasonalGrowing,
+    hardiness: dragonfruitHardiness,
 
     tags: [
       "dragonfruit",
@@ -223,6 +234,7 @@ const dragonfruitPlants = [
     careSections: dragonfruitCareSections,
     beginnerTips: dragonfruitBeginnerTips,
     seasonalGrowing: dragonfruitSeasonalGrowing,
+    hardiness: dragonfruitHardiness,
 
     tags: [
       "dragonfruit",
@@ -264,6 +276,7 @@ const dragonfruitPlants = [
     careSections: dragonfruitCareSections,
     beginnerTips: dragonfruitBeginnerTips,
     seasonalGrowing: dragonfruitSeasonalGrowing,
+    hardiness: dragonfruitHardiness,
 
     tags: [
       "dragonfruit",
@@ -305,6 +318,7 @@ const dragonfruitPlants = [
     careSections: dragonfruitCareSections,
     beginnerTips: dragonfruitBeginnerTips,
     seasonalGrowing: dragonfruitSeasonalGrowing,
+    hardiness: dragonfruitHardiness,
 
     tags: [
       "dragonfruit",
@@ -319,6 +333,7 @@ const dragonfruitPlants = [
     image: null,
   },
 ];
+
 
 export const plants = [
   ...dragonfruitPlants,

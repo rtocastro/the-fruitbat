@@ -7867,7 +7867,7 @@ body.menu-open {
 .plant-category-filters {
   flex-wrap: nowrap;
   margin-inline: -14px;
-  paSdding: 0 14px 10px;
+  padding: 0 14px 10px;
   overflow-x: auto;
   scrollbar-width: thin;
 }
@@ -10200,18 +10200,52 @@ body,
   font-weight: 800;
 }
 
-.plant-grow-now-badge {
+.plant-season-status {
   display: inline-flex;
+  align-items: center;
   width: fit-content;
-  margin-top: 10px;
-  padding: 7px 10px;
+  margin-top: 8px;
+  padding: 6px 10px;
   border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.plant-season-status::before {
+  content: "○";
+  margin-right: 6px;
+  font-size: 0.8rem;
+}
+
+.plant-season-status-great {
   background: var(--lime);
   color: var(--dark);
-  font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+}
+
+.plant-season-status-great::before {
+  content: "●";
+}
+
+.plant-season-status-good {
+  background: rgba(0, 168, 107, 0.12);
+  color: var(--dark);
+}
+
+.plant-season-status-established {
+  background: rgba(109, 76, 140, 0.12);
+  color: var(--purple);
+}
+
+.plant-season-status-established::before {
+  content: "△";
+}
+
+.plant-season-status-varies {
+  background: rgba(13, 49, 47, 0.08);
+  color: var(--dark);
 }
 
 .plant-zone-field,
@@ -10332,4 +10366,13 @@ body,
     align-items: flex-start;
     flex-direction: column;
   }
+}
+
+.plant-season-status-unknown {
+  background: rgba(13, 49, 47, 0.07);
+  color: var(--dark);
+}
+
+.plant-season-status-unknown::before {
+  content: "?";
 }

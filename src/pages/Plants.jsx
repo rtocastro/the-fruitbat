@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Link } from "react-router";
 import { plants } from "../data/plants";
 
@@ -17,12 +17,41 @@ const categoryDescriptions = {
         "Pollinator-friendly plants, edible flowers, and colorful additions to growing spaces.",
 };
 
+function getSeasonalStatusLabel(status) {
+    const labels = {
+        great: "Great time to plant",
+        good: "Can grow now",
+        established: "Established plants",
+        varies: "Growing season varies",
+    };
+
+    return labels[status] ?? "Can grow now";
+}
+
+const growingZones = [
+    "1a", "1b",
+    "2a", "2b",
+    "3a", "3b",
+    "4a", "4b",
+    "5a", "5b",
+    "6a", "6b",
+    "7a", "7b",
+    "8a", "8b",
+    "9a", "9b",
+    "10a", "10b",
+    "11a", "11b",
+    "12a", "12b",
+    "13a", "13b",
+];
+
 export default function Plants() {
 
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("All");
     const [sortOption, setSortOption] = useState("alphabetical");
-    const [selectedZone, setSelectedZone] = useState("10a");
+    const [selectedZone, setSelectedZone] = useState(() => {
+        return localStorage.getItem("fruitbat-growing-zone") || "10a";
+    });
     const [whenFilter, setWhenFilter] = useState("all");
 
     const currentMonth = new Date().getMonth() + 1;
@@ -33,6 +62,13 @@ export default function Plants() {
         return ["All", ...categories.sort((a, b) => a.localeCompare(b))];
     }, []);
 
+    useEffect(() => {
+        localStorage.setItem(
+            "fruitbat-growing-zone",
+            selectedZone
+        );
+    }, [selectedZone]);
+
     const visiblePlants = useMemo(() => {
         const normalizedSearch = searchTerm.trim().toLowerCase();
 
@@ -41,11 +77,16 @@ export default function Plants() {
                 selectedCategory === "All" ||
                 plant.category === selectedCategory;
 
-            const zoneData = plant.seasonalGrowing?.[selectedZone];
+            const zoneData =
+                plant.seasonalGrowing?.[selectedZone];
+
+            const hasZoneTimingData =
+                Boolean(zoneData?.months);
 
             const matchesGrowNow =
                 whenFilter !== "now" ||
-                zoneData?.months?.includes(currentMonth);
+                !hasZoneTimingData ||
+                zoneData.months.includes(currentMonth);
 
             const searchableContent = [
                 plant.commonName,
@@ -193,9 +234,12 @@ export default function Plants() {
                                     setSelectedZone(event.target.value)
                                 }
                             >
-                                <option value="10a">
-                                    Zone 10a
-                                </option>
+                                {growingZones.map((zone) => (
+                                    <option key={zone} value={zone}>
+                                        Zone {zone}
+                                        {zone === "10a" ? " — Fruitbat default" : ""}
+                                    </option>
+                                ))}
                             </select>
                         </div>
 
@@ -315,14 +359,26 @@ export default function Plants() {
                                             {plant.category}
                                         </p>
 
-                                        {whenFilter === "now" &&
+                                        {whenFilter === "now" && (
                                             plant.seasonalGrowing?.[selectedZone]?.months?.includes(
                                                 currentMonth
-                                            ) && (
-                                                <span className="plant-grow-now-badge">
-                                                    Grow now · Zone {selectedZone}
+                                            ) ? (
+                                                <span
+                                                    className={`plant-season-status plant-season-status-${plant.seasonalGrowing[selectedZone].status ?? "good"
+                                                        }`}
+                                                >
+                                                    {getSeasonalStatusLabel(
+                                                        plant.seasonalGrowing[selectedZone].status
+                                                    )}
+                                                    {" · "}
+                                                    Zone {selectedZone}
                                                 </span>
-                                            )}
+                                            ) : !plant.seasonalGrowing?.[selectedZone] ? (
+                                                <span className="plant-season-status plant-season-status-unknown">
+                                                    Timing data coming soon · Zone {selectedZone}
+                                                </span>
+                                            ) : null
+                                        )}
 
                                         <p className="plant-profile-scientific">
                                             {plant.scientificName}

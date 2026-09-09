@@ -142,6 +142,63 @@ const seedSeasonalGrowingByCategory = {
     },
 };
 
+const seedHardinessByCategory = {
+    Beans: {
+        note:
+            "Usually grown as an annual crop, so planting temperature and frost timing matter more than winter hardiness.",
+    },
+
+    Corn: {
+        note:
+            "Usually grown as an annual crop. Warm soil and frost-free conditions are more important than perennial hardiness.",
+    },
+
+    Cucumbers: {
+        note:
+            "Usually grown as a warm-season annual and highly sensitive to frost.",
+    },
+
+    Herbs: {
+        note:
+            "Hardiness varies widely by herb species. Check the individual variety for perennial survival.",
+    },
+
+    "Leafy Greens": {
+        note:
+            "Usually grown seasonally. Heat and frost tolerance vary by crop.",
+    },
+
+    Melons: {
+        note:
+            "Warm-season annual crops that require frost-free conditions.",
+    },
+
+    Peas: {
+        note:
+            "Cool-season annual crops. Seasonal temperatures matter more than USDA winter hardiness.",
+    },
+
+    Peppers: {
+        note:
+            "Usually grown as annuals in colder climates but may behave as tender perennials in very warm areas.",
+    },
+
+    "Root Vegetables": {
+        note:
+            "Usually grown as annual or biennial crops, with planting season more important than perennial hardiness.",
+    },
+
+    Tomatoes: {
+        note:
+            "Usually grown as annuals outside frost-free climates. Warm temperatures and frost timing matter most.",
+    },
+
+    Vegetables: {
+        note:
+            "Hardiness varies by crop. Use seasonal planting guidance for the individual variety.",
+    },
+};
+
 const seedQuickCare = {
     sunlight:
         "Follow the variety guide for full-sun or partial-sun requirements",
@@ -234,6 +291,12 @@ function buildSeedPlant(guide) {
         seedSeasonalGrowingByCategory[category] ??
         null;
 
+    const hardiness =
+        override.hardiness ??
+        enrichment.hardiness ??
+        seedHardinessByCategory[category] ??
+        null;
+
     return {
         id: guide.id,
         slug: guide.slug,
@@ -245,6 +308,8 @@ function buildSeedPlant(guide) {
         category,
         difficulty: "Beginner friendly",
         status: "Guide available",
+        hardiness,
+        seasonalGrowing,
 
         summary:
             `A printable growing guide for ${guide.commonName}, including seed-starting and basic care instructions.`,
