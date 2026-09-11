@@ -10376,3 +10376,26 @@ body,
 .plant-season-status-unknown::before {
   content: "?";
 }
+
+.plant-season-disclaimer {
+  max-width: 760px;
+  margin: -6px 0 22px;
+  padding: 11px 14px;
+  border-left: 3px solid var(--lime);
+  border-radius: 0 8px 8px 0;
+  background: rgba(13, 49, 47, 0.05);
+  color: var(--dark);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.plant-season-disclaimer strong {
+  font-weight: 900;
+}
+
+@media (max-width: 700px) {
+  .plant-season-disclaimer {
+    margin-top: -2px;
+    font-size: 0.75rem;
+  }
+}

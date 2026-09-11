@@ -280,6 +280,18 @@ export default function Plants() {
                         </div>
                     </div>
 
+
+                    {whenFilter === "now" && (
+                        <p className="plant-season-disclaimer">
+                            <strong>About Grow Now:</strong>{" "}
+                            This is an approximate planting guide based on your selected USDA
+                            hardiness zone and the current month. Local frost dates, heat,
+                            elevation, and microclimates can shift planting times.
+                        </p>
+                    )}
+
+
+
                     <div
                         className="plant-category-filters"
                         aria-label="Filter plants by category"
@@ -341,6 +353,8 @@ export default function Plants() {
                         new profiles and guides are added.
                     </p>
                 </div>
+
+
 
                 <div className="plant-profile-grid">
                     {visiblePlants.map((plant) => (

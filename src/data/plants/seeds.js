@@ -1,6 +1,7 @@
 import { generatedSeedGuideIndex } from "./generatedSeedGuideIndex";
 import { seedPlantOverrides } from "./seedPlantOverrides";
 import { seedPlantEnrichment } from "./seedPlantEnrichment";
+import { getSeasonalGrowingForPlant } from "./plantSeasonTiming";
 
 const seedCategorySymbols = {
     Beans: "●",
@@ -288,6 +289,7 @@ function buildSeedPlant(guide) {
     const seasonalGrowing =
         override.seasonalGrowing ??
         enrichment.seasonalGrowing ??
+        getSeasonalGrowingForPlant(guide.slug) ??
         seedSeasonalGrowingByCategory[category] ??
         null;
 
