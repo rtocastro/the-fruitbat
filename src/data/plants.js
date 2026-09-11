@@ -1,4 +1,5 @@
 import { seedPlants } from "./plants/seeds";
+import { getSeasonalGrowingForProfile } from "./plants/plantSeasonTiming";
 
 const dragonfruitQuickCare = {
   sunlight: "Bright light to full sun after gradual acclimation",
@@ -63,14 +64,8 @@ const dragonfruitBeginnerTips = [
   "Keep notes about flowering, pollination, fruiting, and seasonal growth.",
 ];
 
-const dragonfruitSeasonalGrowing = {
-  "10a": {
-    months: [3, 4, 5, 6, 7, 8, 9, 10],
-    status: "good",
-    note:
-      "Dragonfruit is actively growing during the warmer part of the year in Zone 10a. Growth slows as temperatures cool.",
-  },
-};
+const dragonfruitSeasonalGrowing =
+  getSeasonalGrowingForProfile("dragonfruit");
 
 const dragonfruitHardiness = {
   minZone: "9b",

@@ -85,8 +85,10 @@ export default function Plants() {
 
             const matchesGrowNow =
                 whenFilter !== "now" ||
-                !hasZoneTimingData ||
-                zoneData.months.includes(currentMonth);
+                (
+                    hasZoneTimingData &&
+                    zoneData.months.includes(currentMonth)
+                );
 
             const searchableContent = [
                 plant.commonName,
@@ -373,10 +375,10 @@ export default function Plants() {
                                             {plant.category}
                                         </p>
 
-                                        {whenFilter === "now" && (
+                                        {whenFilter === "now" &&
                                             plant.seasonalGrowing?.[selectedZone]?.months?.includes(
                                                 currentMonth
-                                            ) ? (
+                                            ) && (
                                                 <span
                                                     className={`plant-season-status plant-season-status-${plant.seasonalGrowing[selectedZone].status ?? "good"
                                                         }`}
@@ -387,12 +389,7 @@ export default function Plants() {
                                                     {" · "}
                                                     Zone {selectedZone}
                                                 </span>
-                                            ) : !plant.seasonalGrowing?.[selectedZone] ? (
-                                                <span className="plant-season-status plant-season-status-unknown">
-                                                    Timing data coming soon · Zone {selectedZone}
-                                                </span>
-                                            ) : null
-                                        )}
+                                            )}
 
                                         <p className="plant-profile-scientific">
                                             {plant.scientificName}

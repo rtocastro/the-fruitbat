@@ -10399,3 +10399,12 @@ body,
     font-size: 0.75rem;
   }
 }
+
+.plant-season-status-unknown {
+  background: rgba(13, 49, 47, 0.07);
+  color: var(--dark);
+}
+
+.plant-season-status-unknown::before {
+  content: "?";
+}
