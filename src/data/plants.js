@@ -456,7 +456,7 @@ const livePlants = [
 
     // We'll connect the finished Mint Field Guide PDF
     // during the download/QR QA step.
-    pdfPath: null,
+    pdfPath: "/guides/mint-care-guide.pdf",
 
     image: null,
   },
