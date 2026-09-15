@@ -713,84 +713,84 @@ const timingProfiles = {
         },
     },
 
-     // -------------------------------------------------------
-  // MINT
-  // -------------------------------------------------------
+    // -------------------------------------------------------
+    // MINT
+    // -------------------------------------------------------
 
-  mint: {
-    cold: {
-      months: [4, 5, 6, 7],
-      status: "good",
-      note: notes.perennialHerb,
+    mint: {
+        cold: {
+            months: [4, 5, 6, 7],
+            status: "good",
+            note: notes.perennialHerb,
+        },
+
+        cool: {
+            months: [3, 4, 5, 6, 7, 8, 9],
+            status: "good",
+            note: notes.perennialHerb,
+        },
+
+        temperate: {
+            months: [2, 3, 4, 5, 6, 7, 8, 9, 10],
+            status: "good",
+            note: notes.perennialHerb,
+        },
+
+        warm: {
+            months: [2, 3, 4, 5, 6, 9, 10, 11],
+            status: "great",
+            note:
+                "Late winter through spring and early fall are especially comfortable times to establish mint in mild climates.",
+        },
+
+        hot: {
+            months: [1, 2, 3, 4, 9, 10, 11, 12],
+            status: "good",
+            note:
+                "Establish during milder months and provide adequate moisture and protection from severe heat.",
+        },
     },
 
-    cool: {
-      months: [3, 4, 5, 6, 7, 8, 9],
-      status: "good",
-      note: notes.perennialHerb,
-    },
+    // -------------------------------------------------------
+    // DRAGONFRUIT
+    // -------------------------------------------------------
 
-    temperate: {
-      months: [2, 3, 4, 5, 6, 7, 8, 9, 10],
-      status: "good",
-      note: notes.perennialHerb,
-    },
+    dragonfruit: {
+        cold: {
+            months: [],
+            status: "varies",
+            note:
+                "Dragonfruit is not winter hardy outdoors in very cold climates. Container growing with protected overwintering is generally required.",
+        },
 
-    warm: {
-      months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-      status: "established",
-      note:
-        "Mint can remain active for much of the year in mild climates. Spring and fall are especially comfortable establishment periods.",
-    },
+        cool: {
+            months: [],
+            status: "varies",
+            note:
+                "Dragonfruit generally requires container culture and winter protection in cool climates.",
+        },
 
-    hot: {
-      months: [1, 2, 3, 4, 9, 10, 11, 12],
-      status: "good",
-      note:
-        "Establish during milder months and provide adequate moisture and protection from severe heat.",
-    },
-  },
+        temperate: {
+            months: [5, 6, 7, 8, 9],
+            status: "good",
+            note:
+                "Warm-season outdoor growth is possible, but plants generally require frost protection or indoor overwintering.",
+        },
 
-  // -------------------------------------------------------
-  // DRAGONFRUIT
-  // -------------------------------------------------------
+        warm: {
+            months: [3, 4, 5, 6, 7, 8, 9, 10],
+            status: "great",
+            note:
+                "Warm climates provide a long active growing season for dragonfruit. Protect plants from unusual cold or frost.",
+        },
 
-  dragonfruit: {
-    cold: {
-      months: [],
-      status: "varies",
-      note:
-        "Dragonfruit is not winter hardy outdoors in very cold climates. Container growing with protected overwintering is generally required.",
+        hot: {
+            months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            status: "established",
+            note:
+                "Dragonfruit can remain active for much of the year in frost-free climates, though extreme heat and local conditions can affect growth and flowering.",
+        },
     },
-
-    cool: {
-      months: [],
-      status: "varies",
-      note:
-        "Dragonfruit generally requires container culture and winter protection in cool climates.",
-    },
-
-    temperate: {
-      months: [5, 6, 7, 8, 9],
-      status: "good",
-      note:
-        "Warm-season outdoor growth is possible, but plants generally require frost protection or indoor overwintering.",
-    },
-
-    warm: {
-      months: [3, 4, 5, 6, 7, 8, 9, 10],
-      status: "great",
-      note:
-        "Warm climates provide a long active growing season for dragonfruit. Protect plants from unusual cold or frost.",
-    },
-
-    hot: {
-      months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-      status: "established",
-      note:
-        "Dragonfruit can remain active for much of the year in frost-free climates, though extreme heat and local conditions can affect growth and flowering.",
-    },
-  },
 };
 
 // =========================================================
@@ -933,11 +933,11 @@ export function getTimingProfileForPlant(slug) {
 }
 
 export function getSeasonalGrowingForProfile(profileName) {
-  const profile = timingProfiles[profileName];
+    const profile = timingProfiles[profileName];
 
-  if (!profile) {
-    return null;
-  }
+    if (!profile) {
+        return null;
+    }
 
-  return expandTimingProfile(profile);
+    return expandTimingProfile(profile);
 }
