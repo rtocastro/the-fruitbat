@@ -74,6 +74,88 @@ const dragonfruitHardiness = {
     "Dragonfruit prefers warm climates. Plants outside this range may need container growing, frost protection, or overwintering indoors.",
 };
 
+// =========================================================
+// LIVE MINT
+// =========================================================
+
+const mintQuickCare = {
+  sunlight:
+    "Bright indirect light to morning sun while newly transplanted, then partial sun to full sun once established",
+  watering:
+    "Keep the soil evenly moist while the plant establishes, but do not leave the container waterlogged",
+  soil:
+    "Moisture-retentive but well-draining potting soil",
+  temperature:
+    "Prefers mild to warm growing conditions",
+  container:
+    "Excellent container plant; keeping mint contained also helps control spreading",
+  difficulty: "Beginner friendly",
+};
+
+const mintCareSections = [
+  {
+    id: "first-days",
+    title: "Your first few days",
+    symbol: "♡",
+    content:
+      "Your mint may have been recently rooted or transplanted. Give it a gentle transition after bringing it home. Keep the soil evenly moist and avoid immediately placing the plant in intense afternoon sun while it adjusts.",
+  },
+  {
+    id: "sunlight",
+    title: "Sunlight",
+    symbol: "☀",
+    content:
+      "Start with bright indirect light or gentle morning sun. Once the plant is established, mint can grow in partial sun to full sun. In very hot climates, some afternoon protection can help reduce stress.",
+  },
+  {
+    id: "watering",
+    title: "Watering",
+    symbol: "◉",
+    content:
+      "Check the soil regularly, especially while the plant is establishing in a small container. Water when the surface begins to dry rather than waiting for the entire root zone to become completely dry. Always allow excess water to drain.",
+  },
+  {
+    id: "container",
+    title: "When to transplant",
+    symbol: "□",
+    content:
+      "The small cup is a temporary starter home. Once the mint is actively growing and roots are beginning to fill the container, move it into a larger pot with drainage holes. Mint grows quickly and appreciates additional root space.",
+  },
+  {
+    id: "soil",
+    title: "Soil",
+    symbol: "●",
+    content:
+      "Use a quality potting mix that holds some moisture while still draining freely. Avoid containers without drainage holes or soil that remains constantly saturated.",
+  },
+  {
+    id: "harvesting",
+    title: "Harvesting and pruning",
+    symbol: "✂",
+    content:
+      "Once the plant is established and producing new growth, pinch or cut stems just above a pair of leaves. Regular harvesting encourages branching and helps the plant become fuller.",
+  },
+  {
+    id: "spreading",
+    title: "A note about spreading",
+    symbol: "!",
+    content:
+      "Mint spreads aggressively when planted directly in the ground. Growing it in a container is an easy way to keep it manageable while still producing plenty to harvest.",
+  },
+];
+
+const mintBeginnerTips = [
+  "Give newly transplanted mint a gentle transition before intense sunlight.",
+  "Keep the soil evenly moist while the plant establishes.",
+  "Make sure the container always has drainage.",
+  "Move the plant into a larger pot once roots begin filling the starter cup.",
+  "Harvest from established new growth to encourage a fuller plant.",
+  "Consider keeping mint in a container because it can spread aggressively in the ground.",
+];
+
+const mintSeasonalGrowing =
+  getSeasonalGrowingForProfile("mint");
+
 
 const dragonfruitPlants = [
   {
@@ -329,9 +411,61 @@ const dragonfruitPlants = [
   },
 ];
 
+const livePlants = [
+  {
+    id: "mint",
+    slug: "mint",
+
+    commonName: "Mint",
+    shortName: "Mint",
+    scientificName: "Mentha spp.",
+
+    category: "Herbs",
+    difficulty: "Beginner friendly",
+    status: "Guide available",
+
+    summary:
+      "A fast-growing, beginner-friendly herb that thrives in containers and responds well to regular harvesting.",
+
+    description:
+      "This guide is designed especially for live mint plants and rooted cuttings. Mint prefers consistent moisture, good drainage, and a gentle transition after transplanting. Once established, it grows quickly and can provide repeated harvests.",
+
+    accent: "lime",
+    symbol: "●",
+
+    featured: true,
+
+    quickCare: mintQuickCare,
+    careSections: mintCareSections,
+    beginnerTips: mintBeginnerTips,
+    seasonalGrowing: mintSeasonalGrowing,
+
+    tags: [
+      "mint",
+      "herbs",
+      "live plant",
+      "cutting",
+      "propagation",
+      "container growing",
+      "beginner friendly",
+      "small space gardening",
+      "edible garden",
+    ],
+
+    guidePath: "/plants/mint",
+
+    // We'll connect the finished Mint Field Guide PDF
+    // during the download/QR QA step.
+    pdfPath: null,
+
+    image: null,
+  },
+];
+
 
 export const plants = [
   ...dragonfruitPlants,
+  ...livePlants,
   ...seedPlants,
 ];
 
