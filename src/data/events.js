@@ -47,7 +47,7 @@ export const events = [
             enabled: true,
             title: "Let's grow something together.",
             description:
-                "Workshop participants can take home mint and grow the same plant together after the event. The Fruitbat website will become a place to follow along, compare progress, and troubleshoot as the plants grow.",
+                "Workshop participants can take home mint and grow the same plant together after the event. Return to The Fruitbat for mint care information, growing resources, and future updates as the plants grow.",
             plant: "Mint",
         },
 
@@ -62,6 +62,10 @@ export const events = [
             {
                 label: "Small Space Growing Guide",
                 path: "/start-growing#small-spaces",
+            },
+            {
+                label: "Take Care of Your Mint",
+                path: "/plants/mint",
             },
             {
                 label: "Browse Plant Guides",

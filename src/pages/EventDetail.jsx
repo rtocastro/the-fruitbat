@@ -164,8 +164,8 @@ export default function EventDetail() {
 
               <p>
                 Come back to this page during and after the workshop.
-                Handouts, growing resources, follow-up information,
-                and community grow-along updates will live here.
+                Handouts, growing resources, mint care information,
+                and future updates will live here.
               </p>
             </div>
           </div>
@@ -208,7 +208,7 @@ export default function EventDetail() {
               </Link>
 
               {event.calendar?.enabled &&
-              event.calendar?.path ? (
+                event.calendar?.path ? (
                 <a
                   href={event.calendar.path}
                   download
@@ -327,7 +327,15 @@ export default function EventDetail() {
             {event.growAlong.plant && (
               <div className="event-grow-along-plant">
                 <span>We'll be growing</span>
+
                 <strong>{event.growAlong.plant}</strong>
+
+                <Link
+                  to="/plants/mint"
+                  className="text-link"
+                >
+                  Mint growing guide →
+                </Link>
               </div>
             )}
           </div>
