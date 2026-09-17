@@ -19,6 +19,7 @@ import Plants from "./pages/Plants";
 import PlantProfile from "./pages/PlantProfile";
 import Events from "./pages/Events";
 import EventDetail from "./pages/EventDetail";
+import Volunteer from "./pages/Volunteer";
 import NotFound from "./pages/NotFound";
 
 import "./App.css";
@@ -102,6 +103,15 @@ export default function App() {
             element={
               <PageTransition>
                 <Donate />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="/volunteer"
+            element={
+              <PageTransition>
+                <Volunteer />
               </PageTransition>
             }
           />

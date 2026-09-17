@@ -10408,3 +10408,598 @@ body,
 .plant-season-status-unknown::before {
   content: "?";
 }
+
+/* =========================================================
+   VOLUNTEER
+   ========================================================= */
+
+/* ---------- Hero ---------- */
+
+.volunteer-hero {
+  width: min(1180px, calc(100% - 40px));
+  min-height: 700px;
+  margin: 0 auto;
+  padding: 90px 0;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: 80px;
+}
+
+.volunteer-hero-copy h1 {
+  max-width: 760px;
+  margin-bottom: 28px;
+  font-size: clamp(3.5rem, 6.5vw, 7rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+}
+
+.volunteer-hero-copy h1 span {
+  color: var(--lime);
+}
+
+.volunteer-hero-description {
+  max-width: 650px;
+  margin-bottom: 34px;
+  color: rgba(23, 52, 52, 0.72);
+  font-size: 1.12rem;
+  line-height: 1.8;
+}
+
+.volunteer-hero-art {
+  position: relative;
+  min-height: 500px;
+  display: grid;
+  place-items: center;
+}
+
+.volunteer-heart {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  width: 215px;
+  height: 215px;
+  place-items: center;
+  border: 10px solid var(--dark);
+  border-radius: 50%;
+  color: var(--white);
+  background: var(--coral);
+  box-shadow: var(--shadow);
+  font-size: 8rem;
+  line-height: 1;
+}
+
+.volunteer-hero-art > span {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  width: 135px;
+  height: 135px;
+  place-items: center;
+  border: 8px solid var(--dark);
+  border-radius: 50%;
+  font-family: "Fraunces", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.volunteer-hero-art > span:nth-of-type(1) {
+  top: 28px;
+  left: 35px;
+  background: var(--mint);
+  transform: rotate(-7deg);
+}
+
+.volunteer-hero-art > span:nth-of-type(2) {
+  top: 90px;
+  right: 0;
+  color: var(--white);
+  background: var(--purple);
+  transform: rotate(7deg);
+}
+
+.volunteer-hero-art > span:nth-of-type(3) {
+  bottom: 18px;
+  left: 90px;
+  background: var(--lime);
+  transform: rotate(-4deg);
+}
+
+
+/* ---------- Intro ---------- */
+
+.volunteer-intro {
+  padding: 120px max(24px, calc((100vw - 930px) / 2));
+  color: var(--white);
+  text-align: center;
+  background: var(--dark);
+}
+
+.volunteer-intro .section-kicker {
+  color: var(--mint);
+}
+
+.volunteer-intro h2 {
+  margin-bottom: 28px;
+  font-size: clamp(2.8rem, 5vw, 5.3rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.volunteer-intro > p:last-child {
+  max-width: 730px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.1rem;
+  line-height: 1.85;
+}
+
+
+/* ---------- Shared section heading ---------- */
+
+.volunteer-section-heading {
+  max-width: 790px;
+  margin-bottom: 52px;
+}
+
+.volunteer-section-heading h2 {
+  margin-bottom: 22px;
+  font-size: clamp(2.8rem, 4.6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.volunteer-section-heading > p:last-child {
+  color: rgba(23, 52, 52, 0.68);
+  line-height: 1.8;
+}
+
+
+/* ---------- Ways to contribute ---------- */
+
+.volunteer-ways-section {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 120px 0;
+}
+
+.volunteer-ways-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.volunteer-way-card {
+  min-height: 330px;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 34px;
+  background: var(--white);
+  box-shadow: 0 18px 50px rgba(16, 40, 40, 0.06);
+}
+
+.volunteer-way-card > span {
+  display: grid;
+  width: 62px;
+  height: 62px;
+  margin-bottom: 62px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--dark);
+  background: var(--mint);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.volunteer-way-card:nth-child(2) > span {
+  color: var(--white);
+  background: var(--purple);
+}
+
+.volunteer-way-card:nth-child(3) > span {
+  background: var(--lime);
+}
+
+.volunteer-way-card h3 {
+  margin-bottom: 14px;
+  font-size: 2rem;
+  line-height: 1.08;
+}
+
+.volunteer-way-card p {
+  margin-bottom: 0;
+  color: rgba(23, 52, 52, 0.68);
+  line-height: 1.75;
+}
+
+
+/* ---------- Volunteer opportunities ---------- */
+
+.volunteer-opportunities-section {
+  padding: 120px max(24px, calc((100vw - 1180px) / 2));
+  background: var(--mint);
+  scroll-margin-top: 110px;
+}
+
+.volunteer-organization-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.volunteer-organization-card {
+  min-width: 0;
+  padding: 38px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 36px;
+  background: var(--white);
+  box-shadow: 0 18px 50px rgba(16, 40, 40, 0.08);
+}
+
+.volunteer-organization-top {
+  margin-bottom: 42px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--purple);
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.volunteer-status {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--dark);
+  background: var(--lime);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.volunteer-organization-card h3 {
+  margin-bottom: 8px;
+  font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.volunteer-location {
+  margin-bottom: 24px;
+  color: var(--purple);
+  font-size: 0.8rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.volunteer-organization-card > p:not(.volunteer-location):not(.volunteer-experience-note) {
+  max-width: 680px;
+  color: rgba(23, 52, 52, 0.7);
+  line-height: 1.8;
+}
+
+.volunteer-needs {
+  margin: 28px 0;
+  padding-top: 26px;
+  border-top: 1px solid var(--border);
+}
+
+.volunteer-needs-label {
+  display: block;
+  margin-bottom: 15px;
+  color: rgba(23, 52, 52, 0.58);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.volunteer-needs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.volunteer-needs-list span {
+  padding: 9px 13px;
+  border-radius: 999px;
+  background: rgba(23, 52, 52, 0.07);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.volunteer-experience-note {
+  margin-bottom: 28px;
+  color: var(--purple);
+  font-weight: 800;
+}
+
+.volunteer-organization-card .button {
+  width: fit-content;
+  margin-top: auto;
+}
+
+.volunteer-empty-state {
+  padding: 60px 30px;
+  border: 1px solid var(--border);
+  border-radius: 36px;
+  text-align: center;
+  background: var(--white);
+}
+
+.volunteer-empty-state > span {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--purple);
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.volunteer-empty-state h3 {
+  margin-bottom: 12px;
+  font-size: 2rem;
+}
+
+.volunteer-empty-state p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: rgba(23, 52, 52, 0.68);
+  line-height: 1.75;
+}
+
+
+/* ---------- Organization invitation ---------- */
+
+.volunteer-partner-section {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 120px 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 70px;
+}
+
+.volunteer-partner-section > div {
+  max-width: 760px;
+}
+
+.volunteer-partner-section h2 {
+  margin-bottom: 24px;
+  font-size: clamp(2.8rem, 4.6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.volunteer-partner-section p:not(.eyebrow) {
+  color: rgba(23, 52, 52, 0.7);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.volunteer-partner-section .button {
+  flex: 0 0 auto;
+}
+
+
+/* ---------- Trust / privacy ---------- */
+
+.volunteer-trust-section {
+  padding: 110px max(24px, calc((100vw - 1180px) / 2));
+  background: var(--white);
+}
+
+.volunteer-trust-card {
+  padding: 55px;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: start;
+  gap: 32px;
+  border-radius: 40px;
+  color: var(--white);
+  background: var(--purple);
+  box-shadow: var(--shadow);
+}
+
+.volunteer-trust-card > span {
+  display: grid;
+  width: 72px;
+  height: 72px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--dark);
+  background: var(--mint);
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.volunteer-trust-card .eyebrow {
+  color: var(--mint);
+}
+
+.volunteer-trust-card h2 {
+  max-width: 760px;
+  margin-bottom: 20px;
+  font-size: clamp(2.4rem, 4vw, 4.2rem);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+}
+
+.volunteer-trust-card p:last-child {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+
+/* ---------- Final CTA ---------- */
+
+.volunteer-cta {
+  padding: 120px max(24px, calc((100vw - 980px) / 2));
+  color: var(--white);
+  text-align: center;
+  background: var(--purple);
+}
+
+.volunteer-cta .eyebrow {
+  color: var(--mint);
+}
+
+.volunteer-cta h2 {
+  margin-bottom: 38px;
+  font-size: clamp(2.9rem, 5vw, 5.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.volunteer-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.volunteer-cta-link {
+  border-bottom: 2px solid var(--white);
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   VOLUNTEER RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 980px) {
+  .volunteer-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .volunteer-hero-copy {
+    text-align: center;
+  }
+
+  .volunteer-hero-description {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .volunteer-hero-copy .button {
+    margin-inline: auto;
+  }
+
+  .volunteer-hero-art {
+    min-height: 430px;
+  }
+
+  .volunteer-ways-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .volunteer-way-card {
+    min-height: auto;
+  }
+
+  .volunteer-way-card > span {
+    margin-bottom: 42px;
+  }
+
+  .volunteer-organization-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .volunteer-partner-section {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 35px;
+  }
+}
+
+@media (max-width: 640px) {
+  .volunteer-hero {
+    width: min(100% - 28px, 1180px);
+    min-height: auto;
+    padding: 64px 0 80px;
+    gap: 30px;
+  }
+
+  .volunteer-hero-copy h1 {
+    font-size: clamp(3.2rem, 16vw, 4.8rem);
+  }
+
+  .volunteer-hero-description {
+    font-size: 1rem;
+  }
+
+  .volunteer-hero-art {
+    min-height: 365px;
+    transform: scale(0.82);
+  }
+
+  .volunteer-intro,
+  .volunteer-trust-section,
+  .volunteer-cta {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .volunteer-ways-section,
+  .volunteer-partner-section {
+    width: min(100% - 28px, 1180px);
+    padding: 85px 0;
+  }
+
+  .volunteer-opportunities-section {
+    padding: 85px 14px;
+  }
+
+  .volunteer-way-card,
+  .volunteer-organization-card {
+    padding: 30px 25px;
+  }
+
+  .volunteer-organization-top {
+    margin-bottom: 32px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .volunteer-organization-card .button {
+    width: 100%;
+  }
+
+  .volunteer-trust-card {
+    padding: 36px 28px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    border-radius: 32px;
+  }
+
+  .volunteer-trust-card > span {
+    width: 62px;
+    height: 62px;
+    font-size: 2.6rem;
+  }
+
+  .volunteer-cta-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .volunteer-cta-actions .button {
+    width: 100%;
+  }
+}

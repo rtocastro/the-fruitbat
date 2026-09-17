@@ -23,11 +23,11 @@ const involvementOptions = [
   },
   {
     number: "03",
-    title: "Participate locally",
+    title: "Volunteer locally",
     description:
-      "Join a workshop, explore Captain Crop, help test community tools, or take part in future neighborhood growing projects.",
-    action: "Explore events",
-    path: "/events",
+      "Find local gardens, homesteads, and community growing projects where an extra set of hands can make a real difference.",
+    action: "Find a place to help",
+    path: "/volunteer",
     accent: "lime",
     symbol: "●",
   },
