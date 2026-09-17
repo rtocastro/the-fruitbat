@@ -143,7 +143,7 @@ export default function Mission() {
           </h2>
 
           <p>
-            The Fruitbat is designed to remove barriers—not create more
+            The Fruitbat is designed to remove barriers, not create more
             of them.
           </p>
         </div>

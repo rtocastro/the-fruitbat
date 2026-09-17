@@ -152,7 +152,7 @@ export default function Resources() {
         <p className="section-kicker">A growing library</p>
 
         <h2>
-          Information should help people begin—not make them feel behind.
+          Information should help people begin and not make them feel behind.
         </h2>
 
         <p>
