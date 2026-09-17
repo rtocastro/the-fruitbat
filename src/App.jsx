@@ -20,6 +20,7 @@ import PlantProfile from "./pages/PlantProfile";
 import Events from "./pages/Events";
 import EventDetail from "./pages/EventDetail";
 import Volunteer from "./pages/Volunteer";
+import VolunteerOrganization from "./pages/VolunteerOrganization";
 import NotFound from "./pages/NotFound";
 
 import "./App.css";
@@ -112,6 +113,15 @@ export default function App() {
             element={
               <PageTransition>
                 <Volunteer />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="/volunteer/:slug"
+            element={
+              <PageTransition>
+                <VolunteerOrganization />
               </PageTransition>
             }
           />

@@ -14,12 +14,25 @@ export const volunteerOrganizations = [
     description:
       "A community growing space in Van Nuys where neighbors can connect through gardening, food, learning, and hands-on participation.",
 
+    volunteerIntro:
+      "Interested in lending a hand at Sunbrewed Homestead? Send over a little information about yourself and how you'd like to help. You don't need to be an experienced gardener to get involved.",
+
     needs: [
       "Gardening",
       "Planting",
       "Watering & maintenance",
       "Events",
       "General volunteer help",
+    ],
+
+    interestOptions: [
+      "Gardening",
+      "Planting",
+      "Watering & maintenance",
+      "Events",
+      "Building & repairs",
+      "Education & workshops",
+      "Wherever I'm needed",
     ],
 
     experienceRequired: false,
