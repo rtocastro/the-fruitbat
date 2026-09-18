@@ -11798,3 +11798,14 @@ body,
     padding: 75px 0;
   }
 }
+
+.volunteer-submit-error {
+  margin: 16px auto 0;
+  color: #a12626;
+  font-weight: 800;
+}
+
+.volunteer-submit-area button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
