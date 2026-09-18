@@ -11,6 +11,7 @@
     "generate:seeds": "node scripts/generateSeedGuideIndex.mjs"
   },
   "dependencies": {
+    "firebase": "^12.19.0",
     "framer-motion": "^12.42.2",
     "node": "^26.5.0",
     "react": "^19.2.0",
