@@ -104,7 +104,7 @@ export const events = [
 
         materials: {
             enabled: true,
-            unlocked: false,
+            unlocked: true,
 
             title: "Workshop materials",
 
