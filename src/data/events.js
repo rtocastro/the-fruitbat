@@ -78,7 +78,7 @@ export const events = [
         ],
 
         afterEvent: {
-            enabled: false,
+            enabled: true,
             title: "Thanks for growing with us.",
             description:
                 "Workshop notes, follow-up resources, grow-along updates, and additional materials will continue to live on this page.",
