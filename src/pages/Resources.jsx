@@ -22,9 +22,9 @@ const freePrintables = [
   {
     title: "Plant Type & Date Sticker",
     description:
-      "A printable 1 × 1 plant label with space to record the planting date and plant type.",
+      "A printable 1 × 1 plant label sheet with space to record the planting date and plant type.",
     image: "/printables/plant-type-date-sticker.jpg",
-    download: "/printables/plant-type-date-sticker.jpg",
+    download: "/printables/plant-labels-sheet.jpg",
     format: "JPG",
     category: "Plant Label",
   },
