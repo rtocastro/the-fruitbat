@@ -15,6 +15,10 @@ dist-ssr
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+serviceAccountKey.json
+# Firebase Admin private credentials
+serviceAccountKey.json
+*-service-account.json
 .idea
 .DS_Store
 *.suo
