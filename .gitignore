@@ -16,6 +16,10 @@ dist-ssr
 .vscode/*
 !.vscode/extensions.json
 serviceAccountKey.json
+
+# Private volunteer exports
+private-exports/
+
 # Firebase Admin private credentials
 serviceAccountKey.json
 *-service-account.json
