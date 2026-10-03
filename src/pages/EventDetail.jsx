@@ -1,8 +1,10 @@
 import { Link, useParams } from "react-router";
+
 import { getEventBySlug } from "../data/events";
 
 export default function EventDetail() {
   const { slug } = useParams();
+
   const event = getEventBySlug(slug);
 
   if (!event) {
@@ -26,13 +28,17 @@ export default function EventDetail() {
     );
   }
 
+  const copy = event.pageCopy ?? {};
+
   const eventContactPath =
     `/contact?reason=${encodeURIComponent("Event question")}` +
     `&plant=${encodeURIComponent(event.title)}`;
 
   const eventRsvpPath =
-    `/contact?reason=${encodeURIComponent("Event RSVP")}` +
-    `&plant=${encodeURIComponent(event.title)}`;
+    event.slug === "volunteer-day"
+      ? "/volunteer/sunbrewed-homestead"
+      : `/contact?reason=${encodeURIComponent("Event RSVP")}` +
+        `&plant=${encodeURIComponent(event.title)}`;
 
   return (
     <main>
@@ -72,7 +78,9 @@ export default function EventDetail() {
                 href="#event-rsvp"
                 className="button button-secondary"
               >
-                Planning to Attend?
+                {event.slug === "volunteer-day"
+                  ? "Planning to Volunteer?"
+                  : "Planning to Attend?"}
               </a>
             )}
 
@@ -147,68 +155,54 @@ export default function EventDetail() {
           id="event-rsvp"
         >
           <div className="event-planning-copy">
-            <p className="eyebrow">Planning to attend?</p>
-
-            <h2>
-              Save the date and come grow with us.
-            </h2>
-
-            <p>
-              Let us know you're planning to attend and keep this
-              event page bookmarked. You'll leave with a small plant
-              to continue growing at home.
+            <p className="eyebrow">
+              {copy.planningEyebrow}
             </p>
 
-            <div className="event-planning-note">
-              <span>♡</span>
+            <h2>{copy.planningTitle}</h2>
 
-              <p>
-                Come back to this page during and after the workshop.
-                Handouts, growing resources, mint care information,
-                and future updates will live here.
-              </p>
-            </div>
+            <p>{copy.planningDescription}</p>
+
+            {copy.planningNote && (
+              <div className="event-planning-note">
+                <span>♡</span>
+                <p>{copy.planningNote}</p>
+              </div>
+            )}
           </div>
 
           <div className="event-planning-card">
             <p className="event-planning-card-label">
-              Before the workshop
+              {copy.planningCardEyebrow}
             </p>
 
-            <h3>Get ready for September 19.</h3>
+            <h3>{copy.planningCardTitle}</h3>
 
-            <div className="event-planning-checklist">
-              <div>
-                <span>01</span>
-                <p>Let us know you're coming.</p>
+            {copy.planningSteps?.length > 0 && (
+              <div className="event-planning-checklist">
+                {copy.planningSteps.map((step, index) => (
+                  <div key={step}>
+                    <span>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <p>{step}</p>
+                  </div>
+                ))}
               </div>
-
-              <div>
-                <span>02</span>
-                <p>Add the workshop to your calendar.</p>
-              </div>
-
-              <div>
-                <span>03</span>
-                <p>Be ready to leave with a small plant.</p>
-              </div>
-
-              <div>
-                <span>04</span>
-                <p>Return here afterward for resources.</p>
-              </div>
-            </div>
+            )}
 
             <div className="event-planning-actions">
               <Link
                 to={eventRsvpPath}
                 className="button button-primary"
               >
-                RSVP
+                {event.slug === "volunteer-day"
+                  ? "Volunteer"
+                  : "RSVP"}
               </Link>
 
               {event.calendar?.enabled &&
-                event.calendar?.path ? (
+              event.calendar?.path ? (
                 <a
                   href={event.calendar.path}
                   download
@@ -218,7 +212,7 @@ export default function EventDetail() {
                 </a>
               ) : (
                 <span className="event-calendar-status">
-                  Calendar reminder coming shortly
+                  Event details will be updated here
                 </span>
               )}
             </div>
@@ -232,22 +226,19 @@ export default function EventDetail() {
 
       <section className="event-about-section">
         <div className="event-about-heading">
-          <p className="eyebrow">About the workshop</p>
+          <p className="eyebrow">
+            {copy.aboutEyebrow}
+          </p>
 
-          <h2>
-            Start small. Learn by doing. Keep growing.
-          </h2>
+          <h2>{copy.aboutTitle}</h2>
         </div>
 
         <div className="event-about-copy">
           <p>{event.summary}</p>
 
-          <p>
-            This workshop is designed to make growing food feel
-            approachable rather than overwhelming. We'll focus on
-            practical ideas that can work in real homes and real
-            small spaces.
-          </p>
+          {copy.aboutDescription && (
+            <p>{copy.aboutDescription}</p>
+          )}
         </div>
       </section>
 
@@ -258,11 +249,11 @@ export default function EventDetail() {
       {event.topics?.length > 0 && (
         <section className="event-topics-section">
           <div className="event-section-heading">
-            <p className="eyebrow">What we'll cover</p>
+            <p className="eyebrow">
+              {copy.topicsEyebrow}
+            </p>
 
-            <h2>
-              A practical introduction to growing in small spaces.
-            </h2>
+            <h2>{copy.topicsTitle}</h2>
           </div>
 
           <div className="event-topics-grid">
@@ -290,12 +281,10 @@ export default function EventDetail() {
         <section className="event-takeaways-section">
           <div className="event-section-heading">
             <p className="eyebrow">
-              What you'll take home
+              {copy.takeawaysEyebrow}
             </p>
 
-            <h2>
-              Leave with something you can actually use.
-            </h2>
+            <h2>{copy.takeawaysTitle}</h2>
           </div>
 
           <div className="event-takeaways-list">
@@ -330,12 +319,14 @@ export default function EventDetail() {
 
                 <strong>{event.growAlong.plant}</strong>
 
-                <Link
-                  to="/plants/mint"
-                  className="text-link"
-                >
-                  Mint growing guide →
-                </Link>
+                {event.growAlong.plantSlug && (
+                  <Link
+                    to={`/plants/${event.growAlong.plantSlug}`}
+                    className="text-link"
+                  >
+                    {event.growAlong.plant} growing guide →
+                  </Link>
+                )}
               </div>
             )}
           </div>
@@ -361,7 +352,7 @@ export default function EventDetail() {
         <section className="event-companion-section">
           <div className="event-companion-copy">
             <p className="eyebrow">
-              Your digital companion
+              {copy.companionEyebrow}
             </p>
 
             <h2>{event.companion.title}</h2>
@@ -374,11 +365,10 @@ export default function EventDetail() {
               □
             </span>
 
-            <p>Scan. Learn. Grow.</p>
+            <p>{copy.companionCardTitle}</p>
 
             <small>
-              Workshop resources will live right here on
-              The Fruitbat.
+              {copy.companionCardDescription}
             </small>
           </div>
         </section>
@@ -392,14 +382,14 @@ export default function EventDetail() {
         <section className="event-materials-section">
           <div className="event-section-heading">
             <p className="eyebrow">
-              Workshop materials
+              Event materials
             </p>
 
             <h2>{event.materials.title}</h2>
 
             {event.materials.unlocked ? (
               <p>
-                Download the workshop materials and keep them
+                Download the event materials and keep them
                 available whenever you need a refresher.
               </p>
             ) : (
@@ -421,7 +411,9 @@ export default function EventDetail() {
 
                   <div>
                     <p>{file.label}</p>
-                    <strong>Open PDF →</strong>
+                    <strong>
+                      Open {file.type ?? "File"} →
+                    </strong>
                   </div>
                 </a>
               ))}
@@ -433,17 +425,16 @@ export default function EventDetail() {
               </span>
 
               <p className="event-materials-lock-label">
-                Available during the workshop
+                Materials coming soon
               </p>
 
               <h3>
-                Your take-home materials are taking root.
+                Event resources are taking root.
               </h3>
 
               <p>
-                Scan this event page on September 19 to access
-                the workshop handouts. They'll remain available
-                here after the event.
+                Check this page again as the event approaches.
+                Materials will remain available here afterward.
               </p>
             </div>
           )}
@@ -451,23 +442,19 @@ export default function EventDetail() {
       )}
 
       {/* =====================================================
-          GENERAL WORKSHOP RESOURCES
+          EVENT RESOURCES
           ===================================================== */}
 
       {event.resources?.length > 0 && (
         <section className="event-resources-section">
           <div className="event-section-heading">
             <p className="eyebrow">
-              Growing resources
+              {copy.resourcesEyebrow}
             </p>
 
-            <h2>Keep this page handy.</h2>
+            <h2>{copy.resourcesTitle}</h2>
 
-            <p>
-              These resources are available before, during, and
-              after the workshop whenever you want to keep
-              learning.
-            </p>
+            <p>{copy.resourcesDescription}</p>
           </div>
 
           <div className="event-resources-grid">
@@ -501,12 +488,10 @@ export default function EventDetail() {
       <section className="event-question-section">
         <div>
           <p className="eyebrow">
-            Questions about the workshop?
+            {copy.questionsEyebrow}
           </p>
 
-          <h2>
-            Ask before, during, or after the event.
-          </h2>
+          <h2>{copy.questionsTitle}</h2>
 
           <p>
             Text The Fruitbat anytime, or call during phone hours.
@@ -537,7 +522,7 @@ export default function EventDetail() {
       {event.afterEvent?.enabled && (
         <section className="event-after-section">
           <p className="eyebrow">
-            After the workshop
+            {copy.afterEyebrow}
           </p>
 
           <h2>{event.afterEvent.title}</h2>
@@ -551,18 +536,19 @@ export default function EventDetail() {
           ===================================================== */}
 
       <section className="event-detail-cta">
-        <p className="eyebrow">Keep growing</p>
+        <p className="eyebrow">
+          {copy.finalEyebrow}
+        </p>
 
-        <h2>
-          The workshop is just the starting point.
-        </h2>
+        <h2>{copy.finalTitle}</h2>
 
         <div className="event-detail-cta-actions">
           <Link
-            to="/resources"
+            to={copy.finalButtonPath || "/resources"}
             className="button button-light"
           >
-            Explore Growing Resources
+            {copy.finalButtonLabel ||
+              "Explore Growing Resources"}
           </Link>
 
           <Link
