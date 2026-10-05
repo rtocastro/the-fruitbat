@@ -277,11 +277,12 @@ export const events = [
         ],
 
         growAlong: {
-            enabled: false,
-            title: "",
-            description: "",
-            plant: "",
-            plantSlug: "",
+            enabled: true,
+            title: "Let's grow Dinosaur Kale together.",
+            description:
+                "Take home a Dinosaur Kale plant and grow along with The Fruitbat community. Scan your plant's QR code anytime for care information, growing tips, and a printable guide for growing Dinosaur Kale from seed.",
+            plant: "Dinosaur Kale",
+            plantSlug: "dino-kale",
         },
 
         companion: {
@@ -337,13 +338,21 @@ export const events = [
 
         materials: {
             enabled: false,
-            unlocked: false,
+            unlocked: true,
 
             title: "Volunteer Day materials",
 
-            lockedMessage: "",
-
-            files: [],
+            lockedMessage:
+                "The Dino Kale Grow Guide will unlock here after Volunteer Day so you can keep growing at home.",
+            files: [
+                {
+                    label:
+                        "Dino Kale Grow Guide",
+                    path:
+                        "/guides/kale-grow-guide.pdf",
+                    type: "PDF",
+                },
+            ],
         },
     },
 ];

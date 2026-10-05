@@ -38,7 +38,7 @@ export default function EventDetail() {
     event.slug === "volunteer-day"
       ? "/volunteer/sunbrewed-homestead"
       : `/contact?reason=${encodeURIComponent("Event RSVP")}` +
-        `&plant=${encodeURIComponent(event.title)}`;
+      `&plant=${encodeURIComponent(event.title)}`;
 
   return (
     <main>
@@ -202,7 +202,7 @@ export default function EventDetail() {
               </Link>
 
               {event.calendar?.enabled &&
-              event.calendar?.path ? (
+                event.calendar?.path ? (
                 <a
                   href={event.calendar.path}
                   download
@@ -361,9 +361,23 @@ export default function EventDetail() {
           </div>
 
           <div className="event-companion-card">
-            <span className="event-companion-symbol">
-              □
-            </span>
+            {event.slug === "volunteer-day" ? (
+              <a
+                href="/events/volunteer-day"
+                className="event-companion-qr-link"
+                aria-label="Open Volunteer Day event page"
+              >
+                <img
+                  src="/images/qr/volunteer-day-qr.png"
+                  alt="QR code for The Fruitbat Volunteer Day event page"
+                  className="event-companion-qr"
+                />
+              </a>
+            ) : (
+              <span className="event-companion-symbol">
+                □
+              </span>
+            )}
 
             <p>{copy.companionCardTitle}</p>
 

@@ -8876,6 +8876,23 @@ body,
   line-height: 1;
 }
 
+.event-companion-qr-link {
+  width: fit-content;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.event-companion-qr {
+  display: block;
+  width: 150px;
+  height: 150px;
+  padding: 10px;
+  border: 4px solid var(--dark);
+  border-radius: 18px;
+  background: var(--white);
+  object-fit: contain;
+}
+
 .event-companion-card p {
   margin-bottom: 8px;
   font-size: 1.8rem;
