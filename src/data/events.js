@@ -355,6 +355,168 @@ export const events = [
             ],
         },
     },
+
+    {
+        id: "crfg-november-2026",
+        slug: "crfg-november-2026",
+
+        title: "The Fruitbat at CRFG-LA",
+        shortTitle: "CRFG-LA",
+
+        date: "November 21, 2026",
+        dateISO: "2026-11-21",
+
+        time: "Time TBA",
+
+        location: "Sepulveda Garden Center",
+        locationDetails:
+            "16633 Magnolia Blvd, Encino, CA 91436",
+
+        category: "Community Event",
+        status: "Upcoming",
+
+        featured: true,
+
+        summary:
+            "The Fruitbat is heading to the California Rare Fruit Growers Los Angeles Chapter at Sepulveda Garden Center for a day centered around edible plants, growing, and community.",
+
+        description:
+            "Join The Fruitbat at Sepulveda Garden Center on November 21 for an event with the California Rare Fruit Growers Los Angeles Chapter. More details, including the event time and what The Fruitbat will be bringing, will be added as they are confirmed.",
+
+        pageCopy: {
+            planningEyebrow: "Planning to come?",
+            planningTitle: "Save November 21.",
+            planningDescription:
+                "The date and location are confirmed. Keep this page bookmarked as we add the event time, Fruitbat giveaway details, and anything else you'll need before arriving.",
+            planningNote:
+                "Check back before November 21 for the confirmed time and the latest event information.",
+
+            planningCardEyebrow: "Before the event",
+            planningCardTitle: "Get ready for November 21.",
+            planningSteps: [
+                "Save the date.",
+                "Check back for the confirmed time.",
+                "Watch for details about what The Fruitbat will be bringing.",
+                "Come ready to talk plants and growing.",
+            ],
+
+            aboutEyebrow: "About the event",
+            aboutTitle:
+                "Fruit growers, plant people, and community.",
+            aboutDescription:
+                "The Fruitbat will be joining the California Rare Fruit Growers Los Angeles Chapter at Sepulveda Garden Center. This page will become the permanent home for Fruitbat-specific event information, resources, and follow-up material.",
+
+            topicsEyebrow: "What to expect",
+            topicsTitle:
+                "More details are growing.",
+
+            takeawaysEyebrow: "Why stop by?",
+            takeawaysTitle:
+                "Meet growers, learn something new, and connect.",
+
+            companionEyebrow: "Stay connected",
+            companionCardTitle: "Scan. Learn. Grow.",
+            companionCardDescription:
+                "Event updates and Fruitbat resources will live right here.",
+
+            resourcesEyebrow: "Event resources",
+            resourcesTitle: "Keep this page handy.",
+            resourcesDescription:
+                "We'll add relevant growing resources and giveaway information here as the event gets closer.",
+
+            questionsEyebrow: "Questions?",
+            questionsTitle:
+                "Check back as November 21 approaches.",
+
+            afterEyebrow: "After the event",
+
+            finalEyebrow: "Keep growing",
+            finalTitle:
+                "Take what you learned and grow with it.",
+            finalButtonLabel: "Explore Plant Guides",
+            finalButtonPath: "/plants",
+        },
+
+        topics: [
+            "Rare and unusual edible plants",
+            "Growing food at home",
+            "Connecting with local growers",
+            "Fruit growing in Southern California",
+            "The Fruitbat community",
+        ],
+
+        takeaways: [
+            "Connect with other people interested in edible plants",
+            "Discover new plants and growing ideas",
+            "Explore free Fruitbat growing resources",
+            "Find more ways to keep growing afterward",
+        ],
+
+        growAlong: {
+            enabled: false,
+            title: "",
+            description: "",
+            plant: "",
+            plantSlug: "",
+        },
+
+        companion: {
+            enabled: true,
+            title: "Keep growing after the event.",
+            description:
+                "The Fruitbat provides free plant guides, growing resources, community projects, and other ways to help more people grow food.",
+        },
+
+        resources: [
+            {
+                label: "Browse Plant Guides",
+                path: "/plants",
+            },
+            {
+                label: "Start Growing",
+                path: "/start-growing",
+            },
+            {
+                label: "Free Resources",
+                path: "/resources",
+            },
+        ],
+
+        afterEvent: {
+            enabled: true,
+            title: "Thanks for growing with us.",
+            description:
+                "This page will remain available after the event for Fruitbat resources, follow-up information, and anything connected to what we shared on November 21.",
+        },
+
+        qrMessage:
+            "Scan this page anytime for event details, Fruitbat resources, and updates.",
+
+        registrationUrl: null,
+        image: null,
+
+        rsvp: {
+            enabled: false,
+            title: "",
+            description: "",
+        },
+
+        calendar: {
+            enabled: false,
+            path: null,
+        },
+
+        materials: {
+            enabled: false,
+            unlocked: false,
+
+            title: "Event materials",
+
+            lockedMessage: "",
+
+            files: [],
+        },
+    },
 ];
 
 export const featuredEvents = events.filter(
