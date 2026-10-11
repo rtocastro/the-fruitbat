@@ -45,7 +45,7 @@ export default function Mission() {
 
           <p className="mission-hero-description">
             The Fruitbat helps people grow food, share useful knowledge,
-            and build stronger local communities—one plant, one person,
+            and build stronger local communities, one plant, one person,
             and one neighborhood at a time.
           </p>
 
@@ -117,7 +117,7 @@ export default function Mission() {
 
             <p>
               Fruit, seeds, knowledge, growing space, and experience
-              frequently exist nearby—but people are not connected.
+              frequently exist nearby, but people are not connected.
             </p>
           </article>
 
