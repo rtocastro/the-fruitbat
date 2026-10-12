@@ -378,10 +378,10 @@ export const events = [
         featured: true,
 
         summary:
-            "The Fruitbat is heading to the California Rare Fruit Growers Los Angeles Chapter at Sepulveda Garden Center for a day centered around edible plants, growing, and community.",
+            "Join The Fruitbat at CRFG-LA on November 21 for a community gathering featuring Ecuador Palora dragon fruit seeds and free growing resources.",
 
         description:
-            "Join The Fruitbat at Sepulveda Garden Center on November 21 for an event with the California Rare Fruit Growers Los Angeles Chapter. More details, including the event time and what The Fruitbat will be bringing, will be added as they are confirmed.",
+            "The Fruitbat is heading to Sepulveda Garden Center for the California Rare Fruit Growers Los Angeles Chapter event. We'll be sharing Ecuador Palora dragon fruit seeds, introducing growers to the fascinating process of growing dragon fruit from seed, and encouraging everyone to document their plants as they develop.",
 
         pageCopy: {
             planningEyebrow: "Planning to come?",
@@ -438,26 +438,27 @@ export const events = [
         },
 
         topics: [
-            "Rare and unusual edible plants",
-            "Growing food at home",
-            "Connecting with local growers",
-            "Fruit growing in Southern California",
-            "The Fruitbat community",
+            "Ecuador Palora dragon fruit seeds",
+            "Growing dragon fruit from seed",
+            "Understanding seed-grown genetic variation",
+            "Sharing growing experiences",
+            "Connecting with Southern California fruit growers",
         ],
 
         takeaways: [
-            "Connect with other people interested in edible plants",
-            "Discover new plants and growing ideas",
-            "Explore free Fruitbat growing resources",
-            "Find more ways to keep growing afterward",
+            "Ecuador Palora dragon fruit seeds while supplies last",
+            "Access to free seed-growing resources",
+            "An invitation to join a community grow-along",
+            "An opportunity to connect with local fruit growers",
         ],
 
         growAlong: {
-            enabled: false,
-            title: "",
-            description: "",
-            plant: "",
-            plantSlug: "",
+            enabled: true,
+            title: "Let's grow Ecuador Palora from seed.",
+            description:
+                "Take home seeds collected from Ecuador Palora dragon fruit and join The Fruitbat community grow-along. Each seedling may develop unique characteristics, so we're inviting growers to document their progress and discover what their plants become.",
+            plant: "Ecuador Palora Dragon Fruit",
+            plantSlug: "ecuador-palora",
         },
 
         companion: {
@@ -469,7 +470,7 @@ export const events = [
 
         resources: [
             {
-                label: "Browse Plant Guides",
+                label: "Browse Dragon Fruit Guides",
                 path: "/plants",
             },
             {
@@ -477,7 +478,7 @@ export const events = [
                 path: "/start-growing",
             },
             {
-                label: "Free Resources",
+                label: "Free Growing Resources",
                 path: "/resources",
             },
         ],
