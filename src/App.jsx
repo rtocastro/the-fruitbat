@@ -12,6 +12,7 @@ import Mission from "./pages/Mission";
 import StartGrowing from "./pages/StartGrowing";
 import Resources from "./pages/Resources";
 import Projects from "./pages/Projects";
+import DragonfruitY from "./pages/DragonfruitY";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Donate from "./pages/Donate";
@@ -77,6 +78,15 @@ export default function App() {
             element={
               <PageTransition>
                 <Projects />
+              </PageTransition>
+            }
+          />
+
+          <Route
+            path="/projects/dragonfruit-y"
+            element={
+              <PageTransition>
+                <DragonfruitY />
               </PageTransition>
             }
           />

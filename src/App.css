@@ -9107,6 +9107,7 @@ body,
   gap: 80px;
 }
 
+
 .home-events-copy h2 {
   margin: 12px 0 22px;
   font-size: clamp(3rem, 5vw, 5.4rem);
@@ -11825,4 +11826,264 @@ body,
 .volunteer-submit-area button:disabled {
   cursor: wait;
   opacity: 0.65;
+}
+
+
+.dragonfruit-y-page {
+  --dfy-ink: #172b43;
+  --dfy-yellow: #ffda55;
+  --dfy-blue: #e9f5fb;
+  --dfy-cream: #fff7e8;
+  color: var(--dfy-ink);
+}
+
+.dfy-shell {
+  width: min(1120px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.dfy-hero {
+  background: var(--dfy-ink);
+  color: #fff;
+  padding: 90px 0;
+}
+
+.dfy-eyebrow {
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.dfy-hero .dfy-eyebrow {
+  color: #8ee8c1;
+}
+
+.dfy-hero-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.dfy-hero h1 {
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  margin: 24px 0;
+}
+
+.dfy-hero h1 span {
+  color: var(--dfy-yellow);
+}
+
+.dfy-tagline {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 900;
+}
+
+.dfy-intro {
+  max-width: 650px;
+  margin-top: 20px;
+  line-height: 1.8;
+  color: #dce8ef;
+}
+
+.dfy-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.dfy-specimen {
+  min-height: 330px;
+  border: 5px solid var(--dfy-yellow);
+  border-radius: 28px;
+  padding: 30px;
+  background: #203a53;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dfy-specimen-label {
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.dfy-specimen-letter {
+  color: var(--dfy-yellow);
+  font-size: clamp(7rem, 15vw, 12rem);
+  font-weight: 1000;
+  line-height: 1;
+  text-align: center;
+}
+
+.dfy-specimen strong {
+  font-size: 1.2rem;
+}
+
+.dfy-specimen p {
+  margin-top: 8px;
+}
+
+.dfy-specimen small {
+  margin-top: 12px;
+  color: #cbdce7;
+}
+
+.dfy-section {
+  padding: 65px 0;
+  border-bottom: 2px solid #e6edf0;
+}
+
+.dfy-section h2,
+.dfy-download h2 {
+  margin: 14px 0 22px;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.15;
+}
+
+.dfy-section > p:not(.dfy-eyebrow) {
+  max-width: 760px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.dfy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.dfy-card {
+  padding: 30px;
+  background: var(--dfy-blue);
+  border-radius: 24px;
+}
+
+.dfy-card:nth-child(even) {
+  background: var(--dfy-cream);
+}
+
+.dfy-card h3 {
+  margin: 10px 0;
+  font-size: 1.25rem;
+}
+
+.dfy-card p {
+  line-height: 1.7;
+  margin-top: 12px;
+}
+
+.dfy-card strong {
+  font-size: 0.85rem;
+}
+
+.dfy-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--dfy-yellow);
+  font-weight: 900;
+}
+
+.dfy-note {
+  margin-top: 28px;
+  padding: 28px;
+  background: var(--dfy-ink);
+  color: #fff;
+  border-radius: 24px;
+}
+
+.dfy-note strong {
+  color: var(--dfy-yellow);
+  font-size: 1.15rem;
+}
+
+.dfy-note p {
+  line-height: 1.7;
+  margin-top: 12px;
+}
+
+.dfy-condition-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.dfy-condition {
+  padding: 22px 28px;
+  background: var(--dfy-blue);
+  border-radius: 18px;
+}
+
+.dfy-condition:nth-child(even) {
+  background: var(--dfy-cream);
+}
+
+.dfy-condition h3 {
+  margin-bottom: 8px;
+}
+
+.dfy-condition p {
+  line-height: 1.65;
+}
+
+.dfy-privacy {
+  margin-top: 24px;
+  font-size: 0.9rem;
+}
+
+.dfy-download {
+  margin: 60px 0;
+  padding: 42px;
+  border-radius: 28px;
+  background: var(--dfy-cream);
+}
+
+.dfy-download p {
+  max-width: 740px;
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.dfy-bottom-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 70px;
+}
+
+.dfy-bottom-nav a {
+  font-weight: 800;
+}
+
+@media (max-width: 720px) {
+  .dfy-hero {
+    padding: 55px 0;
+  }
+
+  .dfy-hero-grid,
+  .dfy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dfy-specimen {
+    min-height: 260px;
+  }
+
+  .dfy-section {
+    padding: 45px 0;
+  }
+
+  .dfy-download {
+    padding: 26px;
+  }
 }

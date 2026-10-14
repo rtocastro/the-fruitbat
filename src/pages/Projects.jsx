@@ -49,6 +49,17 @@ const featuredProjects = [
 ];
 
 const supportingProjects = [
+
+    {
+    title: "Dragonfruit Y",
+    description:
+      "A community grow-along following individually numbered yellow dragon fruit seedlings. Discover how each little dragon develops, learn plant care, and share growing milestones through the Fruitbat Field Dex.",
+    category: "Community Grow-Along",
+    status: "Launching November 21",
+    accent: "lime",
+    path: "/projects/dragonfruit-y",
+    actionLabel: "Meet Dragonfruit Y →",
+  },
   {
     title: "Captain Crop",
     description:
