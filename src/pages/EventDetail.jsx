@@ -321,7 +321,9 @@ export default function EventDetail() {
 
                 {event.growAlong.plantSlug && (
                   <Link
-                    to={`/plants/${event.growAlong.plantSlug}`}
+                    to={event.slug === "crfg-november-2026"
+                      ? "/projects/dragonfruit-y"
+                      : `/plants/${event.growAlong.plantSlug}`}
                     className="text-link"
                   >
                     {event.growAlong.plant} growing guide →

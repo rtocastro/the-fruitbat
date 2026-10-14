@@ -378,10 +378,10 @@ export const events = [
         featured: true,
 
         summary:
-            "Join The Fruitbat at CRFG-LA on November 21 for a community gathering featuring Ecuador Palora dragon fruit seeds and free growing resources.",
+            "Join The Fruitbat at CRFG-LA on November 21 for a community gathering featuring Dragonfruit Y, our numbered yellow dragon fruit seedling grow-along.",
 
         description:
-            "The Fruitbat is heading to Sepulveda Garden Center for the California Rare Fruit Growers Los Angeles Chapter event. We'll be sharing Ecuador Palora dragon fruit seeds, introducing growers to the fascinating process of growing dragon fruit from seed, and encouraging everyone to document their plants as they develop.",
+            "The Fruitbat is heading to Sepulveda Garden Center for the California Rare Fruit Growers Los Angeles Chapter event. We'll be sharing Dragonfruit Y seedlings, introducing growers to their care, and inviting participants to document how their plants develop over time. The seedlings originate from a yellow dragon fruit resembling Ecuador Palora, although the exact variety is unverified.",
 
         pageCopy: {
             planningEyebrow: "Planning to come?",
@@ -454,11 +454,11 @@ export const events = [
 
         growAlong: {
             enabled: true,
-            title: "Let's grow Ecuador Palora from seed.",
+            title: "Meet Dragonfruit Y.",
             description:
-                "Take home seeds collected from Ecuador Palora dragon fruit and join The Fruitbat community grow-along. Each seedling may develop unique characteristics, so we're inviting growers to document their progress and discover what their plants become.",
-            plant: "Ecuador Palora Dragon Fruit",
-            plantSlug: "ecuador-palora",
+                "We're sharing numbered yellow dragon fruit seedlings as part of a community grow-along. Each little dragon has its own identity, and we're inviting growers to follow its development, share milestones, and discover what makes their plant unique.",
+            plant: "Dragonfruit Y",
+            plantSlug: "dragonfruit-y",
         },
 
         companion: {
@@ -470,16 +470,20 @@ export const events = [
 
         resources: [
             {
-                label: "Browse Dragon Fruit Guides",
+                label: "Meet Dragonfruit Y",
+                path: "/projects/dragonfruit-y",
+            },
+            {
+                label: "Dragonfruit Y Field Dex",
+                path: "/guides/dragonfruit-y-field-dex.pdf",
+            },
+            {
+                label: "Browse Plant Guides",
                 path: "/plants",
             },
             {
                 label: "Start Growing",
                 path: "/start-growing",
-            },
-            {
-                label: "Free Growing Resources",
-                path: "/resources",
             },
         ],
 
